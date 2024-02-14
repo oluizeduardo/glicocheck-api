@@ -1,0 +1,975 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Glicocheck",
+    "dateExported": "2024-02-13T23:58:04.785Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "3d15f169-88e1-4dc4-98fe-4cab8d07f318",
+            "name": "Authentication",
+            "containerId": "",
+            "created": "2024-02-13T19:33:44.012Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "97fef3b4-9d0f-4b16-a0c9-cafe5ab1acad",
+            "name": "Users",
+            "containerId": "",
+            "created": "2024-02-13T19:33:44.009Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "f91b0224-a64c-403f-9552-eaeb5d066007",
+            "name": "Blood Glucose Diary",
+            "containerId": "",
+            "created": "2024-02-13T19:33:44.010Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "e422379e-22e8-4c73-9c06-cbc3f72c73df",
+            "name": "Marker Meal",
+            "containerId": "",
+            "created": "2024-02-13T19:33:44.011Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "ea668fe4-43d5-4904-8db5-8f944ab025b1",
+            "name": "Forgot Password",
+            "containerId": "",
+            "created": "2024-02-13T19:33:44.013Z",
+            "sortNum": 50000
+        },
+        {
+            "_id": "5139fd4b-e196-48cb-b920-d9eae465d572",
+            "name": "Counting Carbs",
+            "containerId": "",
+            "created": "2024-02-13T19:33:44.014Z",
+            "sortNum": 60000
+        },
+        {
+            "_id": "b90ee3f1-78e3-4230-9bd4-3f714c2fb046",
+            "name": "Genders",
+            "containerId": "",
+            "created": "2024-02-13T19:33:44.015Z",
+            "sortNum": 70000
+        },
+        {
+            "_id": "12432a97-5284-4c78-823e-2e3a5c62d08f",
+            "name": "Diabetes Type",
+            "containerId": "",
+            "created": "2024-02-13T19:33:44.016Z",
+            "sortNum": 80000
+        },
+        {
+            "_id": "661b36b6-fa16-43a1-acd8-a75ad1fd8f95",
+            "name": "Blood Type",
+            "containerId": "",
+            "created": "2024-02-13T19:33:44.017Z",
+            "sortNum": 90000
+        },
+        {
+            "_id": "59014f95-425b-4700-aa91-28dda7405edb",
+            "name": "System Configuration",
+            "containerId": "",
+            "created": "2024-02-13T19:33:44.019Z",
+            "sortNum": 95000
+        },
+        {
+            "_id": "9e544e9b-68d9-460c-86b4-515ee3acaeb4",
+            "name": "System Health Check",
+            "containerId": "",
+            "created": "2024-02-13T19:33:44.018Z",
+            "sortNum": 100000
+        },
+        {
+            "_id": "7413a330-072b-48d4-bee2-8aac6a32d791",
+            "name": "Health Info",
+            "containerId": "",
+            "created": "2024-02-13T19:33:44.020Z",
+            "sortNum": 110000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "2544af58-4968-4315-b490-c144b90cf70d",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "3d15f169-88e1-4dc4-98fe-4cab8d07f318",
+            "name": "Login",
+            "url": "{{LOCALHOST}}/api/authentication/login",
+            "method": "POST",
+            "sortNum": 5000,
+            "created": "2024-02-13T19:33:44.026Z",
+            "modified": "2024-02-13T23:48:29.789Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"email\": \"costaeduardoluiz@gmail.com.br\",\n    \"password\": \"asd\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "891e31a9-c616-4f66-856f-b1ff94e018e8",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "97fef3b4-9d0f-4b16-a0c9-cafe5ab1acad",
+            "name": "Add new user",
+            "url": "{{LOCALHOST}}/api/users",
+            "method": "POST",
+            "sortNum": 6250,
+            "created": "2024-02-13T19:33:44.009Z",
+            "modified": "2024-02-13T23:16:09.360Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"name\": \"Luiz Eduardo da Costa\",\n    \"email\": \"costaeduardoluiz@gmail.com.br\",\n    \"password\": \"asd\",\n    \"id_role\": 1\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "9636018a-c404-45c4-852b-5534ad4740eb",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
+            "name": "Add glucose record",
+            "url": "{{LOCALHOST}}/api/glucose",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-02-13T19:33:44.014Z",
+            "modified": "2024-02-13T19:33:44.014Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"userId\": \"2222222-2222-2222-2222-222222222222\",\n    \"glucose\": 79,\n    \"total_carbs\": 40,\n    \"dateTime\": \"2023-04-09T00:54\",\n    \"markerMealId\": 3\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIyMjIyMjItMjIyMi0yMjIyLTIyMjItMjIyMjIyMjIyMjIyIiwiaWF0IjoxNjg4MDk3MTkzLCJleHAiOjE2ODgwOTg5OTN9.5UbzGGUPr8w7RHlwjRQWQrZf6-cU6DxFjS65mmkL-fM"
+            },
+            "tests": []
+        },
+        {
+            "_id": "f82a1e65-ac51-49b0-be47-bf58a0a04db8",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "97fef3b4-9d0f-4b16-a0c9-cafe5ab1acad",
+            "name": "Get all users",
+            "url": "{{LOCALHOST}}/api/users",
+            "method": "GET",
+            "sortNum": 12500,
+            "created": "2024-02-13T19:33:44.010Z",
+            "modified": "2024-02-13T19:33:44.010Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5NDQzZDI5LTY5OGEtNDZhZS04Mjg2LWZlZjBhZTE2MWQ5ZiIsImlhdCI6MTY4ODA5MDA5MSwiZXhwIjoxNjg4MDkxODkxfQ.kjtJZm5PbWUuDaDYZxA7Bjky4tvBcUCqyxTQ9J2i6JA"
+            },
+            "tests": []
+        },
+        {
+            "_id": "b10488f7-f269-4af1-9a49-512e2f0b3408",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "97fef3b4-9d0f-4b16-a0c9-cafe5ab1acad",
+            "name": "Get user by user code",
+            "url": "{{LOCALHOST}}/api/users/47714fe1-5a57-4ab1-b41f-5a0f7145eba6",
+            "method": "GET",
+            "sortNum": 13750,
+            "created": "2024-02-13T19:33:44.012Z",
+            "modified": "2024-02-13T23:16:32.978Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5NDQzZDI5LTY5OGEtNDZhZS04Mjg2LWZlZjBhZTE2MWQ5ZiIsImlhdCI6MTY4ODA5MDA5MSwiZXhwIjoxNjg4MDkxODkxfQ.kjtJZm5PbWUuDaDYZxA7Bjky4tvBcUCqyxTQ9J2i6JA"
+            },
+            "tests": []
+        },
+        {
+            "_id": "4afc2ef9-80e3-4fad-ad8c-8717dacc8fb5",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "97fef3b4-9d0f-4b16-a0c9-cafe5ab1acad",
+            "name": "Update user by user code",
+            "url": "{{LOCALHOST}}/api/users/47714fe1-5a57-4ab1-b41f-5a0f7145eba6",
+            "method": "PUT",
+            "sortNum": 15000,
+            "created": "2024-02-13T19:33:44.013Z",
+            "modified": "2024-02-13T23:16:48.624Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"name\": \"Maria\",\n    \"email\": \"maria@test.com\",\n    \"password\": \"abc123\",\n    \"id_role\": 1\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5NDQzZDI5LTY5OGEtNDZhZS04Mjg2LWZlZjBhZTE2MWQ5ZiIsImlhdCI6MTY4ODA5MDA5MSwiZXhwIjoxNjg4MDkxODkxfQ.kjtJZm5PbWUuDaDYZxA7Bjky4tvBcUCqyxTQ9J2i6JA"
+            },
+            "tests": []
+        },
+        {
+            "_id": "8ddddb03-e397-4010-876c-d086a332d0b3",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
+            "name": "Get all glucose record",
+            "url": "{{LOCALHOST}}/api/glucose",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-02-13T19:33:44.015Z",
+            "modified": "2024-02-13T19:33:44.015Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIyMjIyMjItMjIyMi0yMjIyLTIyMjItMjIyMjIyMjIyMjIyIiwiaWF0IjoxNjg4MDk3MTkzLCJleHAiOjE2ODgwOTg5OTN9.5UbzGGUPr8w7RHlwjRQWQrZf6-cU6DxFjS65mmkL-fM"
+            },
+            "tests": []
+        },
+        {
+            "_id": "886a9598-dbb2-4395-b2c9-a061777f8b80",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "97fef3b4-9d0f-4b16-a0c9-cafe5ab1acad",
+            "name": "Delete user by user code",
+            "url": "{{LOCALHOST}}/api/users/47714fe1-5a57-4ab1-b41f-5a0f7145eba6",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2024-02-13T19:33:44.011Z",
+            "modified": "2024-02-13T23:17:10.550Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5NDQzZDI5LTY5OGEtNDZhZS04Mjg2LWZlZjBhZTE2MWQ5ZiIsImlhdCI6MTY4ODA5MDA5MSwiZXhwIjoxNjg4MDkxODkxfQ.kjtJZm5PbWUuDaDYZxA7Bjky4tvBcUCqyxTQ9J2i6JA"
+            },
+            "tests": []
+        },
+        {
+            "_id": "1c5a04e0-caee-4f1c-84c8-abd010cbfa01",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
+            "name": "Get glucose record by id",
+            "url": "{{LOCALHOST}}/api/glucose/1",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-02-13T19:33:44.018Z",
+            "modified": "2024-02-13T19:33:44.018Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIyMjIyMjItMjIyMi0yMjIyLTIyMjItMjIyMjIyMjIyMjIyIiwiaWF0IjoxNjg4MDk3MTkzLCJleHAiOjE2ODgwOTg5OTN9.5UbzGGUPr8w7RHlwjRQWQrZf6-cU6DxFjS65mmkL-fM"
+            },
+            "tests": []
+        },
+        {
+            "_id": "1a73095e-ca32-4bf5-bdbb-993164d2dfc9",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
+            "name": "Get glucose by user code",
+            "url": "{{LOCALHOST}}/api/glucose/user/online?start=2023-06-01&end=2023-06-02",
+            "method": "GET",
+            "sortNum": 35000,
+            "created": "2024-02-13T19:33:44.024Z",
+            "modified": "2024-02-13T19:33:44.024Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "start",
+                    "value": "2023-06-01",
+                    "isPath": false
+                },
+                {
+                    "name": "end",
+                    "value": "2023-06-02",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI1ODk3YWM5LTk0ZTctNGFkNy05MTA3LWYwZDUwYWJiZmNhMSIsImlhdCI6MTY4Nzc0MDg1NCwiZXhwIjoxNjg3NzQyNjU0fQ.2fE-lLkcGit_jvQ7_0focxDHDkvKtDhS8qtf3kzRKdU"
+            },
+            "tests": []
+        },
+        {
+            "_id": "ca1f3136-baad-4816-b3d9-74dbcf377da1",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
+            "name": "Get glucose by markermeal id",
+            "url": "{{LOCALHOST}}/api/glucose/markermeal/3",
+            "method": "GET",
+            "sortNum": 37500,
+            "created": "2024-02-13T19:33:44.025Z",
+            "modified": "2024-02-13T19:33:44.025Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVhM2ZmM2FlLTRlMTQtNDg1Ny1hOTIxLTRmNTRhZWRkMTAxOCIsImlhdCI6MTY4NjQyNDM3NSwiZXhwIjoxNjg2NDI2MTc1fQ.pZJHLR8ZZbfdSX6wxkcPsA1XOPhn8CAph7hpekHSwI8"
+            },
+            "tests": []
+        },
+        {
+            "_id": "552b6967-4cb0-4fbf-8d6c-ec9c91a146fb",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "e422379e-22e8-4c73-9c06-cbc3f72c73df",
+            "name": "Add marker meal",
+            "url": "{{LOCALHOST}}/api/markermeal",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-02-13T19:33:44.020Z",
+            "modified": "2024-02-13T19:33:44.020Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"description\": \"Supper\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAzYjA2YzZhLTQzNjctNDVmMC04MjM3LTMzOThmNmM1NGNjMSIsImlhdCI6MTY4ODA4NzM5MiwiZXhwIjoxNjg4MDg5MTkyfQ.cHVuucIzsx8YO7YHYCwTo9T-sXy6-pZ0UzP2AwhKtk8"
+            },
+            "tests": []
+        },
+        {
+            "_id": "927c3a0c-69e1-4063-b67c-bb531250353c",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
+            "name": "Update glucose by id",
+            "url": "{{LOCALHOST}}/api/glucose/2",
+            "method": "PUT",
+            "sortNum": 65000,
+            "created": "2024-02-13T19:33:44.016Z",
+            "modified": "2024-02-13T19:33:44.016Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"glucose\" : 130,\n    \"total_carbs\": 70,\n    \"markermeal_id\": 3\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVhM2ZmM2FlLTRlMTQtNDg1Ny1hOTIxLTRmNTRhZWRkMTAxOCIsImlhdCI6MTY4NjQyNDM3NSwiZXhwIjoxNjg2NDI2MTc1fQ.pZJHLR8ZZbfdSX6wxkcPsA1XOPhn8CAph7hpekHSwI8"
+            },
+            "tests": []
+        },
+        {
+            "_id": "0863dd21-893b-49c6-a401-a2d2a75e4eaa",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
+            "name": "Delete glucose by user code",
+            "url": "{{LOCALHOST}}/api/glucose/user/ea3ff3ae-4e14-4857-a921-4f54aedd1018",
+            "method": "DELETE",
+            "sortNum": 81250,
+            "created": "2024-02-13T19:33:44.027Z",
+            "modified": "2024-02-13T19:33:44.027Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVhM2ZmM2FlLTRlMTQtNDg1Ny1hOTIxLTRmNTRhZWRkMTAxOCIsImlhdCI6MTY4NjQyNDM3NSwiZXhwIjoxNjg2NDI2MTc1fQ.pZJHLR8ZZbfdSX6wxkcPsA1XOPhn8CAph7hpekHSwI8"
+            },
+            "tests": []
+        },
+        {
+            "_id": "985ebc62-d77f-48b6-a1ed-c2c2585478d3",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
+            "name": "Delete glucose record by id",
+            "url": "{{LOCALHOST}}/api/glucose/2",
+            "method": "DELETE",
+            "sortNum": 90000,
+            "created": "2024-02-13T19:33:44.017Z",
+            "modified": "2024-02-13T19:33:44.017Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVhM2ZmM2FlLTRlMTQtNDg1Ny1hOTIxLTRmNTRhZWRkMTAxOCIsImlhdCI6MTY4NjQyNDM3NSwiZXhwIjoxNjg2NDI2MTc1fQ.pZJHLR8ZZbfdSX6wxkcPsA1XOPhn8CAph7hpekHSwI8"
+            },
+            "tests": []
+        },
+        {
+            "_id": "48955753-9235-4165-8ae8-589c8ed73d60",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "e422379e-22e8-4c73-9c06-cbc3f72c73df",
+            "name": "Get all markers",
+            "url": "{{LOCALHOST}}/api/markermeal",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2024-02-13T19:33:44.019Z",
+            "modified": "2024-02-13T19:33:44.019Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAzYjA2YzZhLTQzNjctNDVmMC04MjM3LTMzOThmNmM1NGNjMSIsImlhdCI6MTY4ODA4NzM5MiwiZXhwIjoxNjg4MDg5MTkyfQ.cHVuucIzsx8YO7YHYCwTo9T-sXy6-pZ0UzP2AwhKtk8"
+            },
+            "tests": []
+        },
+        {
+            "_id": "c2530696-08f9-47cd-bb82-8ff912e9c27f",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "e422379e-22e8-4c73-9c06-cbc3f72c73df",
+            "name": "Update marker by id",
+            "url": "{{LOCALHOST}}/api/markermeal/1",
+            "method": "PUT",
+            "sortNum": 140000,
+            "created": "2024-02-13T19:33:44.022Z",
+            "modified": "2024-02-13T19:33:44.022Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"description\": \"Depois da janta\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAzYjA2YzZhLTQzNjctNDVmMC04MjM3LTMzOThmNmM1NGNjMSIsImlhdCI6MTY4ODA4NzM5MiwiZXhwIjoxNjg4MDg5MTkyfQ.cHVuucIzsx8YO7YHYCwTo9T-sXy6-pZ0UzP2AwhKtk8"
+            },
+            "tests": []
+        },
+        {
+            "_id": "a5f106cb-e566-40e6-93c6-ad3f6b3907b8",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "e422379e-22e8-4c73-9c06-cbc3f72c73df",
+            "name": "Delete marker by id",
+            "url": "{{LOCALHOST}}/api/markermeal/1",
+            "method": "DELETE",
+            "sortNum": 150000,
+            "created": "2024-02-13T19:33:44.023Z",
+            "modified": "2024-02-13T19:33:44.023Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAzYjA2YzZhLTQzNjctNDVmMC04MjM3LTMzOThmNmM1NGNjMSIsImlhdCI6MTY4ODA4NzM5MiwiZXhwIjoxNjg4MDg5MTkyfQ.cHVuucIzsx8YO7YHYCwTo9T-sXy6-pZ0UzP2AwhKtk8"
+            },
+            "tests": []
+        },
+        {
+            "_id": "e70005a3-4e01-4bf0-a7dc-b16aa763a3c9",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "3d15f169-88e1-4dc4-98fe-4cab8d07f318",
+            "name": "Validate password ",
+            "url": "{{LOCALHOST}}/api/authentication/validate-password",
+            "method": "POST",
+            "sortNum": 160000,
+            "created": "2024-02-13T19:33:44.028Z",
+            "modified": "2024-02-13T23:50:51.084Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"cod_user\":\"4bfea284-774a-4f82-9a30-180816f8cf2f\",\n  \"password\": \"asd\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "edb9aea2-97ab-4db2-a270-fdd904c6a207",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "7413a330-072b-48d4-bee2-8aac6a32d791",
+            "name": "Add Health info",
+            "url": "{{LOCALHOST}}/api/healthinfo",
+            "method": "POST",
+            "sortNum": 170000,
+            "created": "2024-02-13T19:33:44.052Z",
+            "modified": "2024-02-13T19:33:44.052Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"cod_user\": \"973913c9-ccb5-4333-8283-f5bc490c2efc\",\n  \"id_diabetes_type\": 1,\n  \"month_diagnosis\": \"May 2021\",\n  \"id_blood_type\": 1\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MWQ3YzM5LThkMmMtNGIxZS1iZWQ1LTBlYWE4ZThkYTE5NCIsImlhdCI6MTY4NjI2NzU0MiwiZXhwIjoxNjg2MjY5MzQyfQ.RDeQSOaLSAmkyNxLEO1bbdF7jkodF5UU4KacVkmjypw"
+            },
+            "tests": []
+        },
+        {
+            "_id": "9f14198d-5afa-4218-a9b1-2ef099729338",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "ea668fe4-43d5-4904-8db5-8f944ab025b1",
+            "name": "Forgot password",
+            "url": "{{LOCALHOST}}/api/reset/forgot-password",
+            "method": "POST",
+            "sortNum": 180000,
+            "created": "2024-02-13T19:33:44.029Z",
+            "modified": "2024-02-13T19:33:44.029Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"costaeduardoluiz@gmail.com\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI2MzFkYTliYzYyZmFlZjkwOTU5YWY5OGVkNjk0NmFhMzEyZDZmNDgiLCJpYXQiOjE2ODQyODYyNTksImV4cCI6MTY4NDI4ODA1OX0.7saqeJSr62F3OiWeZ5LwSB2jHll8ZVWo7tFrhbsEiRc"
+            },
+            "tests": []
+        },
+        {
+            "_id": "05a8dbd8-f3e2-4f8e-bc0f-04b83a553479",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "ea668fe4-43d5-4904-8db5-8f944ab025b1",
+            "name": "Update User Password",
+            "url": "{{LOCALHOST}}/api/reset/password",
+            "method": "PUT",
+            "sortNum": 190000,
+            "created": "2024-02-13T19:33:44.031Z",
+            "modified": "2024-02-13T19:33:44.031Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"token\": \"token_here\",\n  \"email\": \"costaeduardoluiz@gmail.com\",\n  \"password\": \"123@@\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "e3428c6f-da80-4667-ac57-26633a392208",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "5139fd4b-e196-48cb-b920-d9eae465d572",
+            "name": "Carbs Counting",
+            "url": "{{LOCALHOST}}/api/carbscounting/1 bar of chocolate",
+            "method": "GET",
+            "sortNum": 200000,
+            "created": "2024-02-13T19:33:44.032Z",
+            "modified": "2024-02-13T19:33:44.032Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM3NTI3YzNiN2M1YWQyMDI0OTFkODBkNTAzZTEwNWIwYjYxZGFlYWMiLCJpYXQiOjE2ODMyNDg0MzgsImV4cCI6MTY4MzI1MDIzOH0.oWRDa6mMFlNbhe-N9tRWgwM8qZthBLpi9I2VBBrUCto"
+            },
+            "tests": []
+        },
+        {
+            "_id": "cb5a91be-05e6-4c7c-bd2d-55e8d85ce710",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "b90ee3f1-78e3-4230-9bd4-3f714c2fb046",
+            "name": "Get Genders",
+            "url": "{{LOCALHOST}}/api/genders",
+            "method": "GET",
+            "sortNum": 220000,
+            "created": "2024-02-13T19:33:44.033Z",
+            "modified": "2024-02-13T19:33:44.033Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAzYjA2YzZhLTQzNjctNDVmMC04MjM3LTMzOThmNmM1NGNjMSIsImlhdCI6MTY4ODA4NzM5MiwiZXhwIjoxNjg4MDg5MTkyfQ.cHVuucIzsx8YO7YHYCwTo9T-sXy6-pZ0UzP2AwhKtk8"
+            },
+            "tests": []
+        },
+        {
+            "_id": "c64e9139-491d-404b-a260-b130360db458",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "12432a97-5284-4c78-823e-2e3a5c62d08f",
+            "name": "Get Types",
+            "url": "{{LOCALHOST}}/api/diabetestype",
+            "method": "GET",
+            "sortNum": 220000,
+            "created": "2024-02-13T19:33:44.036Z",
+            "modified": "2024-02-13T19:33:44.036Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAzYjA2YzZhLTQzNjctNDVmMC04MjM3LTMzOThmNmM1NGNjMSIsImlhdCI6MTY4ODA4NzM5MiwiZXhwIjoxNjg4MDg5MTkyfQ.cHVuucIzsx8YO7YHYCwTo9T-sXy6-pZ0UzP2AwhKtk8"
+            },
+            "tests": []
+        },
+        {
+            "_id": "9503a035-4460-47c1-81c6-ecea87d32377",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "661b36b6-fa16-43a1-acd8-a75ad1fd8f95",
+            "name": "Get Types",
+            "url": "{{LOCALHOST}}/api/bloodtype",
+            "method": "GET",
+            "sortNum": 220000,
+            "created": "2024-02-13T19:33:44.041Z",
+            "modified": "2024-02-13T19:33:44.041Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJkNGY5ZDA0LTgwOTgtNDJjOC1iNDg5LWUyNDNhNGM1NjJjYSIsImlhdCI6MTY4ODA4ODA4MywiZXhwIjoxNjg4MDg5ODgzfQ._p6nEGQzk7Xp4JKMD8tEHJlOpdtRkZlLgl5oW0UsiBA"
+            },
+            "tests": []
+        },
+        {
+            "_id": "616e7b6b-5855-426b-b511-fbd2d9e99f2a",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "b90ee3f1-78e3-4230-9bd4-3f714c2fb046",
+            "name": "Add Gender",
+            "url": "{{LOCALHOST}}/api/genders",
+            "method": "POST",
+            "sortNum": 222500,
+            "created": "2024-02-13T19:33:44.034Z",
+            "modified": "2024-02-13T19:33:44.034Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"description\": \"Unspecified\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAzYjA2YzZhLTQzNjctNDVmMC04MjM3LTMzOThmNmM1NGNjMSIsImlhdCI6MTY4ODA4NzM5MiwiZXhwIjoxNjg4MDg5MTkyfQ.cHVuucIzsx8YO7YHYCwTo9T-sXy6-pZ0UzP2AwhKtk8"
+            },
+            "tests": []
+        },
+        {
+            "_id": "55752ec8-b50c-42b5-ac35-660abcdbb22f",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "12432a97-5284-4c78-823e-2e3a5c62d08f",
+            "name": "Add Type",
+            "url": "{{LOCALHOST}}/api/diabetestype",
+            "method": "POST",
+            "sortNum": 222500,
+            "created": "2024-02-13T19:33:44.037Z",
+            "modified": "2024-02-13T19:33:44.037Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"description\": \"Gestational diabetes\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAzYjA2YzZhLTQzNjctNDVmMC04MjM3LTMzOThmNmM1NGNjMSIsImlhdCI6MTY4ODA4NzM5MiwiZXhwIjoxNjg4MDg5MTkyfQ.cHVuucIzsx8YO7YHYCwTo9T-sXy6-pZ0UzP2AwhKtk8"
+            },
+            "tests": []
+        },
+        {
+            "_id": "98a906b8-fcb2-4245-9967-b254859705ef",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "661b36b6-fa16-43a1-acd8-a75ad1fd8f95",
+            "name": "Add Type",
+            "url": "{{LOCALHOST}}/api/bloodtype",
+            "method": "POST",
+            "sortNum": 230000,
+            "created": "2024-02-13T19:33:44.042Z",
+            "modified": "2024-02-13T19:33:44.042Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"description\": \"ABC+\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIyMjIyMjItMjIyMi0yMjIyLTIyMjItMjIyMjIyMjIyMjIyIiwiaWF0IjoxNjg4MDk3MTkzLCJleHAiOjE2ODgwOTg5OTN9.5UbzGGUPr8w7RHlwjRQWQrZf6-cU6DxFjS65mmkL-fM"
+            },
+            "tests": []
+        },
+        {
+            "_id": "0d55422b-4c2b-4f49-a821-f66a704afc11",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "12432a97-5284-4c78-823e-2e3a5c62d08f",
+            "name": "Update Type",
+            "url": "{{LOCALHOST}}/api/diabetestype/1",
+            "method": "PUT",
+            "sortNum": 250000,
+            "created": "2024-02-13T19:33:44.039Z",
+            "modified": "2024-02-13T19:33:44.039Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"description\": \"Diabetes Gestational\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAzYjA2YzZhLTQzNjctNDVmMC04MjM3LTMzOThmNmM1NGNjMSIsImlhdCI6MTY4ODA4NzM5MiwiZXhwIjoxNjg4MDg5MTkyfQ.cHVuucIzsx8YO7YHYCwTo9T-sXy6-pZ0UzP2AwhKtk8"
+            },
+            "tests": []
+        },
+        {
+            "_id": "93178540-62fe-417b-96ad-d7575196dbce",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "661b36b6-fa16-43a1-acd8-a75ad1fd8f95",
+            "name": "Update Type",
+            "url": "{{LOCALHOST}}/api/bloodtype/1",
+            "method": "PUT",
+            "sortNum": 250000,
+            "created": "2024-02-13T19:33:44.043Z",
+            "modified": "2024-02-13T19:33:44.043Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"description\": \"O-\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJkNGY5ZDA0LTgwOTgtNDJjOC1iNDg5LWUyNDNhNGM1NjJjYSIsImlhdCI6MTY4ODA4ODA4MywiZXhwIjoxNjg4MDg5ODgzfQ._p6nEGQzk7Xp4JKMD8tEHJlOpdtRkZlLgl5oW0UsiBA"
+            },
+            "tests": []
+        },
+        {
+            "_id": "d535e709-7068-4bd0-8ce2-30dd70904396",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "12432a97-5284-4c78-823e-2e3a5c62d08f",
+            "name": "Delete Type",
+            "url": "{{LOCALHOST}}/api/diabetestype/1",
+            "method": "DELETE",
+            "sortNum": 260000,
+            "created": "2024-02-13T19:33:44.038Z",
+            "modified": "2024-02-13T19:33:44.038Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAzYjA2YzZhLTQzNjctNDVmMC04MjM3LTMzOThmNmM1NGNjMSIsImlhdCI6MTY4ODA4NzM5MiwiZXhwIjoxNjg4MDg5MTkyfQ.cHVuucIzsx8YO7YHYCwTo9T-sXy6-pZ0UzP2AwhKtk8"
+            },
+            "tests": []
+        },
+        {
+            "_id": "9a3fb33f-d562-467e-9628-6015604095a8",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "b90ee3f1-78e3-4230-9bd4-3f714c2fb046",
+            "name": "Update Gender by id",
+            "url": "{{LOCALHOST}}/api/genders/5",
+            "method": "PUT",
+            "sortNum": 260000,
+            "created": "2024-02-13T19:33:44.040Z",
+            "modified": "2024-02-13T19:33:44.040Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"description\": \"Male\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI3MWE5ODEyNzEyYWQ3MzYwMWE4NjM5OGFkYjc0Yzc1NTliZGE2NTUiLCJpYXQiOjE2ODU1NDQxNjIsImV4cCI6MTY4NTU0NTk2Mn0.7dzmos7y13ybZjA1LUmOgwU51WueA4GK5gaB2hW4-oo"
+            },
+            "tests": []
+        },
+        {
+            "_id": "0bda9812-7e5c-48d8-83c7-18e3911f8cf8",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "661b36b6-fa16-43a1-acd8-a75ad1fd8f95",
+            "name": "Delete Type",
+            "url": "{{LOCALHOST}}/api/bloodtype/8",
+            "method": "DELETE",
+            "sortNum": 260000,
+            "created": "2024-02-13T19:33:44.044Z",
+            "modified": "2024-02-13T19:33:44.044Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAzYjA2YzZhLTQzNjctNDVmMC04MjM3LTMzOThmNmM1NGNjMSIsImlhdCI6MTY4ODA4NzM5MiwiZXhwIjoxNjg4MDg5MTkyfQ.cHVuucIzsx8YO7YHYCwTo9T-sXy6-pZ0UzP2AwhKtk8"
+            },
+            "tests": []
+        },
+        {
+            "_id": "a36df3d5-3b1b-42f9-bb3b-d97f5381b0cf",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "b90ee3f1-78e3-4230-9bd4-3f714c2fb046",
+            "name": "Delete Gender by id",
+            "url": "{{LOCALHOST}}/api/genders/5",
+            "method": "DELETE",
+            "sortNum": 270000,
+            "created": "2024-02-13T19:33:44.035Z",
+            "modified": "2024-02-13T19:33:44.035Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAzYjA2YzZhLTQzNjctNDVmMC04MjM3LTMzOThmNmM1NGNjMSIsImlhdCI6MTY4ODA4NzM5MiwiZXhwIjoxNjg4MDg5MTkyfQ.cHVuucIzsx8YO7YHYCwTo9T-sXy6-pZ0UzP2AwhKtk8"
+            },
+            "tests": []
+        },
+        {
+            "_id": "3a92d2b7-f398-4990-ab59-1753d371c28f",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "9e544e9b-68d9-460c-86b4-515ee3acaeb4",
+            "name": "System health check",
+            "url": "{{LOCALHOST}}/api/ping",
+            "method": "GET",
+            "sortNum": 280000,
+            "created": "2024-02-13T19:33:44.045Z",
+            "modified": "2024-02-13T19:33:44.045Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "c27724fd-881a-4724-81a4-7562448a555d",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "59014f95-425b-4700-aa91-28dda7405edb",
+            "name": "Add System Configuration",
+            "url": "{{LOCALHOST}}/api/systemconfiguration",
+            "method": "POST",
+            "sortNum": 300000,
+            "created": "2024-02-13T19:33:44.046Z",
+            "modified": "2024-02-13T19:44:58.818Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"cod_user\": \"47714fe1-5a57-4ab1-b41f-5a0f7145eba6\",\n  \"id_glucose_unity\": 1,\n  \"limit_hypo\": 70,\n  \"limit_hyper\": 160,\n  \"time_breakfast_pre\": \"05:00\",\n  \"time_breakfast_pos\": \"07:00\",\n  \"time_lunch_pre\": \"11:00\",\n  \"time_lunch_pos\": \"13:00\",\n  \"time_dinner_pre\": \"19:00\",\n  \"time_dinner_pos\": \"21:00\",\n  \"time_sleep\": \"22:00\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJiMGJlNDBkNDgwY2Y3MDQyY2ZiNzQxOTBhMWE3ODIwYmI2ZTJjNGMiLCJpYXQiOjE2ODUyODMwMjgsImV4cCI6MTY4NTI4NDgyOH0.M6K35hyp26ah73WP9XUq_pOxN_yJoADZdmakdf78WfU"
+            },
+            "tests": []
+        },
+        {
+            "_id": "eff88ff4-b3f4-430a-8e50-87c466df232b",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "59014f95-425b-4700-aa91-28dda7405edb",
+            "name": "Get all System configuration",
+            "url": "{{LOCALHOST}}/api/systemconfiguration",
+            "method": "GET",
+            "sortNum": 310000,
+            "created": "2024-02-13T19:33:44.047Z",
+            "modified": "2024-02-13T19:33:44.047Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFjMDIzNWI4LTk4NTktNGIzZi04MmZiLWZlYTJkMzQxZGRhOSIsImlhdCI6MTY4NjEwODEzMCwiZXhwIjoxNjg2MTA5OTMwfQ.nBX8CI2323krZ3kHjK2QFsiyQP3goXJqDzqDdxYsNrg"
+            },
+            "tests": []
+        },
+        {
+            "_id": "b8ca45f5-6ea6-423c-8482-c685ec6e5193",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "59014f95-425b-4700-aa91-28dda7405edb",
+            "name": "Get System configuration by user code",
+            "url": "{{LOCALHOST}}/api/systemconfiguration/user/47714fe1-5a57-4ab1-b41f-5a0f7145eba6",
+            "method": "GET",
+            "sortNum": 320000,
+            "created": "2024-02-13T19:33:44.048Z",
+            "modified": "2024-02-13T19:49:01.827Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA0YzYzOGU3LWQ4YWQtNDAzNS05YTQ2LWZjZTQ5OGJhMjU3YiIsImlhdCI6MTY4NTgwNTY4NiwiZXhwIjoxNjg1ODA3NDg2fQ.haRlxdpVQjmoGl6b1RE_Vvp8GIBFZ9jPzBb7PCYuzbo"
+            },
+            "tests": []
+        },
+        {
+            "_id": "5416e013-d664-4087-8e73-4e34df99e154",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "59014f95-425b-4700-aa91-28dda7405edb",
+            "name": "Update by user code",
+            "url": "{{LOCALHOST}}/api/systemconfiguration/user/47714fe1-5a57-4ab1-b41f-5a0f7145eba6",
+            "method": "PUT",
+            "sortNum": 320000,
+            "created": "2024-02-13T19:33:44.049Z",
+            "modified": "2024-02-13T19:48:29.790Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id_glucose_unity\": 1,\n  \"limit_hypo\": 65,\n  \"limit_hyper\": 150,\n  \"time_breakfast_pre\": \"06:45\",\n  \"time_breakfast_pos\": \"07:30\",\n  \"time_lunch_pre\": \"11:30\",\n  \"time_lunch_pos\": \"13:30\",\n  \"time_dinner_pre\": \"19:30\",\n  \"time_dinner_pos\": \"21:30\",\n  \"time_sleep\": \"22:30\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OGQ0YTM4YWQ2M2RmNjVlZmJhYjNkYjhiZWU4MjNlZGU1NWZhNzYiLCJpYXQiOjE2ODUzMTg5OTMsImV4cCI6MTY4NTMyMDc5M30.eaFmm2wJ-LkrUnLiuidUAfFV8eaRUwaj0udXbs3DdtQ"
+            },
+            "tests": []
+        },
+        {
+            "_id": "77bed95a-55aa-4128-a44a-303c2a74dded",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "59014f95-425b-4700-aa91-28dda7405edb",
+            "name": "Delete by id",
+            "url": "{{LOCALHOST}}/api/systemconfiguration/1",
+            "method": "DELETE",
+            "sortNum": 325000,
+            "created": "2024-02-13T19:33:44.057Z",
+            "modified": "2024-02-13T19:33:44.057Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OGQ0YTM4YWQ2M2RmNjVlZmJhYjNkYjhiZWU4MjNlZGU1NWZhNzYiLCJpYXQiOjE2ODUzMTg5OTMsImV4cCI6MTY4NTMyMDc5M30.eaFmm2wJ-LkrUnLiuidUAfFV8eaRUwaj0udXbs3DdtQ"
+            },
+            "tests": []
+        },
+        {
+            "_id": "be3769d4-35ae-41d3-859c-e2d02c8b7556",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "59014f95-425b-4700-aa91-28dda7405edb",
+            "name": "Delete by user code",
+            "url": "{{LOCALHOST}}/api/systemconfiguration/user/47714fe1-5a57-4ab1-b41f-5a0f7145eba6",
+            "method": "DELETE",
+            "sortNum": 330000,
+            "created": "2024-02-13T19:33:44.050Z",
+            "modified": "2024-02-13T23:14:51.445Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4OGQ0YTM4YWQ2M2RmNjVlZmJhYjNkYjhiZWU4MjNlZGU1NWZhNzYiLCJpYXQiOjE2ODUzMTg5OTMsImV4cCI6MTY4NTMyMDc5M30.eaFmm2wJ-LkrUnLiuidUAfFV8eaRUwaj0udXbs3DdtQ"
+            },
+            "tests": []
+        },
+        {
+            "_id": "a3a68b55-11a8-4661-8595-a8551291fc58",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "7413a330-072b-48d4-bee2-8aac6a32d791",
+            "name": "Get all health info",
+            "url": "{{LOCALHOST}}/api/healthinfo",
+            "method": "GET",
+            "sortNum": 340000,
+            "created": "2024-02-13T19:33:44.051Z",
+            "modified": "2024-02-13T19:33:44.051Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MWQ3YzM5LThkMmMtNGIxZS1iZWQ1LTBlYWE4ZThkYTE5NCIsImlhdCI6MTY4NjI2NzU0MiwiZXhwIjoxNjg2MjY5MzQyfQ.RDeQSOaLSAmkyNxLEO1bbdF7jkodF5UU4KacVkmjypw"
+            },
+            "tests": []
+        },
+        {
+            "_id": "1aae7279-b28c-4310-aad2-24c32f161822",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "7413a330-072b-48d4-bee2-8aac6a32d791",
+            "name": "Get health info by user code",
+            "url": "{{LOCALHOST}}/api/healthinfo/user/973913c9-ccb5-4333-8283-f5bc490c2efc",
+            "method": "GET",
+            "sortNum": 360000,
+            "created": "2024-02-13T19:33:44.053Z",
+            "modified": "2024-02-13T19:33:44.053Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI0Y2Y5ODkxLTkxZjYtNDY2Mi1hOGYzLTYzODRkMzNiM2EzNSIsImlhdCI6MTY4NjI3MzI1NCwiZXhwIjoxNjg2Mjc1MDU0fQ.vyHit5ZeR9vpKZlkWgXjDfiHNmdKe822lmWFiQrQc4A"
+            },
+            "tests": []
+        }
+    ],
+    "settings": {
+        "envId": "f0223d0d-c7c0-4d5a-b204-ecc7a093cbf2"
+    }
+}
