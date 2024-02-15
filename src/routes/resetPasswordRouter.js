@@ -6,14 +6,8 @@ resetPasswordRouter.use(express.json());
 
 resetPasswordRouter
   .post('/forgot-password', ResetPasswordController.handleForgotPassword)
-  .get('/:resetToken', ResetPasswordController.handleResetPassword)
-  .get('/cancel/:resetToken', ResetPasswordController.handleCancelResetRequest)
-  .put('/password', ResetPasswordController.updateUserPassword);
-
-  /*
-    /forgot-password para solicitar um reset token.
-    /reset-password para enviar o reset token e alterar a senha.
-    /cancel-reset para cancelar um reset token.
-  */
+  .get('/cancel/:resetToken', ResetPasswordController.handleCancelResetPasswordRequest)
+  .get('/:resetToken', ResetPasswordController.handleResetPasswordRequest)
+  .put('/', ResetPasswordController.updateUserPassword);
 
 export default resetPasswordRouter;

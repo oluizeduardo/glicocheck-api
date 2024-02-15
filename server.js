@@ -15,7 +15,7 @@ import markerMealRouter from './src/routes/markerMealRouter.js';
 import carbsCountingRouter from './src/routes/carbsCountingRouter.js';
 import healthInfoRouter from './src/routes/healthInfoRouter.js';
 import systemConfigRouter from './src/routes/systemConfigurationRouter.js';
-// import resetPasswordRouter from './src/routes/resetPasswordRouter.js';
+import resetPasswordRouter from './src/routes/resetPasswordRouter.js';
 // import glucoseRouter from './src/routes/glucoseRouter.js';
 
 const app = express();
@@ -43,7 +43,7 @@ app.use('/api/authentication', authenticationRouter);
 app.use('/api/carbscounting', carbsCountingRouter);
 app.use('/api/healthinfo', healthInfoRouter);
 app.use('/api/systemconfiguration', systemConfigRouter);
-// app.use('/api/reset', resetPasswordRouter);
+app.use('/api/reset-password', resetPasswordRouter);
 // app.use('/api/glucose', glucoseRouter);
 
 const port = process.env.PORT || 3000;

@@ -1,11 +1,12 @@
-const nodemailer = require('nodemailer');
-const logger = require('../loggerUtil/logger');
-const ResetPasswordHTMLMessage = require('../utils/resetPasswordHTMLMessage');
+/* eslint-disable no-undef */
+import nodemailer from 'nodemailer';
+import logger from '../loggerUtil/logger.js';
+import ResetPasswordHTMLMessage from '../utils/resetPasswordHTMLMessage.js';
 
 /**
  * Email service.
  */
-class EmailService {
+export default class EmailService {
   /**
    * This function sends a reset password message to the informed email address.
    * @param {string} destination The email address that will
@@ -13,8 +14,8 @@ class EmailService {
    * @param {string} resetToken The hexadecimal string representing
    * the reset password token.
    */
-  async sendEmail(destination, resetToken) {
-    const resource = 'EmailService.sendEmail';
+  async sendPasswordResetEmail(destination, resetToken) {
+    const resource = 'EmailService.sendPasswordResetEmail';
 
     const host = process.env.EMAIL_HOST;
     const port = process.env.EMAIL_PORT;
@@ -40,5 +41,3 @@ class EmailService {
         });
   }
 }
-
-module.exports = EmailService;

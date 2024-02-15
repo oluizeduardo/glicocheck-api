@@ -37,6 +37,7 @@
     "nodemailer": "^6.9.1",
     "sqlite": "^4.1.2",
     "sqlite3": "^5.1.4",
+    "uuid": "^9.0.1",
     "winston": "^3.9.0"
   },
   "devDependencies": {

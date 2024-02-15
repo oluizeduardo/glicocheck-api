@@ -1,6 +1,3 @@
-/**
- * DateTimeUtil.
- */
 export default class DateTimeUtil {
   /**
    * Returns a string with a language-sensitive representation

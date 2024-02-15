@@ -47,14 +47,19 @@ export default class Messages {
   static BLOOD_TYPE_DELETED = 'Blood type deleted.';
   
   // Reset password
-  static RESET_PASSWORD_PROCESS = 'Executing reset password process.';
   static ERROR_SEND_RESET_PASSWORD_MESSAGE = 'Error sending reset password message.';
+  static ERROR_SAVING_RESET_TOKEN = 'Error saving password reset token.';
+  static ERROR_UPDATING_PASSWORD = 'Error updating user\'s password.';
   static PASSWORD_UPDATED = 'Password updated.';
   static RESET_PASSWORD_MESSAGE_SENT = 'Reset password message sent.';
 
-  // Reset password token
-  static RESET_TOKEN_DELETED = 'Token deleted.';
-  static ERROR_DELETE_RESET_TOKEN = 'Error deleting reset token';
+  // Password reset token
+  static RESET_TOKEN_CREATED = 'New password reset token created.';
+  static RESET_TOKEN_DELETED = 'Password reset token deleted.';
+  static RESET_TOKEN_EXPIRED = 'Password reset token expired.';
+  static RESET_TOKEN_NOT_FOUND = 'Password reset token not found.';
+  static ERROR_DELETE_RESET_TOKEN = 'Error deleting password reset token.';
+  static UNINFORMED_PASSWORD_RESET_TOKEN = 'Uninformed password reset token.';
 
   // System's Configuration
   static NEW_CONFIGURATION_CREATED = 'New system configuration created.';

@@ -1,8 +1,9 @@
-const jwt = require('jsonwebtoken');
+/* eslint-disable no-undef */
+import jwt from 'jsonwebtoken';
 /**
  * WebToken.
  */
-class WebToken {
+export default class WebToken {
   /**
    * Gets the user id from a web token.
    * @param {string} token The JWT token where the id will be extracted from.
@@ -13,5 +14,3 @@ class WebToken {
     return jwt.verify(token, process.env.SECRET_KEY).id;
   };
 }
-
-module.exports = WebToken;

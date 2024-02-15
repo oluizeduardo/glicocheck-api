@@ -101,21 +101,29 @@ export default class UserDAO {
     }
   }
 
-  static async updateByUserCode(userCode, updatedUser) {
+  static async updateByCondition(condition, value, updatedUser, conditionName) {
     try {
-      const numAffectedRegisters = await database(TABLE_USERS)
-        .where('cod_user', userCode)
-        .update(updatedUser);
+        const numAffectedRegisters = await database(TABLE_USERS)
+            .where(condition, value)
+            .update(updatedUser);
 
-      if (numAffectedRegisters === 0) {
-        return { success: false, message: Messages.USER_NOT_FOUND };
-      } else {
-        return { success: true, updatedUser };
-      }
+        if (numAffectedRegisters === 0) {
+            return { success: false, message: Messages.USER_NOT_FOUND };
+        } else {
+            return { success: true, updatedUser };
+        }
     } catch (error) {
-      logger.error('Error UserDAO.updateByUserCode', error);
-      throw new Error(Messages.ERROR);
+        logger.error(`Error UserDAO.updateBy${conditionName}`, error);
+        throw new Error(Messages.ERROR);
     }
+  }
+
+  static async updateByUserCode(userCode, updatedUser) {
+      return this.updateByCondition('cod_user', userCode, updatedUser, 'UserCode');
+  }
+
+  static async updateByEmail(email, updatedUser) {
+      return this.updateByCondition('email', email, updatedUser, 'Email');
   }
 
   static async deleteByUserCode(userCode) {

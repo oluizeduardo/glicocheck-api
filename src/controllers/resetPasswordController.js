@@ -1,199 +1,212 @@
 /* eslint-disable no-undef */
 import logger from '../loggerUtil/logger.js';
 import Messages from '../utils/messages.js';
-import database from '../db/dbconfig.js.js';
-import DateTimeUtil from '../utils/dateTimeUtil.js';
+import ResetPasswordToken from '../utils/resetPasswordToken.js';
+import UserDAO from '../dao/UserDAO.js';
+import ResetPasswordTokenDAO from '../dao/ResetPasswordTokenDAO.js';
 import EmailService from '../service/emailService.js';
+import DateTimeUtil from '../utils/dateTimeUtil.js';
 import SecurityUtils from '../utils/securityUtils.js';
-import CryptoUtil from '../utils/cryptoUtil.js';
 import fs from 'fs';
+import { fileURLToPath } from 'url';
+import { join } from 'path';
 
 const baseFilePath = getBaseFilePath();
-const PAGE_RESET_PASSWORD = baseFilePath+'/public/reset-password.html';
-const PAGE_ERROR = baseFilePath+'/public/error.html';
-const PAGE_RESET_CANCEL = baseFilePath+'/public/reset-cancel.html';
-const PAGE_EXPIRED_LINK = baseFilePath+'/public/expired-link.html';
-
-// HTTP status code.
-const OK = 200;
-const NOT_FOUND = 404;
-const GONE = 410;
-const INTERNAL_SERVER_ERROR = 500;
+const PAGE_RESET_PASSWORD = baseFilePath + 'reset-password.html';
+const PAGE_ERROR = baseFilePath + 'error.html';
+const PAGE_RESET_CANCEL = baseFilePath + 'reset-cancel.html';
+const PAGE_EXPIRED_LINK = baseFilePath + 'expired-link.html';
 
 /**
  * ResetPasswordController.
  *
- * Contains methods to reset the user password.
+ * Contains methods to reset the user's password.
  */
 class ResetPasswordController {
   /**
-   * Handle the user reset password process.
-   * @param {Request} req The request object.
-   * @param {Response} res The response object.
-   */
-  static handleResetPassword = async (req, res) => {
-    const resetToken = req.params.resetToken;
-
-    await database('password_reset_tokens')
-        .where('token', resetToken)
-        .select('*')
-        .then((results) => {
-          if (results.length > 0) {
-            const token = results[0];
-            // Checks if it's a valid token.
-            const isExpired = DateTimeUtil.isPassedOneHour(token.created_at);
-            if (isExpired) {
-              ResetPasswordController.deleteToken(resetToken);
-              res.status(GONE);
-              res.sendFile(PAGE_EXPIRED_LINK);
-            } else {
-              const fileContent = createContentResetPasswordPage(token);
-              res.status(OK);
-              res.send(fileContent);
-            }
-          } else {
-            res.status(NOT_FOUND);
-            res.sendFile(PAGE_EXPIRED_LINK);
-          }
-        });
-  };
-  /**
-   * Handle the cancelation of the reset password request.
-   * Delete the token in the database.
-   * @param {Request} req The request object.
-   * @param {Response} res The response object.
-   */
-  static handleCancelResetRequest = async (req, res) => {
-    const resetToken = req.params.resetToken;
-    await ResetPasswordController.deleteToken(resetToken)
-        .then(() => {
-          res.status(OK);
-          res.sendFile(PAGE_RESET_CANCEL);
-          return;
-        })
-        .catch(() => {
-          // eslint-disable-next-line max-len
-          logger.error('Error ResetPasswordController.handleCancelResetRequest');
-          res.status(INTERNAL_SERVER_ERROR);
-          res.sendFile(PAGE_ERROR);
-          return;
-        });
-  };
-  /**
-   * After informing a valid email address, this function
-   * starts the process to reset the user password.
-   * @param {Request} req The request object.
-   * @param {Response} res The response object.
+   * Handles the forgot password request, generates a reset token,
+   * and sends a reset password email.
    */
   static handleForgotPassword = async (req, res) => {
-    const {email} = req.body;
-    // It checks whether the email exists or not in the database.
-    await database('users')
-        .where('email', email)
-        .select('id')
-        .then((users) => {
-          if (users.length > 0) {
-            const token = ResetPasswordController.createResetToken(email);
-            new EmailService().sendEmail(email, token);
-            return res.status(200)
-                .json({message: Messages.RESET_PASSWORD_MESSAGE_SENT});
-          } else {
-            return res.status(NOT_FOUND)
-                .json({message: Messages.NOTHING_FOUND});
-          }
+    try {
+      logger.info('Executing ResetPasswordController.handleForgotPassword');
+
+      // Validate email.
+      const { email } = req.body;
+      if (!email) {
+        return res.status(HTTP_BAD_REQUEST).json({
+          message: Messages.INCOMPLETE_DATA_PROVIDED,
+          details: 'An email must be informed.',
         });
+      }
+
+      await ResetPasswordController.processForgotPasswordRequest(email, res);
+    } catch (error) {
+      logger.error('Error ResetPasswordController.handleForgotPassword', error);
+      res.status(500).sendFile(PAGE_ERROR);
+    }
   };
-  /**
-   * Handle the process to update the user password.
-   * @param {Request} req The request object.
-   * @param {Response} res The response object.
-   */
+
+  static processForgotPasswordRequest = async (email, res) => {
+    const userResult = await UserDAO.getByEmail(email);
+
+    if (userResult.success) {
+      const token = ResetPasswordToken.createResetToken(email);
+      const resultSaveToken = await ResetPasswordTokenDAO.add(token, email);
+
+      if (resultSaveToken.success) {
+        await ResetPasswordController.sendPasswordResetEmail(email, token);
+
+        return res.status(200).json({
+          success: true,
+          details: `Password reset token sent to ${email}.`,
+        });
+      } else {
+        logger.error(Messages.ERROR_SAVING_RESET_TOKEN);
+        return res.status(500).json({ message: Messages.ERROR });
+      }
+    } else {
+      res.status(404).json({ message: Messages.USER_NOT_FOUND });
+    }
+  };
+
+  static sendPasswordResetEmail = async (email, token) => {
+    const emailService = new EmailService();
+    await emailService.sendPasswordResetEmail(email, token);
+  };
+
+  static handleCancelResetPasswordRequest = async (req, res) => {
+    logger.info('Executing ResetPasswordController.handleCancelResetPasswordRequest');
+    try {
+      const { resetToken } = req.params;
+
+      if (!resetToken) {
+        const errorMessage =
+          'Error executing ResetPasswordController.handleCancelResetPasswordRequest - ' +
+          Messages.UNINFORMED_PASSWORD_RESET_TOKEN;
+        logger.error(errorMessage);
+        return res.status(400).sendFile(PAGE_ERROR);
+      }
+
+      const resultDeleteToken = await ResetPasswordTokenDAO.delete(resetToken);
+
+      if (resultDeleteToken.success) {
+        // Success cancelling reset password request.
+        logger.info(Messages.RESET_TOKEN_DELETED);
+        return res.status(200).sendFile(PAGE_RESET_CANCEL);
+      } else {
+        // Reset token not found - show expired link page.
+        logger.info(Messages.RESET_TOKEN_NOT_FOUND + ' - Showing expired link page');
+        return res.status(400).sendFile(PAGE_EXPIRED_LINK);
+      }
+    } catch (error) {
+      logger.error('Error ResetPasswordController.handleCancelResetPasswordRequest', error);
+      return res.status(500).sendFile(PAGE_ERROR);
+    }
+  };
+
+  static handleResetPasswordRequest = async (req, res) => {
+    logger.info('Executing ResetPasswordController.handleResetPasswordRequest');
+    try {
+      // Check received token.
+      const { resetToken } = req.params;
+      if (!resetToken) {
+        logger.error(Messages.UNINFORMED_PASSWORD_RESET_TOKEN);
+        return res.status(400).sendFile(PAGE_ERROR);
+      }
+
+      // Search for the token in the database.
+      const resultToken = await ResetPasswordTokenDAO.getByToken(resetToken);
+      if (resultToken.success) {
+        // Check the token expiration date.
+        const dateCreateToken = resultToken.token.created_at;
+        const isExpired = DateTimeUtil.isPassedOneHour(dateCreateToken);
+
+        if (isExpired) {
+          logger.info(Messages.RESET_TOKEN_EXPIRED);
+          await ResetPasswordTokenDAO.delete(resetToken);
+          return res.status(400).sendFile(PAGE_EXPIRED_LINK);
+        } else {
+          const fileContent = createContentResetPasswordPage(resultToken.token);
+          return res.status(200).send(fileContent);
+        }
+      } else {
+        // Reset token not found - show expired link page.
+        logger.info(Messages.RESET_TOKEN_NOT_FOUND + ' - Showing expired link page');
+        return res.status(400).sendFile(PAGE_EXPIRED_LINK);
+      }
+    } catch (error) {
+      logger.error('Error ResetPasswordController.handleResetPasswordRequest', error);
+      res.status(500).sendFile(PAGE_ERROR);
+    }
+  };
+
   static updateUserPassword = async (req, res) => {
-    let resetToken = '';
-    let email = '';
-    let userId = '';
-    const password = req.body.password;
+    logger.info('Executing ResetPasswordController.updateUserPassword');
+    try {
+      const { token, email, password } = req.body;
 
-    // Forgot password flow.
-    if (req.body.token && req.body.email) {
-      resetToken = (req.body.token).replace('\'', '');
-      email = req.body.email;
+      if (!token || !email || !password) {
+        return res
+          .status(400)
+          .json({
+            message: Messages.ERROR,
+            details: Messages.INCOMPLETE_DATA_PROVIDED,
+          });
+      }
+
+      // Delete token.
+      const resultDeleteToken = await ResetPasswordTokenDAO.delete(token);
+      if (resultDeleteToken.success) {
+        logger.info(Messages.RESET_TOKEN_DELETED);
+      } else {
+        logger.error(Messages.ERROR_DELETE_RESET_TOKEN);
+      }
+
+      const updatedUser = {
+        password: SecurityUtils.generateHashValue(password),
+        updated_at: DateTimeUtil.getCurrentDateTime(),
+      };
+
+      const result = await UserDAO.updateByEmail(email, updatedUser);
+
+      if (result.success) {
+        return res
+          .status(200)
+          .json({ success: true, details: Messages.PASSWORD_UPDATED });
+      } else {
+        return res.status(404).json({ message: result.message });
+      }
+    } catch (error) {
+      logger.error('Error ResetPasswordController.updateUserPassword', error);
+      res.status(500).sendFile(PAGE_ERROR);
     }
-
-    // Profile>security flow.
-    if (req.body.userId) {
-      userId = req.body.userId;
-    }
-
-    const user = {
-      password: SecurityUtils.generateHashValue(password),
-      updated_at: DateTimeUtil.getCurrentDateTime(),
-    };
-
-    await database('users')
-        .where('email', email)
-        .orWhere('id', userId)
-        .update(user)
-        .then((numAffectedRegisters) => {
-          if (numAffectedRegisters == 0) {
-            res.status(NOT_FOUND).json({message: Messages.NOTHING_FOUND});
-          } else {
-            // Forgot password flow.
-            if (resetToken) {
-              ResetPasswordController.deleteToken(resetToken);
-            }
-            res.status(OK).json({message: Messages.PASSWORD_UPDATED});
-          }
-        });
-  };
-  /**
-   * Creates a new password reset token.
-   * Save the new token in the database and return the token itself.
-   * @param {string} email The user email address.
-   * @return {string} The reset password token.
-   */
-  static createResetToken = (email) => {
-    const token = CryptoUtil.createRandomToken();
-    ResetPasswordController.saveResetToken(token, email);
-    return token;
-  };
-  /**
-   * Save in the database the new reset password token.
-   * @param {string} token The password reset token.
-   * @param {string} email_owner The owner email address.
-   */
-  // eslint-disable-next-line camelcase
-  static saveResetToken = async (token, email_owner) => {
-    // eslint-disable-next-line camelcase
-    await database('password_reset_tokens').insert({token, email_owner});
-  };
-  /**
-   * Deletes a token in the database.
-   * @param {string} token The token to be deleted.
-   * @return {Promise} A Promise object.
-   */
-  static deleteToken = async (token) => {
-    return database('password_reset_tokens').where('token', token).del();
   };
 }
-/**
- * Extracts from the __dirname the base path until src folder.
- * @return {string} A string.
- */
+
 function getBaseFilePath() {
-  return __dirname.split('controller')[0];
+  const curentPath = fileURLToPath(import.meta.url);
+  return join(curentPath, '../../', 'assets/');
 }
+
+function loadResetPasswordFileContent() {
+  return fs.readFileSync(PAGE_RESET_PASSWORD).toString();
+}
+
 /**
- * Create content for the rest password page.
+ * Create content for the reset password page.
  * @param {string} token The reset token object recovered from the database.
  * @return {string} A string with the page's content.
  */
 function createContentResetPasswordPage(token) {
-  const filePath = PAGE_RESET_PASSWORD;
-  let fileContent = fs.readFileSync(filePath).toString();
+  const baseURL = process.env.BASE_URL;
+  let fileContent = loadResetPasswordFileContent();
   fileContent = fileContent.replace('#{email}', token.email_owner);
-  fileContent = fileContent.replace('<a href="#{url_reset_token}">',
-      `<a href="https://glicocheck.onrender.com/api/reset/cancel/${token.token}">`);
+  fileContent = fileContent.replace('#{token}', token.token);
+  fileContent = fileContent.replace(
+    '<a href="#{url_cancel_reset_token}">',
+    `<a href="${baseURL}/api/reset-password/cancel/${token.token}">`
+  );
   return fileContent;
 }
 
