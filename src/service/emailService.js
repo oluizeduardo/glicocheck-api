@@ -26,7 +26,10 @@ export default class EmailService {
       host: host,
       port: port,
       auth: {user, pass},
+      debug: true,
+      logger: true
     });
+
     transporter
         .sendMail({
           from: `"Glicocheck" <${user}>`,
@@ -37,7 +40,7 @@ export default class EmailService {
           logger.info(`${resource} - Email sent to the destination`);
         })
         .catch((error) => {
-          logger.error(`${resource} - Error: ${error}`);
+          logger.error(`${resource} - ${error}`);
         });
   }
 }

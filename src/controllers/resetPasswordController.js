@@ -17,6 +17,11 @@ const PAGE_ERROR = baseFilePath + 'error.html';
 const PAGE_RESET_CANCEL = baseFilePath + 'reset-cancel.html';
 const PAGE_EXPIRED_LINK = baseFilePath + 'expired-link.html';
 
+const HTTP_BAD_REQUEST = 400;
+const HTTP_NOT_FOUND = 404;
+const HTTP_INTERNAL_SERVER_ERROR = 500;
+const HTTP_OK = 200;
+
 /**
  * ResetPasswordController.
  *
@@ -43,7 +48,7 @@ class ResetPasswordController {
       await ResetPasswordController.processForgotPasswordRequest(email, res);
     } catch (error) {
       logger.error('Error ResetPasswordController.handleForgotPassword', error);
-      res.status(500).sendFile(PAGE_ERROR);
+      res.status(HTTP_INTERNAL_SERVER_ERROR).sendFile(PAGE_ERROR);
     }
   };
 
@@ -57,16 +62,16 @@ class ResetPasswordController {
       if (resultSaveToken.success) {
         await ResetPasswordController.sendPasswordResetEmail(email, token);
 
-        return res.status(200).json({
+        return res.status(HTTP_OK).json({
           success: true,
           details: `Password reset token sent to ${email}.`,
         });
       } else {
         logger.error(Messages.ERROR_SAVING_RESET_TOKEN);
-        return res.status(500).json({ message: Messages.ERROR });
+        return res.status(HTTP_INTERNAL_SERVER_ERROR).json({ message: Messages.ERROR });
       }
     } else {
-      res.status(404).json({ message: Messages.USER_NOT_FOUND });
+      res.status(HTTP_NOT_FOUND).json({ message: Messages.USER_NOT_FOUND });
     }
   };
 
@@ -85,7 +90,7 @@ class ResetPasswordController {
           'Error executing ResetPasswordController.handleCancelResetPasswordRequest - ' +
           Messages.UNINFORMED_PASSWORD_RESET_TOKEN;
         logger.error(errorMessage);
-        return res.status(400).sendFile(PAGE_ERROR);
+        return res.status(HTTP_BAD_REQUEST).sendFile(PAGE_ERROR);
       }
 
       const resultDeleteToken = await ResetPasswordTokenDAO.delete(resetToken);
@@ -93,15 +98,15 @@ class ResetPasswordController {
       if (resultDeleteToken.success) {
         // Success cancelling reset password request.
         logger.info(Messages.RESET_TOKEN_DELETED);
-        return res.status(200).sendFile(PAGE_RESET_CANCEL);
+        return res.status(HTTP_OK).sendFile(PAGE_RESET_CANCEL);
       } else {
         // Reset token not found - show expired link page.
         logger.info(Messages.RESET_TOKEN_NOT_FOUND + ' - Showing expired link page');
-        return res.status(400).sendFile(PAGE_EXPIRED_LINK);
+        return res.status(HTTP_BAD_REQUEST).sendFile(PAGE_EXPIRED_LINK);
       }
     } catch (error) {
       logger.error('Error ResetPasswordController.handleCancelResetPasswordRequest', error);
-      return res.status(500).sendFile(PAGE_ERROR);
+      return res.status(HTTP_INTERNAL_SERVER_ERROR).sendFile(PAGE_ERROR);
     }
   };
 
@@ -112,7 +117,7 @@ class ResetPasswordController {
       const { resetToken } = req.params;
       if (!resetToken) {
         logger.error(Messages.UNINFORMED_PASSWORD_RESET_TOKEN);
-        return res.status(400).sendFile(PAGE_ERROR);
+        return res.status(HTTP_BAD_REQUEST).sendFile(PAGE_ERROR);
       }
 
       // Search for the token in the database.
@@ -125,19 +130,19 @@ class ResetPasswordController {
         if (isExpired) {
           logger.info(Messages.RESET_TOKEN_EXPIRED);
           await ResetPasswordTokenDAO.delete(resetToken);
-          return res.status(400).sendFile(PAGE_EXPIRED_LINK);
+          return res.status(HTTP_BAD_REQUEST).sendFile(PAGE_EXPIRED_LINK);
         } else {
           const fileContent = createContentResetPasswordPage(resultToken.token);
-          return res.status(200).send(fileContent);
+          return res.status(HTTP_OK).send(fileContent);
         }
       } else {
         // Reset token not found - show expired link page.
         logger.info(Messages.RESET_TOKEN_NOT_FOUND + ' - Showing expired link page');
-        return res.status(400).sendFile(PAGE_EXPIRED_LINK);
+        return res.status(HTTP_BAD_REQUEST).sendFile(PAGE_EXPIRED_LINK);
       }
     } catch (error) {
       logger.error('Error ResetPasswordController.handleResetPasswordRequest', error);
-      res.status(500).sendFile(PAGE_ERROR);
+      res.status(HTTP_INTERNAL_SERVER_ERROR).sendFile(PAGE_ERROR);
     }
   };
 
@@ -148,7 +153,7 @@ class ResetPasswordController {
 
       if (!token || !email || !password) {
         return res
-          .status(400)
+          .status(HTTP_BAD_REQUEST)
           .json({
             message: Messages.ERROR,
             details: Messages.INCOMPLETE_DATA_PROVIDED,
@@ -172,14 +177,14 @@ class ResetPasswordController {
 
       if (result.success) {
         return res
-          .status(200)
+          .status(HTTP_OK)
           .json({ success: true, details: Messages.PASSWORD_UPDATED });
       } else {
-        return res.status(404).json({ message: result.message });
+        return res.status(HTTP_NOT_FOUND).json({ message: result.message });
       }
     } catch (error) {
       logger.error('Error ResetPasswordController.updateUserPassword', error);
-      res.status(500).sendFile(PAGE_ERROR);
+      res.status(HTTP_INTERNAL_SERVER_ERROR).sendFile(PAGE_ERROR);
     }
   };
 }
