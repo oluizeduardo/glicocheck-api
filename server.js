@@ -4,7 +4,10 @@ dotenv.config();
 import express, { json } from 'express';
 import helmet from 'helmet';
 import logger from './src/loggerUtil/logger.js';
-// Routers
+
+// Root router
+const apiRouter = express.Router();
+// Custom routers
 import authenticationRouter from './src/routes/authenticationRouter.js';
 import usersRouter from './src/routes/usersRouter.js';
 import genderRouter from './src/routes/genderRouter.js';
@@ -33,18 +36,20 @@ app.disable('x-powered-by');
 
 app.use(json({ limit: '2mb' }));
 
-app.use('/api/users', usersRouter);
-app.use('/api/genders', genderRouter);
-app.use('/api/ping', systemHealthCheckRouter);
-app.use('/api/diabetestype', diabetesTypeRouter);
-app.use('/api/bloodtype', bloodTypeRouter);
-app.use('/api/markermeal', markerMealRouter);
-app.use('/api/authentication', authenticationRouter);
-app.use('/api/carbscounting', carbsCountingRouter);
-app.use('/api/healthinfo', healthInfoRouter);
-app.use('/api/systemconfiguration', systemConfigRouter);
-app.use('/api/reset-password', resetPasswordRouter);
-// app.use('/api/glucose', glucoseRouter);
+apiRouter.use('/users', usersRouter);
+apiRouter.use('/genders', genderRouter);
+apiRouter.use('/ping', systemHealthCheckRouter);
+apiRouter.use('/diabetestype', diabetesTypeRouter);
+apiRouter.use('/bloodtype', bloodTypeRouter);
+apiRouter.use('/markermeal', markerMealRouter);
+apiRouter.use('/authentication', authenticationRouter);
+apiRouter.use('/carbscounting', carbsCountingRouter);
+apiRouter.use('/healthinfo', healthInfoRouter);
+apiRouter.use('/systemconfiguration', systemConfigRouter);
+apiRouter.use('/reset-password', resetPasswordRouter);
+// apiRouter.use('/glucose', glucoseRouter);
+
+app.use('/api', apiRouter);
 
 const port = process.env.PORT || 3000;
 
