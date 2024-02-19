@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "Glicocheck",
-    "dateExported": "2024-02-13T23:58:04.785Z",
+    "dateExported": "2024-02-19T02:27:05.177Z",
     "version": "1.1",
     "folders": [
         {
@@ -20,7 +20,7 @@
         },
         {
             "_id": "f91b0224-a64c-403f-9552-eaeb5d066007",
-            "name": "Blood Glucose Diary",
+            "name": "Blood Sugar Diary",
             "containerId": "",
             "created": "2024-02-13T19:33:44.010Z",
             "sortNum": 30000
@@ -34,7 +34,7 @@
         },
         {
             "_id": "ea668fe4-43d5-4904-8db5-8f944ab025b1",
-            "name": "Forgot Password",
+            "name": "Reset Password",
             "containerId": "",
             "created": "2024-02-13T19:33:44.013Z",
             "sortNum": 50000
@@ -114,16 +114,16 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "97fef3b4-9d0f-4b16-a0c9-cafe5ab1acad",
             "name": "Add new user",
-            "url": "{{LOCALHOST}}/api/users",
+            "url": "https://glicocheck-api.onrender.com/api/users",
             "method": "POST",
             "sortNum": 6250,
             "created": "2024-02-13T19:33:44.009Z",
-            "modified": "2024-02-13T23:16:09.360Z",
+            "modified": "2024-02-17T02:16:59.132Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"name\": \"Luiz Eduardo da Costa\",\n    \"email\": \"costaeduardoluiz@gmail.com.br\",\n    \"password\": \"asd\",\n    \"id_role\": 1\n}",
+                "raw": "{\n    \"name\": \"Luiz Eduardo da Costa\",\n    \"email\": \"costaeduardoluiz@gmail.com\",\n    \"password\": \"asd\",\n    \"id_role\": 1\n}",
                 "form": []
             },
             "tests": []
@@ -133,16 +133,16 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
             "name": "Add glucose record",
-            "url": "{{LOCALHOST}}/api/glucose",
+            "url": "{{LOCALHOST}}/api/diary",
             "method": "POST",
             "sortNum": 10000,
             "created": "2024-02-13T19:33:44.014Z",
-            "modified": "2024-02-13T19:33:44.014Z",
+            "modified": "2024-02-17T18:58:50.076Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"userId\": \"2222222-2222-2222-2222-222222222222\",\n    \"glucose\": 79,\n    \"total_carbs\": 40,\n    \"dateTime\": \"2023-04-09T00:54\",\n    \"markerMealId\": 3\n}",
+                "raw": "{\n    \"cod_user\": \"a98866b7-ab90-42ec-a21f-c191d98ee238\",\n    \"glucose\": 98,\n    \"total_carbs\": 89,\n    \"dateTime\": \"2024-02-08T00:54\",\n    \"id_markermeal\": 4\n}",
                 "form": []
             },
             "auth": {
@@ -160,7 +160,7 @@
             "method": "GET",
             "sortNum": 12500,
             "created": "2024-02-13T19:33:44.010Z",
-            "modified": "2024-02-13T19:33:44.010Z",
+            "modified": "2024-02-18T02:38:57.839Z",
             "headers": [],
             "params": [],
             "auth": {
@@ -215,13 +215,26 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
             "name": "Get all glucose record",
-            "url": "{{LOCALHOST}}/api/glucose",
+            "url": "{{LOCALHOST}}/api/diary",
             "method": "GET",
             "sortNum": 20000,
             "created": "2024-02-13T19:33:44.015Z",
-            "modified": "2024-02-13T19:33:44.015Z",
+            "modified": "2024-02-17T18:59:04.942Z",
             "headers": [],
-            "params": [],
+            "params": [
+                {
+                    "name": "start",
+                    "value": "2024-02-17",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "end",
+                    "value": "2024-02-20",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
             "auth": {
                 "type": "bearer",
                 "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIyMjIyMjItMjIyMi0yMjIyLTIyMjItMjIyMjIyMjIyMjIyIiwiaWF0IjoxNjg4MDk3MTkzLCJleHAiOjE2ODgwOTg5OTN9.5UbzGGUPr8w7RHlwjRQWQrZf6-cU6DxFjS65mmkL-fM"
@@ -251,11 +264,11 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
             "name": "Get glucose record by id",
-            "url": "{{LOCALHOST}}/api/glucose/1",
+            "url": "{{LOCALHOST}}/api/diary/1",
             "method": "GET",
             "sortNum": 30000,
             "created": "2024-02-13T19:33:44.018Z",
-            "modified": "2024-02-13T19:33:44.018Z",
+            "modified": "2024-02-17T19:33:09.474Z",
             "headers": [],
             "params": [],
             "auth": {
@@ -269,24 +282,13 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
             "name": "Get glucose by user code",
-            "url": "{{LOCALHOST}}/api/glucose/user/online?start=2023-06-01&end=2023-06-02",
+            "url": "{{LOCALHOST}}/api/diary/user/a98866b7-ab90-42ec-a21f-c191d98ee238",
             "method": "GET",
             "sortNum": 35000,
             "created": "2024-02-13T19:33:44.024Z",
-            "modified": "2024-02-13T19:33:44.024Z",
+            "modified": "2024-02-17T19:56:57.326Z",
             "headers": [],
-            "params": [
-                {
-                    "name": "start",
-                    "value": "2023-06-01",
-                    "isPath": false
-                },
-                {
-                    "name": "end",
-                    "value": "2023-06-02",
-                    "isPath": false
-                }
-            ],
+            "params": [],
             "auth": {
                 "type": "bearer",
                 "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI1ODk3YWM5LTk0ZTctNGFkNy05MTA3LWYwZDUwYWJiZmNhMSIsImlhdCI6MTY4Nzc0MDg1NCwiZXhwIjoxNjg3NzQyNjU0fQ.2fE-lLkcGit_jvQ7_0focxDHDkvKtDhS8qtf3kzRKdU"
@@ -339,16 +341,16 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
             "name": "Update glucose by id",
-            "url": "{{LOCALHOST}}/api/glucose/2",
+            "url": "{{LOCALHOST}}/api/diary/2",
             "method": "PUT",
             "sortNum": 65000,
             "created": "2024-02-13T19:33:44.016Z",
-            "modified": "2024-02-13T19:33:44.016Z",
+            "modified": "2024-02-17T19:33:03.062Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"glucose\" : 130,\n    \"total_carbs\": 70,\n    \"markermeal_id\": 3\n}",
+                "raw": "{\n    \"glucose\" : 130,\n    \"total_carbs\": 70,\n    \"id_markermeal\": 3\n}",
                 "form": []
             },
             "auth": {
@@ -362,11 +364,11 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
             "name": "Delete glucose by user code",
-            "url": "{{LOCALHOST}}/api/glucose/user/ea3ff3ae-4e14-4857-a921-4f54aedd1018",
+            "url": "{{LOCALHOST}}/api/diary/user/a98866b7-ab90-42ec-a21f-c191d98ee238",
             "method": "DELETE",
             "sortNum": 81250,
             "created": "2024-02-13T19:33:44.027Z",
-            "modified": "2024-02-13T19:33:44.027Z",
+            "modified": "2024-02-18T02:41:16.372Z",
             "headers": [],
             "params": [],
             "auth": {
@@ -499,11 +501,11 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "ea668fe4-43d5-4904-8db5-8f944ab025b1",
             "name": "Forgot password",
-            "url": "{{LOCALHOST}}/api/reset/forgot-password",
+            "url": "https://glicocheck-api.onrender.com/api/reset-password/forgot-password",
             "method": "POST",
             "sortNum": 180000,
             "created": "2024-02-13T19:33:44.029Z",
-            "modified": "2024-02-13T19:33:44.029Z",
+            "modified": "2024-02-17T02:17:30.856Z",
             "headers": [],
             "params": [],
             "body": {
@@ -750,7 +752,7 @@
             "method": "PUT",
             "sortNum": 260000,
             "created": "2024-02-13T19:33:44.040Z",
-            "modified": "2024-02-13T19:33:44.040Z",
+            "modified": "2024-02-17T19:26:10.902Z",
             "headers": [],
             "params": [],
             "body": {
@@ -966,6 +968,20 @@
                 "type": "bearer",
                 "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI0Y2Y5ODkxLTkxZjYtNDY2Mi1hOGYzLTYzODRkMzNiM2EzNSIsImlhdCI6MTY4NjI3MzI1NCwiZXhwIjoxNjg2Mjc1MDU0fQ.vyHit5ZeR9vpKZlkWgXjDfiHNmdKe822lmWFiQrQc4A"
             },
+            "tests": []
+        },
+        {
+            "_id": "7c545334-7e02-465e-a56a-58297383926a",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "ea668fe4-43d5-4904-8db5-8f944ab025b1",
+            "name": "Delete by user email",
+            "url": "",
+            "method": "DELETE",
+            "sortNum": 370000,
+            "created": "2024-02-14T15:25:12.904Z",
+            "modified": "2024-02-14T15:25:24.514Z",
+            "headers": [],
+            "params": [],
             "tests": []
         }
     ],
