@@ -28,8 +28,10 @@ export default class Messages {
   static EMAIL_ALREADY_USED = 'The email address is already used.';
 
   // Blood sugar diary
-  static ERROR_UPDATE_GLUCOSE = 'Error trying to update glucose reading.';
-  static ERROR_DELETE_GLUCOSE = 'Error trying to delete glucose reading.';
+  static NEW_DIARY_DATA_ADDED = 'New blood sugar diary register added.';
+  static DIARY_DATA_DELETED = 'Blood sugar diary register deleted.';
+  static ERROR_UPDATING_DIARY = 'Error updating blood sugar diary.';
+  static ERROR_DELETING_DIARY = 'Error deleting diary register.';
 
   // Gender
   static NEW_GENDER_CREATED = 'New gender created.';

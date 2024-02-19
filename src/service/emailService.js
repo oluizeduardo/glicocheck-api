@@ -16,6 +16,7 @@ export default class EmailService {
    */
   async sendPasswordResetEmail(destination, resetToken) {
     const resource = 'EmailService.sendPasswordResetEmail';
+    logger.info(`Executing ${resource}`);
 
     const host = process.env.EMAIL_HOST;
     const port = process.env.EMAIL_PORT;

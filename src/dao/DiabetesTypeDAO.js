@@ -82,8 +82,8 @@ export default class DiabetesTypeDAO {
         .select('id');
 
       if (types.length > 0) {
-        const gender = types[0];
-        await database(TABLE_DIABETES_TYPES).where('id', gender.id).del();
+        const type = types[0];
+        await database(TABLE_DIABETES_TYPES).where('id', type.id).del();
         return { success: true, message: Messages.DIABETES_TYPE_DELETED };
       } else {
         return { success: false, message: Messages.NOTHING_FOUND };

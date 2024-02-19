@@ -6,40 +6,23 @@ import GenderDAO from '../dao/GenderDAO.js';
  * GenderController.
  */
 class GenderController {
-  /**
-   * Retrieves all genders.
-   *
-   * @async
-   * @param {Object} req - The request object.
-   * @param {Object} res - The response object.
-   * @return {Promise<void>} - A promise that resolves to void.
-   * @throws {Error} - If an error occurs during the process.
-   */
+
   static getAllGenders = async (req, res) => {
     logger.info('Executing GenderController.getAllGenders');
     try {
       const result = await GenderDAO.getAll();
 
       if (result.success) {
-        res.status(200).json(result.genders);
+        return res.status(200).json(result.genders);
       } else {
-        res.status(400).json({ message: result.message });
+        return res.status(400).json({ message: result.message });
       }
     } catch (error) {
       logger.error('Error GenderController.getAllGenders');
-      res.status(500).json({ message: Messages.ERROR });
+      return res.status(500).json({ message: Messages.ERROR });
     }
   };
 
-  /**
-   * Creates a new gender.
-   *
-   * @async
-   * @param {Object} req - The request object.
-   * @param {Object} res - The response object.
-   * @return {Promise<void>} - A promise that resolves to void.
-   * @throws {Error} - If an error occurs during the process.
-   */
   static addGender = async (req, res) => {
     logger.info('Executing GenderController.addGender');
     try {
@@ -54,23 +37,14 @@ class GenderController {
           .status(201)
           .json({ message: result.message, gender: result.gender });
       } else {
-        res.status(400).json({ message: result.message });
+        return res.status(400).json({ message: result.message });
       }
     } catch (error) {
       logger.error('Error GenderController.createNewGender');
-      res.status(500).json({ message: Messages.ERROR });
+      return res.status(500).json({ message: Messages.ERROR });
     }
   };
 
-  /**
-   * Retrieves a gender by its ID.
-   *
-   * @async
-   * @param {Object} req - The request object.
-   * @param {Object} res - The response object.
-   * @return {Promise<void>} - A promise that resolves to void.
-   * @throws {Error} - If an error occurs during the process.
-   */
   static getGenderById = async (req, res) => {
     logger.info('Executing GenderController.getGenderById');
     try {
@@ -82,25 +56,16 @@ class GenderController {
       const result = await GenderDAO.getById(id);
 
       if (result.success) {
-        res.status(200).json(result.gender);
+        return res.status(200).json(result.gender);
       } else {
-        res.status(404).json({ message: result.message });
+        return res.status(404).json({ message: result.message });
       }
     } catch (error) {
       logger.error('Error GenderController.getGenderById');
-      res.status(500).json({ message: Messages.ERROR });
+      return res.status(500).json({ message: Messages.ERROR });
     }
   };
 
-  /**
-   * Updates a gender by its ID.
-   *
-   * @async
-   * @param {Object} req - The request object.
-   * @param {Object} res - The response object.
-   * @return {Promise<void>} - A promise that resolves to void.
-   * @throws {Error} - If an error occurs during the process.
-   */
   static updateGenderById = async (req, res) => {
     logger.info('Executing GenderController.updateGenderById');
     try {
@@ -109,34 +74,33 @@ class GenderController {
         return res.status(404).json({ message: Messages.NOTHING_FOUND });
       }
 
+      const description = req.body.description;
+
+      if(!description){
+        return res.status(400)
+          .json({message: Messages.INCOMPLETE_DATA_PROVIDED,
+          details: 'Field \'description\' is missing.'});
+      }
+
       const gender = {
         id: id,
-        description: req.body.description,
+        description,
         updated_at: DateTimeUtil.getCurrentDateTime(),
       };
 
       const result = await GenderDAO.updateById(id, gender);
 
       if (result.success) {
-        res.status(200).json(result.gender);
+        return res.status(200).json(result.gender);
       } else {
-        res.status(404).json({ message: result.message });
+        return res.status(404).json({ message: result.message });
       }
     } catch (error) {
       logger.error('Error GenderController.updateGenderById');
-      res.status(500).json({ message: Messages.ERROR });
+      return res.status(500).json({ message: Messages.ERROR });
     }
   };
 
-  /**
-   * Deletes a gender by its ID.
-   *
-   * @async
-   * @param {Object} req - The request object.
-   * @param {Object} res - The response object.
-   * @return {Promise<void>} - A promise that resolves to void.
-   * @throws {Error} - If an error occurs during the process.
-   */
   static deleteGenderById = async (req, res) => {
     logger.info('Executing GenderController.deleteGenderById');
     try {
@@ -148,13 +112,13 @@ class GenderController {
       const result = await GenderDAO.deleteById(id);
 
       if (result.success) {
-        res.status(200).json({ message: result.message });
+        return res.status(200).json({ message: result.message });
       } else {
-        res.status(404).json({ message: result.message });
+        return res.status(404).json({ message: result.message });
       }
     } catch (error) {
       logger.error('Error GenderController.deleteGenderById');
-      res.status(500).json({ message: Messages.ERROR });
+      return res.status(500).json({ message: Messages.ERROR });
     }
   };
 }

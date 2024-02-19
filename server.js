@@ -19,7 +19,7 @@ import carbsCountingRouter from './src/routes/carbsCountingRouter.js';
 import healthInfoRouter from './src/routes/healthInfoRouter.js';
 import systemConfigRouter from './src/routes/systemConfigurationRouter.js';
 import resetPasswordRouter from './src/routes/resetPasswordRouter.js';
-// import glucoseRouter from './src/routes/glucoseRouter.js';
+import diaryRouter from './src/routes/diaryRouter.js';
 
 const app = express();
 
@@ -47,7 +47,7 @@ apiRouter.use('/carbscounting', carbsCountingRouter);
 apiRouter.use('/healthinfo', healthInfoRouter);
 apiRouter.use('/systemconfiguration', systemConfigRouter);
 apiRouter.use('/reset-password', resetPasswordRouter);
-// apiRouter.use('/glucose', glucoseRouter);
+apiRouter.use('/diary', diaryRouter);
 
 app.use('/api', apiRouter);
 
