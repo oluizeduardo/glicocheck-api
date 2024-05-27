@@ -7,7 +7,7 @@
 # Glicocheck API
 [Glicocheck's](https://github.com/oluizeduardo/glicocheck) API for diabetes management.
 
-# Technologies applied
+## 🛠 Technologies applied
 - Backend
     - NodeJS
     - [Express](https://expressjs.com/)
@@ -26,5 +26,8 @@
 - Deploy
     - [Render](https://render.com/)
 
- # Code analysis
+## 📡 API Endpoints
+See the document of [endpoints](./docs/endpoints.md).
+
+## 🔗 Code analysis
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-black.svg)](https://sonarcloud.io/summary/new_code?id=oluizeduardo_glicocheck-api)
