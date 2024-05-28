@@ -6,7 +6,7 @@ bloodTypeRouter.use(express.json());
 
 bloodTypeRouter
   .get('/', BloodTypeController.getAllTypes)
-  .post('/', BloodTypeController.createNewType)
+  .post('/', BloodTypeController.addType)
   .get('/:id', BloodTypeController.getTypeById)
   .put('/:id', BloodTypeController.updateTypeById)
   .delete('/:id', BloodTypeController.deleteTypeById);

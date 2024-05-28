@@ -27,8 +27,8 @@ export default class EmailService {
       host: host,
       port: port,
       auth: {user, pass},
-      debug: true,
-      logger: true
+      debug: false,
+      logger: false
     });
 
     transporter

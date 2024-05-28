@@ -40,7 +40,7 @@ class GenderController {
         return res.status(400).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error GenderController.createNewGender');
+      logger.error('Error GenderController.addGender');
       return res.status(500).json({ message: Messages.ERROR });
     }
   };

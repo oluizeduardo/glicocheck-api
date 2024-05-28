@@ -5,8 +5,8 @@ import SystemConfigurationController from '../controllers/systemConfigurationCon
 systemConfigurationRouter.use(express.json());
 
 systemConfigurationRouter
-  .post('/', SystemConfigurationController.addSystemConfiguration)
-  .get('/', SystemConfigurationController.getAllSystemConfiguration)
+  .get('/', SystemConfigurationController.getAll)
+  .post('/', SystemConfigurationController.addNew)
   .get('/:id', SystemConfigurationController.getById)
   .delete('/:id', SystemConfigurationController.deleteById)
   .get('/user/:usercode', SystemConfigurationController.getByUserCode)

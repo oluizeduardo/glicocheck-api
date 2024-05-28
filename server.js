@@ -36,18 +36,18 @@ app.disable('x-powered-by');
 
 app.use(json({ limit: '2mb' }));
 
-apiRouter.use('/users', usersRouter);
-apiRouter.use('/genders', genderRouter);
 apiRouter.use('/ping', systemHealthCheckRouter);
+apiRouter.use('/genders', genderRouter);
 apiRouter.use('/diabetestype', diabetesTypeRouter);
 apiRouter.use('/bloodtype', bloodTypeRouter);
 apiRouter.use('/markermeal', markerMealRouter);
-apiRouter.use('/authentication', authenticationRouter);
-apiRouter.use('/carbscounting', carbsCountingRouter);
+apiRouter.use('/users', usersRouter);
 apiRouter.use('/healthinfo', healthInfoRouter);
 apiRouter.use('/systemconfiguration', systemConfigRouter);
-apiRouter.use('/reset-password', resetPasswordRouter);
 apiRouter.use('/diary', diaryRouter);
+apiRouter.use('/authentication', authenticationRouter);
+apiRouter.use('/carbscounting', carbsCountingRouter);
+apiRouter.use('/reset-password', resetPasswordRouter);
 
 app.use('/api', apiRouter);
 

@@ -6,7 +6,7 @@ diabetesTypeRouter.use(express.json());
 
 diabetesTypeRouter
   .get('/', DiabetesTypeController.getAllTypes)
-  .post('/', DiabetesTypeController.createNewType)
+  .post('/', DiabetesTypeController.addType)
   .get('/:id', DiabetesTypeController.getTypeById)
   .put('/:id', DiabetesTypeController.updateTypeById)
   .delete('/:id', DiabetesTypeController.deleteTypeById);

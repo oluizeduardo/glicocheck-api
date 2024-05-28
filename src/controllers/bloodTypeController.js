@@ -38,9 +38,14 @@ class BloodTypeController {
    * @return {Promise<void>} - A promise that resolves to void.
    * @throws {Error} - If an error occurs during the process.
    */
-  static createNewType = async (req, res) => {
-    logger.info('Executing BloodTypeController.createNewType');
+  static addType = async (req, res) => {
+    logger.info('Executing BloodTypeController.addType');
     try {
+
+      if (!req.body.description || req.body.description.trim() === '') {
+        return res.status(400).json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
+      }
+
       const newType = { description: req.body.description };
 
       const result = await BloodTypeDAO.add(newType);
@@ -53,7 +58,7 @@ class BloodTypeController {
         res.status(500).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error BloodTypeController.createNewType');
+      logger.error('Error BloodTypeController.addType');
       res.status(500).json({ message: Messages.ERROR });
     }
   };
@@ -101,8 +106,13 @@ class BloodTypeController {
     logger.info('Executing BloodTypeController.updateTypeById');
     try {
       const id = Number.parseInt(req.params.id);
+
       if (isNaN(id)) {
         return res.status(404).json({ message: Messages.NOTHING_FOUND });
+      }
+
+      if (!req.body.description || req.body.description.trim() === '') {
+        return res.status(400).json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
       }
 
       const updatedType = {

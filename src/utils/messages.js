@@ -77,4 +77,8 @@ export default class Messages {
   static HEALTH_INFO_CREATED = 'New health info created.';
   static HEALTH_INFO_EXISTING = 'There is already health information registered for this user.';
   static HEALTH_INFO_DELETED = 'User\'s health info deleted.';
+
+  // Carbs counting
+  static ERROR_LOADING_CARBS_COUTING_CREDENTIALS = 'Error loading EDAMAN\'s API credentials.';
+  static ERROR_CONSULTING_CARBS_COUTING_API = 'Error consulting carbs counting API.';
 }

@@ -26,10 +26,7 @@ export default class AuthenticationController {
 
       if (result.success) {
         const user = result.user;
-        const isValidPassword = SecurityUtils.comparePassword(
-          password,
-          user.password
-        );
+        const isValidPassword = SecurityUtils.comparePassword(password, user.password);
 
         if (isValidPassword) {
           const tokenJWT = AuthenticationController.createTokenJWT(user);

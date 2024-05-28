@@ -18,11 +18,15 @@ class CarbsCountingController {
     const food = req.params.food;
 
     if (!food) {
-      return res.status(404).json({message: Messages.NOTHING_FOUND});
+      return res.status(401).json({message: Messages.INCOMPLETE_DATA_PROVIDED});
     }
 
-    const appId = process.env.EDAMAM_APP_ID;
-    const appKey = process.env.EDAMAM_APP_KEY;
+    const {appId, appKey} = CarbsCountingController.loadEdamanCredentials();
+    if(!appId || !appKey){
+      logger.error(Messages.ERROR_LOADING_CARBS_COUTING_CREDENTIALS);
+      return res.status(500).json({message: Messages.ERROR_CONSULTING_CARBS_COUTING_API});
+    }
+
     const url = `https://api.edamam.com/api/nutrition-data?app_id=${appId}&app_key=${appKey}&ingr=${encodeURIComponent(food)}`;
 
     const response = await axios.get(url);
@@ -41,6 +45,16 @@ class CarbsCountingController {
       res.status(404).json({message: Messages.NOTHING_FOUND});
     }
   };
+
+   /**
+   * Return the EDAMAN credentials.
+   * @return {string} A new JWT token.
+   */
+   static loadEdamanCredentials() {
+    const appId = process.env.EDAMAM_APP_ID;
+    const appKey = process.env.EDAMAM_APP_KEY;
+    return {appId, appKey};
+  }
 }
 
 export default CarbsCountingController;

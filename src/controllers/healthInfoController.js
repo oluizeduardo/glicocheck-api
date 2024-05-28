@@ -7,12 +7,27 @@ import UserDAO from '../dao/UserDAO.js';
  * HealthInfoController.
  */
 class HealthInfoController {
+  static getAll = async (req, res) => {
+    logger.info('Executing HealthInfoController.getAll');
+    try {
+      const result = await HealthInfoDAO.getAll();
+
+      if (result.success) {
+        return res.status(201).json(result.healthInfo);
+      } else {
+        return res.status(500).json({ message: result.message });
+      }
+    } catch (error) {
+      logger.error('Error HealthInfoController.getAll', error);
+      res.status(500).json({ message: Messages.ERROR });
+    }
+  };
+
   static addNew = async (req, res) => {
     logger.info('Executing HealthInfoController.addNew');
     try {
       // Validate payload fields.
-      const { cod_user, id_diabetes_type, id_blood_type, month_diagnosis } =
-        req.body;
+      const { cod_user, id_diabetes_type, id_blood_type, month_diagnosis } = req.body;
       if (!cod_user || !id_diabetes_type || !id_blood_type || !month_diagnosis) {
         return res.status(400).json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
       }
@@ -52,22 +67,6 @@ class HealthInfoController {
   static healthInfoExists = async (id_user) => {
     const healthInfoResult = await HealthInfoDAO.getByUserId(id_user);
     return healthInfoResult.success;
-  };
-
-  static getAll = async (req, res) => {
-    logger.info('Executing HealthInfoController.getAll');
-    try {
-      const result = await HealthInfoDAO.getAll();
-
-      if (result.success) {
-        return res.status(201).json(result.healthInfo);
-      } else {
-        return res.status(500).json({ message: result.message });
-      }
-    } catch (error) {
-      logger.error('Error HealthInfoController.getAll', error);
-      res.status(500).json({ message: Messages.ERROR });
-    }
   };
 
   static getByUserCode = async (req, res) => {

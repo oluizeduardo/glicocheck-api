@@ -5,8 +5,8 @@ import MarkerMealController from '../controllers/markerMealController.js';
 markerMealRouter.use(express.json());
 
 markerMealRouter
-  .post('/', MarkerMealController.createNewMarkerMeal)
   .get('/', MarkerMealController.getAllMarkerMeals)
+  .post('/', MarkerMealController.addMarkerMeal)
   .get('/:id', MarkerMealController.getMarkerMealById)
   .put('/:id', MarkerMealController.updateMarkerMealById)
   .delete('/:id', MarkerMealController.deleteMarkerMealById);

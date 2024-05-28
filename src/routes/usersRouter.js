@@ -5,8 +5,8 @@ import UserController from '../controllers/userController.js';
 usersRouter.use(express.json());
 
 usersRouter
-  .post('/', UserController.addUser)
   .get('/', UserController.getAllUsers)
+  .post('/', UserController.addUser)
   .get('/:usercode', UserController.getUserByUserCode)
   .put('/:usercode', UserController.updateUserByUserCode)
   .delete('/:usercode', UserController.deleteUserByUserCode);

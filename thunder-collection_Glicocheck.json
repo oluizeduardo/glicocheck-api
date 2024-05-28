@@ -1,8 +1,9 @@
 {
-    "client": "Thunder Client",
+    "clientName": "Thunder Client",
     "collectionName": "Glicocheck",
-    "dateExported": "2024-02-19T02:27:05.177Z",
-    "version": "1.1",
+    "collectionId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+    "dateExported": "2024-05-28T01:59:46.287Z",
+    "version": "1.2",
     "folders": [
         {
             "_id": "3d15f169-88e1-4dc4-98fe-4cab8d07f318",
@@ -114,19 +115,17 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "97fef3b4-9d0f-4b16-a0c9-cafe5ab1acad",
             "name": "Add new user",
-            "url": "https://glicocheck-api.onrender.com/api/users",
+            "url": "{{LOCALHOST}}/api/users",
             "method": "POST",
             "sortNum": 6250,
             "created": "2024-02-13T19:33:44.009Z",
-            "modified": "2024-02-17T02:16:59.132Z",
+            "modified": "2024-05-28T00:08:15.347Z",
             "headers": [],
-            "params": [],
             "body": {
                 "type": "json",
                 "raw": "{\n    \"name\": \"Luiz Eduardo da Costa\",\n    \"email\": \"costaeduardoluiz@gmail.com\",\n    \"password\": \"asd\",\n    \"id_role\": 1\n}",
                 "form": []
-            },
-            "tests": []
+            }
         },
         {
             "_id": "9636018a-c404-45c4-852b-5534ad4740eb",
@@ -482,32 +481,29 @@
             "method": "POST",
             "sortNum": 170000,
             "created": "2024-02-13T19:33:44.052Z",
-            "modified": "2024-02-13T19:33:44.052Z",
+            "modified": "2024-05-28T01:22:32.918Z",
             "headers": [],
-            "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"cod_user\": \"973913c9-ccb5-4333-8283-f5bc490c2efc\",\n  \"id_diabetes_type\": 1,\n  \"month_diagnosis\": \"May 2021\",\n  \"id_blood_type\": 1\n}",
+                "raw": "{\n  \"cod_user\": \"c4e2378c-45db-4c77-afd6-3b53a61b394e\",\n  \"id_diabetes_type\": 1,\n  \"month_diagnosis\": \"May 2021\",\n  \"id_blood_type\": 1\n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
                 "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MWQ3YzM5LThkMmMtNGIxZS1iZWQ1LTBlYWE4ZThkYTE5NCIsImlhdCI6MTY4NjI2NzU0MiwiZXhwIjoxNjg2MjY5MzQyfQ.RDeQSOaLSAmkyNxLEO1bbdF7jkodF5UU4KacVkmjypw"
-            },
-            "tests": []
+            }
         },
         {
             "_id": "9f14198d-5afa-4218-a9b1-2ef099729338",
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "ea668fe4-43d5-4904-8db5-8f944ab025b1",
             "name": "Forgot password",
-            "url": "https://glicocheck-api.onrender.com/api/reset-password/forgot-password",
+            "url": "{{LOCALHOST}}/api/reset-password/forgot-password",
             "method": "POST",
             "sortNum": 180000,
             "created": "2024-02-13T19:33:44.029Z",
-            "modified": "2024-02-17T02:17:30.856Z",
+            "modified": "2024-05-28T01:52:09.817Z",
             "headers": [],
-            "params": [],
             "body": {
                 "type": "json",
                 "raw": "{\n  \"email\": \"costaeduardoluiz@gmail.com\"\n}",
@@ -516,8 +512,7 @@
             "auth": {
                 "type": "bearer",
                 "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI2MzFkYTliYzYyZmFlZjkwOTU5YWY5OGVkNjk0NmFhMzEyZDZmNDgiLCJpYXQiOjE2ODQyODYyNTksImV4cCI6MTY4NDI4ODA1OX0.7saqeJSr62F3OiWeZ5LwSB2jHll8ZVWo7tFrhbsEiRc"
-            },
-            "tests": []
+            }
         },
         {
             "_id": "05a8dbd8-f3e2-4f8e-bc0f-04b83a553479",
@@ -642,19 +637,17 @@
             "method": "POST",
             "sortNum": 222500,
             "created": "2024-02-13T19:33:44.037Z",
-            "modified": "2024-02-13T19:33:44.037Z",
+            "modified": "2024-05-28T00:39:40.318Z",
             "headers": [],
-            "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"description\": \"Gestational diabetes\"\n}",
+                "raw": "{\n  \n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
                 "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAzYjA2YzZhLTQzNjctNDVmMC04MjM3LTMzOThmNmM1NGNjMSIsImlhdCI6MTY4ODA4NzM5MiwiZXhwIjoxNjg4MDg5MTkyfQ.cHVuucIzsx8YO7YHYCwTo9T-sXy6-pZ0UzP2AwhKtk8"
-            },
-            "tests": []
+            }
         },
         {
             "_id": "98a906b8-fcb2-4245-9967-b254859705ef",
@@ -665,9 +658,8 @@
             "method": "POST",
             "sortNum": 230000,
             "created": "2024-02-13T19:33:44.042Z",
-            "modified": "2024-02-13T19:33:44.042Z",
+            "modified": "2024-05-28T00:50:11.552Z",
             "headers": [],
-            "params": [],
             "body": {
                 "type": "json",
                 "raw": "{\n  \"description\": \"ABC+\"\n}",
@@ -676,8 +668,7 @@
             "auth": {
                 "type": "bearer",
                 "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIyMjIyMjItMjIyMi0yMjIyLTIyMjItMjIyMjIyMjIyMjIyIiwiaWF0IjoxNjg4MDk3MTkzLCJleHAiOjE2ODgwOTg5OTN9.5UbzGGUPr8w7RHlwjRQWQrZf6-cU6DxFjS65mmkL-fM"
-            },
-            "tests": []
+            }
         },
         {
             "_id": "0d55422b-4c2b-4f49-a821-f66a704afc11",
@@ -707,13 +698,12 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "661b36b6-fa16-43a1-acd8-a75ad1fd8f95",
             "name": "Update Type",
-            "url": "{{LOCALHOST}}/api/bloodtype/1",
+            "url": "{{LOCALHOST}}/api/bloodtype/17",
             "method": "PUT",
             "sortNum": 250000,
             "created": "2024-02-13T19:33:44.043Z",
-            "modified": "2024-02-13T19:33:44.043Z",
+            "modified": "2024-05-28T00:50:58.027Z",
             "headers": [],
-            "params": [],
             "body": {
                 "type": "json",
                 "raw": "{\n  \"description\": \"O-\"\n}",
@@ -722,8 +712,7 @@
             "auth": {
                 "type": "bearer",
                 "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJkNGY5ZDA0LTgwOTgtNDJjOC1iNDg5LWUyNDNhNGM1NjJjYSIsImlhdCI6MTY4ODA4ODA4MywiZXhwIjoxNjg4MDg5ODgzfQ._p6nEGQzk7Xp4JKMD8tEHJlOpdtRkZlLgl5oW0UsiBA"
-            },
-            "tests": []
+            }
         },
         {
             "_id": "d535e709-7068-4bd0-8ce2-30dd70904396",
@@ -987,5 +976,6 @@
     ],
     "settings": {
         "envId": "f0223d0d-c7c0-4d5a-b204-ecc7a093cbf2"
-    }
+    },
+    "ref": "AacjCQHooDV61gcZhlKO5Ymi2VTYqhwTJByU3c4KRW8WNtiwpwgdlVJKdzVFnLO_WVuYXfCuZWcjLxZF9vvEqQ"
 }

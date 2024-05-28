@@ -72,11 +72,14 @@ class MarkerMealController {
    * @return {Promise<void>} - A promise that resolves to void.
    * @throws {Error} - If an error occurs during the process.
    */
-  static createNewMarkerMeal = async (req, res) => {
-    logger.info('Executing MarkerMealController.createNewMarkerMeal');
+  static addMarkerMeal = async (req, res) => {
+    logger.info('Executing MarkerMealController.addMarkerMeal');
     try {
-      const newMarkerMeal = { description: req.body.description };
+      if (!req.body.description || req.body.description.trim() === '') {
+        return res.status(400).json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
+      }
 
+      const newMarkerMeal = { description: req.body.description };
       const result = await MarkerMealDAO.add(newMarkerMeal);
 
       if (result.success) {
@@ -87,7 +90,7 @@ class MarkerMealController {
         res.status(500).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error MarkerMealController.createNewMarkerMeal');
+      logger.error('Error MarkerMealController.addMarkerMeal');
       res.status(500).json({ message: Messages.ERROR });
     }
   };
@@ -107,6 +110,10 @@ class MarkerMealController {
       const id = Number.parseInt(req.params.id);
       if (isNaN(id)) {
         return res.status(404).json({ message: Messages.NOTHING_FOUND });
+      }
+
+      if (!req.body.description || req.body.description.trim() === '') {
+        return res.status(400).json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
       }
 
       const updatedMarker = {

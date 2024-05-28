@@ -5,6 +5,21 @@ import Messages from '../utils/messages.js';
 const TABLE_GENDERS = 'genders';
 
 export default class GenderDAO {
+  static async getAll() {
+    try {
+      const genders = await database(TABLE_GENDERS).select('id', 'description');
+
+      if (genders.length > 0) {
+        return { success: true, genders };
+      } else {
+        return { success: false, message: Messages.NOTHING_FOUND };
+      }
+    } catch (error) {
+      logger.error('Error GenderDAO.getAll');
+      throw new Error(Messages.ERROR);
+    }
+  }
+
   static async add(gender) {
     try {
       const createdGender = await database(TABLE_GENDERS).insert(gender, [
@@ -22,21 +37,6 @@ export default class GenderDAO {
       }
     } catch (error) {
       logger.error('Error GenderDAO.add');
-      throw new Error(Messages.ERROR);
-    }
-  }
-
-  static async getAll() {
-    try {
-      const genders = await database(TABLE_GENDERS).select('id', 'description');
-
-      if (genders.length > 0) {
-        return { success: true, genders };
-      } else {
-        return { success: false, message: Messages.NOTHING_FOUND };
-      }
-    } catch (error) {
-      logger.error('Error GenderDAO.getAll');
       throw new Error(Messages.ERROR);
     }
   }

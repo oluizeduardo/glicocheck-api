@@ -7,10 +7,8 @@ import SystemConfigurationDAO from '../dao/SystemConfigurationDAO.js';
  * SystemConfigurationController.
  */
 class SystemConfigurationController {
-  static addSystemConfiguration = async (req, res) => {
-    logger.info(
-      'Executing SystemConfigurationController.addSystemConfiguration'
-    );
+  static addNew = async (req, res) => {
+    logger.info('Executing SystemConfigurationController.addNew');
     // Destructure fields
     const {
       cod_user,
@@ -82,13 +80,13 @@ class SystemConfigurationController {
         return res.status(500).json({ message: Messages.ERROR });
       }
     } catch (error) {
-      logger.error('Error SystemConfigurationController.addSystemConfiguration', error);
+      logger.error('Error SystemConfigurationController.addNew', error);
       return res.status(500).json({ message: Messages.ERROR });
     }
   };
 
-  static getAllSystemConfiguration = async (req, res) => {
-    logger.info('Executing SystemConfigurationController.getAllSystemConfiguration');
+  static getAll = async (req, res) => {
+    logger.info('Executing SystemConfigurationController.getAll');
     try {
       const result = await SystemConfigurationDAO.getAll();
 
@@ -98,7 +96,7 @@ class SystemConfigurationController {
         return res.status(500).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error SystemConfigurationController.getAllSystemConfiguration', error);
+      logger.error('Error SystemConfigurationController.getAll', error);
       return res.status(500).json({ message: Messages.ERROR });
     }
   };

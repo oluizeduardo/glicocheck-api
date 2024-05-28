@@ -40,8 +40,13 @@ class DiabetesTypeController {
    * @return {Promise<void>} - A promise that resolves to void.
    * @throws {Error} - If an error occurs during the process.
    */
-  static createNewType = async (req, res) => {
-    logger.info('Executing DiabetesTypeController.createNewType');
+  static addType = async (req, res) => {
+    logger.info('Executing DiabetesTypeController.addType');
+    
+    if (!req.body.description || req.body.description.trim() === '') {
+      return res.status(400).json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
+    }
+    
     try {
       const newType = {
         description: req.body.description,
@@ -57,7 +62,7 @@ class DiabetesTypeController {
         res.status(500).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error DiabetesTypeController.createNewType');
+      logger.error('Error DiabetesTypeController.addType');
       res.status(500).json({ message: Messages.ERROR });
     }
   };

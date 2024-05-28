@@ -5,6 +5,21 @@ import Messages from '../utils/messages.js';
 const TABLE_DIABETES_TYPES = 'diabetes_types';
 
 export default class DiabetesTypeDAO {
+  static async getAll() {
+    try {
+      const types = await database(TABLE_DIABETES_TYPES).select('*');
+
+      if (types.length > 0) {
+        return { success: true, types };
+      } else {
+        return { success: false, message: Messages.NOTHING_FOUND };
+      }
+    } catch (error) {
+      logger.error('Error DiabetesTypeDAO.getAll');
+      throw new Error(Messages.ERROR);
+    }
+  }
+
   static async add(newType) {
     try {
       const createdType = await database(TABLE_DIABETES_TYPES).insert(newType, [
@@ -22,21 +37,6 @@ export default class DiabetesTypeDAO {
       }
     } catch (error) {
       logger.error('Error DiabetesTypeDAO.add');
-      throw new Error(Messages.ERROR);
-    }
-  }
-
-  static async getAll() {
-    try {
-      const types = await database(TABLE_DIABETES_TYPES).select('*');
-
-      if (types.length > 0) {
-        return { success: true, types };
-      } else {
-        return { success: false, message: Messages.NOTHING_FOUND };
-      }
-    } catch (error) {
-      logger.error('Error DiabetesTypeDAO.getAll');
       throw new Error(Messages.ERROR);
     }
   }

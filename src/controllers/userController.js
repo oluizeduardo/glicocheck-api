@@ -7,7 +7,24 @@ import DateTimeUtil from '../utils/dateTimeUtil.js';
  * UserController.
  */
 class UserController {
-  
+  static getAllUsers = async (req, res) => {
+    logger.info('Executing UserController.getAllUsers');
+    try {
+      const result = await UserDAO.getAll();
+
+      if (result.success) {
+        res.status(200).json(result.users);
+      } else {
+        res.status(404).json({ message: result.message });
+      }
+    } catch (error) {
+      logger.error('Error UserController.getAllUsers');
+      res.status(500).json({
+        message: Messages.ERROR,
+      });
+    }
+  };
+
   static addUser = async (req, res) => {
     logger.info('Executing UserController.addUser');
     try {
@@ -31,24 +48,6 @@ class UserController {
       }
     } catch (error) {
       logger.error(`Error UserController.addUser - ${error.message}`);
-      res.status(500).json({
-        message: Messages.ERROR,
-      });
-    }
-  };
-
-  static getAllUsers = async (req, res) => {
-    logger.info('Executing UserController.getAllUsers');
-    try {
-      const result = await UserDAO.getAll();
-
-      if (result.success) {
-        res.status(200).json(result.users);
-      } else {
-        res.status(404).json({ message: result.message });
-      }
-    } catch (error) {
-      logger.error('Error UserController.getAllUsers');
       res.status(500).json({
         message: Messages.ERROR,
       });

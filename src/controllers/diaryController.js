@@ -13,8 +13,8 @@ const NOT_FOUND = 404;
 const INTERNAL_SERVER_ERROR = 500;
 
 class DiaryController {
-  static addDiaryRecord = async (req, res) => {
-    logger.info('Executing DiaryController.addDiaryRecord');
+  static addNew = async (req, res) => {
+    logger.info('Executing DiaryController.addNew');
     try {
       // Validate input.
       const { cod_user, glucose, total_carbs, dateTime, id_markermeal } =
@@ -45,15 +45,15 @@ class DiaryController {
         return res.status(CLIENT_ERROR).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error DiaryController.addDiaryRecord.', error);
+      logger.error('Error DiaryController.addNew.', error);
       return res
         .status(INTERNAL_SERVER_ERROR)
         .json({ message: Messages.ERROR });
     }
   };
 
-  static getAllDiaryRecords = async (req, res) => {
-    logger.info('Executing DiaryController.getAllDiaryRecords');
+  static getAll = async (req, res) => {
+    logger.info('Executing DiaryController.getAll');
     try {
       const { start, end } = req.query;
 
@@ -72,7 +72,7 @@ class DiaryController {
         return res.status(CLIENT_ERROR).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error DiaryController.getAllDiaryRecords');
+      logger.error('Error DiaryController.getAll');
       return res
         .status(INTERNAL_SERVER_ERROR)
         .json({ message: Messages.ERROR });
@@ -95,8 +95,8 @@ class DiaryController {
     return date.isBetween(startDate, endDate, null, inclusivity);
   }
 
-  static getDiaryRecordById = async (req, res) => {
-    logger.info('Executing DiaryController.getDiaryRecordById');
+  static getById = async (req, res) => {
+    logger.info('Executing DiaryController.getById');
     try {
       const id = Number.parseInt(req.params.id);
       if (isNaN(id)) {
@@ -113,15 +113,15 @@ class DiaryController {
         return res.status(CLIENT_ERROR).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error DiaryController.getDiaryRecordById');
+      logger.error('Error DiaryController.getById');
       return res
         .status(INTERNAL_SERVER_ERROR)
         .json({ message: Messages.ERROR });
     }
   };
 
-  static updateDiaryRecordById = async (req, res) => {
-    logger.info('Executing DiaryController.updateDiaryRecordById');
+  static updateById = async (req, res) => {
+    logger.info('Executing DiaryController.updateById');
     try {
       // Validate id
       const id = Number.parseInt(req.params.id);
@@ -152,15 +152,15 @@ class DiaryController {
         return res.status(NOT_FOUND).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error DiaryController.updateDiaryRecordById');
+      logger.error('Error DiaryController.updateById');
       return res
         .status(INTERNAL_SERVER_ERROR)
         .json({ message: Messages.ERROR });
     }
   };
 
-  static deleteDiaryRecordById = async (req, res) => {
-    logger.info('Executing DiaryController.deleteDiaryRecordById');
+  static deleteById = async (req, res) => {
+    logger.info('Executing DiaryController.deleteById');
     try {
       const id = Number.parseInt(req.params.id);
       if (isNaN(id)) {
@@ -175,7 +175,7 @@ class DiaryController {
         return res.status(NOT_FOUND).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error DiaryController.deleteDiaryRecordById');
+      logger.error('Error DiaryController.deleteById');
       return res
         .status(INTERNAL_SERVER_ERROR)
         .json({ message: Messages.ERROR });
@@ -205,8 +205,8 @@ class DiaryController {
     }
   };
 
-  static deleteDiaryRecordsByUserCode = async (req, res) => {
-    logger.info('Executing DiaryController.deleteDiaryRecordsByUserCode');
+  static deleteByUserCode = async (req, res) => {
+    logger.info('Executing DiaryController.deleteByUserCode');
     try {
       // Validate user code.
       const userCode = req.params.usercode;
@@ -222,13 +222,13 @@ class DiaryController {
         return res.status(NOT_FOUND).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error DiaryController.deleteDiaryRecordsByUserCode');
+      logger.error('Error DiaryController.deleteByUserCode');
       return res.status(INTERNAL_SERVER_ERROR).json({ message: Messages.ERROR });
     }
   };
 
-  static getDiaryRecordsByUserCode = async (req, res) => {
-    logger.info('Executing DiaryController.getDiaryRecordsByUserCode');
+  static getByUserCode = async (req, res) => {
+    logger.info('Executing DiaryController.getByUserCode');
     try {
       const userCode = req.params.usercode;
 
@@ -244,7 +244,7 @@ class DiaryController {
         res.status(NOT_FOUND).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error DiaryController.getDiaryRecordsByUserCode');
+      logger.error('Error DiaryController.getByUserCode');
       return res.status(INTERNAL_SERVER_ERROR).json({ message: Messages.ERROR });
     }
   };
