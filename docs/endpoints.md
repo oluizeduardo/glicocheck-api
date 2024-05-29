@@ -5,9 +5,10 @@
 
 ## Users
 - **POST /users** - Register a new user.
-- **GET /users/:id** - Search by a specific user.
-- **PUT /users/:id** - Update an existing user.
-- **DELETE /users/:id** - Delete an existing user.
+- **GET /users** - Get the list of users.
+- **GET /users/:usercode** - Search by a specific user.
+- **PUT /users/:usercode** - Update an existing user.
+- **DELETE /users/:usercode** - Delete an existing user.
 
 ## Genders
 - **POST /genders** - Register a new gender.
@@ -38,8 +39,8 @@
 - **DELETE /markermeal/:id** - Delete an existing marker meal.
 
 ## Authentication
-- **POST /login** - Used to log-in the system.
-- **POST /validate-password** - Register a new marker meal.
+- **POST /authentication/login** - Used to log-in the system.
+- **POST /authentication/validate-password** - Register a new marker meal.
 
 ## Carbs Counting
 - **GET /carbscounting/:food** - Get the amount of carbohydrate of the food provided.
@@ -47,18 +48,18 @@
 ## Health Info
 - **POST /healthinfo** - Register a new users's health info.
 - **GET /healthinfo** - Get the list of users's health info.
-- **GET /healthinfo/user/:userId** - Search by the health info of a specific user.
-- **PUT /healthinfo/user/:userId** - Update the health info of a specific user.
-- **DELETE /healthinfo/user/:userId** - Delete the health info of a specific user.
+- **GET /healthinfo/user/:usercode** - Search by the health info of a specific user.
+- **PUT /healthinfo/user/:usercode** - Update the health info of a specific user.
+- **DELETE /healthinfo/user/:usercode** - Delete the health info of a specific user.
 
 ## System Configuration
+- **GET /systemconfiguration** - Get the list of system configuration.
 - **POST /systemconfiguration** - Register system configuration for a specific user.
-- **GET /systemconfiguration** - Get the list of marker meals.
-- **GET /systemconfiguration/:id** - Search by a specific marker meal.
+- **GET /systemconfiguration/:id** - Search for a specific system configuration register.
 - **DELETE /systemconfiguration/:id** - Delete a specific system configuration.
-- **GET /systemconfiguration/user/:userId** - GET the system configuration of an existing user.
-- **PUT /systemconfiguration/user/:userId** - Update the system configuration of an existing user.
-- **DELETE /systemconfiguration/user/:userId** - Delete the system configuration of an existing user.  
+- **GET /systemconfiguration/user/:usercode** - Get the system configuration of an existing user.
+- **PUT /systemconfiguration/user/:usercode** - Update the system configuration of an existing user.
+- **DELETE /systemconfiguration/user/:usercode** - Delete the system configuration of an existing user.
 
 ## Reset Password
 - **GET /reset-password/forgot-password** 
