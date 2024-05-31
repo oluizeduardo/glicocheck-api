@@ -1,9 +1,9 @@
 import express from 'express';
 const genderRouter = express.Router();
 import GenderController from '../controllers/genderController.js';
-import SecurityUtils from '../utils/securityUtils.js';
+import AuthMiddleware from '../routes/middleware/authMiddleware.js';
 
-genderRouter.use(SecurityUtils.checkToken);
+genderRouter.use(AuthMiddleware.checkToken);
 genderRouter.use(express.json());
 
 genderRouter

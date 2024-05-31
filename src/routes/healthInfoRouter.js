@@ -1,9 +1,9 @@
 import express from 'express';
 const healthInfoRouter = express.Router();
 import HealthInfoController from '../controllers/healthInfoController.js';
-import SecurityUtils from '../utils/securityUtils.js';
+import AuthMiddleware from '../routes/middleware/authMiddleware.js';
 
-healthInfoRouter.use(SecurityUtils.checkToken);
+healthInfoRouter.use(AuthMiddleware.checkToken);
 healthInfoRouter.use(express.json());
 
 healthInfoRouter

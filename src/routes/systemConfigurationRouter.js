@@ -1,9 +1,9 @@
 import express from 'express';
 const systemConfigurationRouter = express.Router();
 import SystemConfigurationController from '../controllers/systemConfigurationController.js';
-import SecurityUtils from '../utils/securityUtils.js';
+import AuthMiddleware from '../routes/middleware/authMiddleware.js';
 
-systemConfigurationRouter.use(SecurityUtils.checkToken);
+systemConfigurationRouter.use(AuthMiddleware.checkToken);
 systemConfigurationRouter.use(express.json());
 
 systemConfigurationRouter

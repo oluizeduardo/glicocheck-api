@@ -1,9 +1,9 @@
 import express from 'express';
 const usersRouter = express.Router();
 import UserController from '../controllers/userController.js';
-import SecurityUtils from '../utils/securityUtils.js';
+import AuthMiddleware from '../routes/middleware/authMiddleware.js';
 
-usersRouter.use(SecurityUtils.checkToken);
+usersRouter.use(AuthMiddleware.checkToken);
 usersRouter.use(express.json());
 
 usersRouter

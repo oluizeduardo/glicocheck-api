@@ -1,9 +1,9 @@
 import express from 'express';
 const diabetesTypeRouter = express.Router();
 import DiabetesTypeController from '../controllers/diabetesTypeController.js';
-import SecurityUtils from '../utils/securityUtils.js';
+import AuthMiddleware from '../routes/middleware/authMiddleware.js';
 
-diabetesTypeRouter.use(SecurityUtils.checkToken);
+diabetesTypeRouter.use(AuthMiddleware.checkToken);
 diabetesTypeRouter.use(express.json());
 
 diabetesTypeRouter
