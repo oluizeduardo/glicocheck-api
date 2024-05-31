@@ -1,16 +1,17 @@
 import express from 'express';
 const genderRouter = express.Router();
 import GenderController from '../controllers/genderController.js';
-import SecurityUtils from '../utils/securityUtils.js';
+import AuthMiddleware from '../routes/middleware/authMiddleware.js';
+import RoleMiddleware from '../routes/middleware/roleMiddleware.js';
 
-genderRouter.use(SecurityUtils.checkToken);
+genderRouter.use(AuthMiddleware.checkToken);
 genderRouter.use(express.json());
 
 genderRouter
   .get('/', GenderController.getAllGenders)
-  .post('/', GenderController.addGender)
+  .post('/', RoleMiddleware.isAdminUser, GenderController.addGender)
   .get('/:id', GenderController.getGenderById)
-  .put('/:id', GenderController.updateGenderById)
-  .delete('/:id', GenderController.deleteGenderById);
+  .put('/:id', RoleMiddleware.isAdminUser, GenderController.updateGenderById)
+  .delete('/:id', RoleMiddleware.isAdminUser, GenderController.deleteGenderById);
 
 export default genderRouter;

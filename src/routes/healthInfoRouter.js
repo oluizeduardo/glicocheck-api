@@ -1,13 +1,14 @@
 import express from 'express';
 const healthInfoRouter = express.Router();
 import HealthInfoController from '../controllers/healthInfoController.js';
-import SecurityUtils from '../utils/securityUtils.js';
+import AuthMiddleware from '../routes/middleware/authMiddleware.js';
+import RoleMiddleware from '../routes/middleware/roleMiddleware.js';
 
-healthInfoRouter.use(SecurityUtils.checkToken);
+healthInfoRouter.use(AuthMiddleware.checkToken);
 healthInfoRouter.use(express.json());
 
 healthInfoRouter
-  .get('/', HealthInfoController.getAll)
+  .get('/', RoleMiddleware.isAdminUser, HealthInfoController.getAll)
   .post('/', HealthInfoController.addNew)
   .get('/user/:usercode', HealthInfoController.getByUserCode)
   .put('/user/:usercode', HealthInfoController.updateByUserCode)

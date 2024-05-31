@@ -103,27 +103,32 @@ export default class UserDAO {
 
   static async updateByCondition(condition, value, updatedUser, conditionName) {
     try {
-        const numAffectedRegisters = await database(TABLE_USERS)
-            .where(condition, value)
-            .update(updatedUser);
+      const numAffectedRegisters = await database(TABLE_USERS)
+        .where(condition, value)
+        .update(updatedUser);
 
-        if (numAffectedRegisters === 0) {
-            return { success: false, message: Messages.USER_NOT_FOUND };
-        } else {
-            return { success: true, updatedUser };
-        }
+      if (numAffectedRegisters === 0) {
+        return { success: false, message: Messages.USER_NOT_FOUND };
+      } else {
+        return { success: true, updatedUser };
+      }
     } catch (error) {
-        logger.error(`Error UserDAO.updateBy${conditionName}`, error);
-        throw new Error(Messages.ERROR);
+      logger.error(`Error UserDAO.updateBy${conditionName}`, error);
+      throw new Error(Messages.ERROR);
     }
   }
 
   static async updateByUserCode(userCode, updatedUser) {
-      return this.updateByCondition('cod_user', userCode, updatedUser, 'UserCode');
+    return this.updateByCondition(
+      'cod_user',
+      userCode,
+      updatedUser,
+      'UserCode'
+    );
   }
 
   static async updateByEmail(email, updatedUser) {
-      return this.updateByCondition('email', email, updatedUser, 'Email');
+    return this.updateByCondition('email', email, updatedUser, 'Email');
   }
 
   static async deleteByUserCode(userCode) {
@@ -159,4 +164,29 @@ export default class UserDAO {
       .limit(1);
     return registers.length > 0;
   }
+
+  /**
+   * Retrieves the user's role id.
+   *
+   * @async
+   * @param {number} userId - The ID of the user.
+   * @return {Promise<number>} A Promise that resolves with the role ID of the user.
+   * @throws {Error} If the user is not found or an error occurs while checking the user's role.
+   */
+  static getUserRoleId = async (userCode) => {
+    try {
+      const result = await database(TABLE_USERS)
+        .where('cod_user', userCode)
+        .select('id_role');
+
+      if (result.length > 0) {
+        return { success: true, user_role_id: result[0].id_role };
+      } else {
+        return { success: false, message: Messages.USER_NOT_FOUND };
+      }
+    } catch (err) {
+      logger.error(`Error executing Role.getUserRoleId: ${err.message}`);
+      throw new Error(Messages.ERROR_CHECKING_USER_ROLE);
+    }
+  };
 }

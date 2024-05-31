@@ -1,16 +1,17 @@
 import express from 'express';
 const diabetesTypeRouter = express.Router();
 import DiabetesTypeController from '../controllers/diabetesTypeController.js';
-import SecurityUtils from '../utils/securityUtils.js';
+import AuthMiddleware from '../routes/middleware/authMiddleware.js';
+import RoleMiddleware from '../routes/middleware/roleMiddleware.js';
 
-diabetesTypeRouter.use(SecurityUtils.checkToken);
+diabetesTypeRouter.use(AuthMiddleware.checkToken);
 diabetesTypeRouter.use(express.json());
 
 diabetesTypeRouter
   .get('/', DiabetesTypeController.getAllTypes)
-  .post('/', DiabetesTypeController.addType)
+  .post('/', RoleMiddleware.isAdminUser, DiabetesTypeController.addType)
   .get('/:id', DiabetesTypeController.getTypeById)
-  .put('/:id', DiabetesTypeController.updateTypeById)
-  .delete('/:id', DiabetesTypeController.deleteTypeById);
+  .put('/:id', RoleMiddleware.isAdminUser, DiabetesTypeController.updateTypeById)
+  .delete('/:id', RoleMiddleware.isAdminUser, DiabetesTypeController.deleteTypeById);
 
 export default diabetesTypeRouter;

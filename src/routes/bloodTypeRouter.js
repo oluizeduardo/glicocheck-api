@@ -1,16 +1,17 @@
 import express from 'express';
 const bloodTypeRouter = express.Router();
 import BloodTypeController from '../controllers/bloodTypeController.js';
-import SecurityUtils from '../utils/securityUtils.js';
+import AuthMiddleware from '../routes/middleware/authMiddleware.js';
+import RoleMiddleware from '../routes/middleware/roleMiddleware.js';
 
-bloodTypeRouter.use(SecurityUtils.checkToken);
+bloodTypeRouter.use(AuthMiddleware.checkToken);
 bloodTypeRouter.use(express.json());
 
 bloodTypeRouter
   .get('/', BloodTypeController.getAllTypes)
-  .post('/', BloodTypeController.addType)
+  .post('/', RoleMiddleware.isAdminUser, BloodTypeController.addType)
   .get('/:id', BloodTypeController.getTypeById)
-  .put('/:id', BloodTypeController.updateTypeById)
-  .delete('/:id', BloodTypeController.deleteTypeById);
+  .put('/:id', RoleMiddleware.isAdminUser, BloodTypeController.updateTypeById)
+  .delete('/:id', RoleMiddleware.isAdminUser, BloodTypeController.deleteTypeById);
 
 export default bloodTypeRouter;

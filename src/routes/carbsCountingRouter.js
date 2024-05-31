@@ -1,9 +1,9 @@
 import express from 'express';
 const carbsCountingRouter = express.Router();
 import CarbsCountingController from '../controllers/carbsCountingController.js';
-import SecurityUtils from '../utils/securityUtils.js';
+import AuthMiddleware from '../routes/middleware/authMiddleware.js';
 
-carbsCountingRouter.use(SecurityUtils.checkToken);
+carbsCountingRouter.use(AuthMiddleware.checkToken);
 
 carbsCountingRouter.get('/:food', CarbsCountingController.calculatesTotalCarbohydrate);
 

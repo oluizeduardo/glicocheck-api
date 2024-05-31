@@ -1,16 +1,17 @@
 import express from 'express';
 const systemConfigurationRouter = express.Router();
 import SystemConfigurationController from '../controllers/systemConfigurationController.js';
-import SecurityUtils from '../utils/securityUtils.js';
+import AuthMiddleware from '../routes/middleware/authMiddleware.js';
+import RoleMiddleware from '../routes/middleware/roleMiddleware.js';
 
-systemConfigurationRouter.use(SecurityUtils.checkToken);
+systemConfigurationRouter.use(AuthMiddleware.checkToken);
 systemConfigurationRouter.use(express.json());
 
 systemConfigurationRouter
-  .get('/', SystemConfigurationController.getAll)
-  .post('/', SystemConfigurationController.addNew)
-  .get('/:id', SystemConfigurationController.getById)
-  .delete('/:id', SystemConfigurationController.deleteById)
+  .get('/', RoleMiddleware.isAdminUser, SystemConfigurationController.getAll)
+  .post('/', RoleMiddleware.isAdminUser, SystemConfigurationController.addNew)
+  .get('/:id', RoleMiddleware.isAdminUser, SystemConfigurationController.getById)
+  .delete('/:id', RoleMiddleware.isAdminUser, SystemConfigurationController.deleteById)
   .get('/user/:usercode', SystemConfigurationController.getByUserCode)
   .put('/user/:usercode', SystemConfigurationController.updateByUserCode)
   .delete('/user/:usercode', SystemConfigurationController.deleteByUserCode);
