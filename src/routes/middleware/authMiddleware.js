@@ -24,8 +24,8 @@ export default class AuthMiddleware {
     req.token = token;
 
     try {
-      const decodeToken = verify(req.token, process.env.SECRET_KEY);
-      req.userId = decodeToken.id;
+      const decodedToken = verify(req.token, process.env.SECRET_KEY);
+      req.userId = decodedToken.id;
       return next();
     } catch (err) {
       logger.error(`Error cheking JWT token - ${err.name}`);
