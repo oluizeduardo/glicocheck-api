@@ -1,7 +1,9 @@
 import express from 'express';
 const bloodTypeRouter = express.Router();
 import BloodTypeController from '../controllers/bloodTypeController.js';
+import SecurityUtils from '../utils/securityUtils.js';
 
+bloodTypeRouter.use(SecurityUtils.checkToken);
 bloodTypeRouter.use(express.json());
 
 bloodTypeRouter

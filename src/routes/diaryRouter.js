@@ -1,7 +1,9 @@
 import express from 'express';
 const diaryRouter = express.Router();
 import DiaryController from '../controllers/diaryController.js';
+import SecurityUtils from '../utils/securityUtils.js';
 
+diaryRouter.use(SecurityUtils.checkToken);
 diaryRouter.use(express.json());
 
 diaryRouter

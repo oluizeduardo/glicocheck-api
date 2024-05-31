@@ -3,8 +3,8 @@ const usersRouter = express.Router();
 import UserController from '../controllers/userController.js';
 import SecurityUtils from '../utils/securityUtils.js';
 
-usersRouter.use(express.json());
 usersRouter.use(SecurityUtils.checkToken);
+usersRouter.use(express.json());
 
 usersRouter
   .get('/', UserController.getAllUsers)
