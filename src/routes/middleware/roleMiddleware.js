@@ -18,11 +18,10 @@ export default class RoleMiddleware {
    * @return {void}
    */
   static isAdminUser = async (req, res, next) => {
-    const userId = req.userId;
+    const usercode = req.usercode;
 
     try {
-      const result = await UserDAO.getUserRoleId(userId);
-      logger.info('result: '+result.user_role_id);
+      const result = await UserDAO.getUserRoleId(usercode);
 
       if (result.user_role_id === ADMIN_ROLE_ID) {
         next();
@@ -47,10 +46,10 @@ export default class RoleMiddleware {
    * @return {void}
    */
   static isRegularUser = async (req, res, next) => {
-    const userId = req.userId;
+    const usercode = req.usercode;
 
     try {
-      const result = await UserDAO.getUserRoleId(userId);
+      const result = await UserDAO.getUserRoleId(usercode);
 
       if (result.user_role_id === REGULAR_ROLE_ID) {
         next();
