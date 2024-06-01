@@ -6,16 +6,16 @@ export default class Messages {
   static PONG = 'Pong';
   static ERROR = 'An error occurred.';
   static INCOMPLETE_DATA_PROVIDED = 'Incomplete data provided.';
-  static NOTHING_FOUND = 'Nothing found';
-  static REFUSED_ACCESS = 'Refused access';
+  static NOTHING_FOUND = 'Nothing found.';
+  static REFUSED_ACCESS = 'Refused access.';
   static EXECUTION_NOT_ALLOWED = 'You\'re not allowed to execute this function.';
-  static REGISTER_DELETED = 'The register has been deleted';
-  static WRONG_CREDENTIALS = 'Wrong credentials';
+  static REGISTER_DELETED = 'The register has been deleted.';
+  static WRONG_CREDENTIALS = 'Wrong credentials.';
   static ERROR_CHECKING_CREDENTIALS = 'Error checking credentials.';
 
   // Access Token
-  static TOKEN_REQUIRED = 'Access token required';
-  static TOKEN_EXPIRED = 'Token expired';
+  static TOKEN_REQUIRED = 'Access token required.';
+  static TOKEN_EXPIRED = 'Token expired.';
 
   // User
   static NEW_USER_CREATED = 'New user created.';
@@ -26,6 +26,7 @@ export default class Messages {
   static ERROR_UPDATING_USER = 'Error updating user.';
   static ERROR_CHECKING_USER_ROLE = 'Error checking user role.';
   static EMAIL_ALREADY_USED = 'The email address is already used.';
+  static USER_CODE_NOT_INFORMED = 'User code not informed.';
 
   // Blood sugar diary
   static NEW_DIARY_DATA_ADDED = 'New blood sugar diary register added.';
