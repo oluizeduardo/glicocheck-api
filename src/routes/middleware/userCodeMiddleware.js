@@ -13,7 +13,10 @@ export default class UserCodeMiddleware {
     }
 
     if (requestedUserCode !== authenticatedUserCode) {
-      return res.status(403).json({ message: Messages.REFUSED_ACCESS });
+      return res.status(403).json({ 
+        message: Messages.REFUSED_ACCESS,
+        reason: 'Incorrect user code.' 
+      });
     }
     return next();
   };
