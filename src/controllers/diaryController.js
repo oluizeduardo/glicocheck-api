@@ -16,17 +16,22 @@ class DiaryController {
   static addNew = async (req, res) => {
     logger.info('Executing DiaryController.addNew');
     try {
+      // Validate param.
+      const userCode = req.params.usercode;
+      if (!userCode) {
+        return res.status(CLIENT_ERROR).json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
+      }
+
       // Validate input.
-      const { cod_user, glucose, total_carbs, dateTime, id_markermeal } =
-        req.body;
-      if (!cod_user || !glucose || !dateTime || !id_markermeal) {
+      const { glucose, total_carbs, dateTime, id_markermeal } = req.body;
+      if (!glucose || !dateTime || !id_markermeal) {
         return res
           .status(CLIENT_ERROR)
           .json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
       }
 
       // Check existing user.
-      const userResult = await UserDAO.getByUserCode(cod_user);
+      const userResult = await UserDAO.getByUserCode(userCode);
       if (!userResult.success) {
         return res.status(NOT_FOUND).json({ message: userResult.message });
       }
