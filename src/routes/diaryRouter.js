@@ -13,7 +13,7 @@ diaryRouter
   .post('/:usercode', UserCodeMiddleware.validateUserCode, DiaryController.addNew)
   .get('/:id', DiaryController.getById)
   .put('/:usercode/:id', UserCodeMiddleware.validateUserCode, DiaryController.updateById)
-  .delete('/:id', DiaryController.deleteById)
+  .delete('/:usercode/:id', UserCodeMiddleware.validateUserCode, DiaryController.deleteById)
   .delete('/user/:usercode', UserCodeMiddleware.validateUserCode, DiaryController.deleteByUserCode)
   .get('/user/:usercode', UserCodeMiddleware.validateUserCode, DiaryController.getByUserCode);
 
