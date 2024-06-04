@@ -79,10 +79,15 @@ export default class DiaryDAO {
     }
   }
 
-  static async updateById(id, diary) {
+  static async updateById(id, userCode, diary) {
     try {
       const numAffectedRegisters = await database(TABLE_NAME)
         .where('id', id)
+        .whereIn('id_user', function() {
+          this.select('id')
+            .from('users')
+            .where('cod_user', userCode);
+        })
         .update(diary);
 
       if (numAffectedRegisters === 0) {
