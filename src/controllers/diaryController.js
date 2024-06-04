@@ -128,6 +128,12 @@ class DiaryController {
   static updateById = async (req, res) => {
     logger.info('Executing DiaryController.updateById');
     try {
+      // Validate user code
+      const userCode = req.params.usercode;
+      if (!userCode) {
+        return res.status(CLIENT_ERROR).json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
+      }
+
       // Validate id
       const id = Number.parseInt(req.params.id);
       if (isNaN(id)) {
@@ -149,7 +155,7 @@ class DiaryController {
         updated_at: DateTimeUtil.getCurrentDateTime(),
       };
 
-      const result = await DiaryDAO.updateById(id, updatedDiary);
+      const result = await DiaryDAO.updateById(id, userCode, updatedDiary);
 
       if (result.success) {
         return res.status(OK).json(result.diary);
