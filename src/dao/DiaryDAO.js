@@ -69,7 +69,7 @@ export default class DiaryDAO {
         );
 
       if (result.length > 0) {
-        return { success: true, diary: result[0] };
+        return { success: true, diary: result };
       } else {
         return { success: false, message: Messages.NOTHING_FOUND };
       }
