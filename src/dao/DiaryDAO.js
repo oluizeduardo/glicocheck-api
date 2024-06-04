@@ -101,12 +101,22 @@ export default class DiaryDAO {
     }
   }
 
-  static async deleteById(id) {
+  static async deleteById(id, userCode) {
     try {
+
+      // Check the register existence.
       const result = await database(TABLE_NAME).where('id', id).select('id');
 
       if (result.length > 0) {
-        await database(TABLE_NAME).where('id', result[0].id).del();
+        await database(TABLE_NAME)
+        .where('id', result[0].id)
+        .whereIn('id_user', function() {
+          this.select('id')
+            .from('users')
+            .where('cod_user', userCode);
+        })
+        .del();
+
         return { success: true, message: Messages.DIARY_DATA_DELETED };
       } else {
         return { success: false, message: Messages.NOTHING_FOUND };

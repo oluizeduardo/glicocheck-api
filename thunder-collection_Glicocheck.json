@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "Glicocheck",
     "collectionId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
-    "dateExported": "2024-06-04T01:26:07.578Z",
+    "dateExported": "2024-06-04T01:43:50.010Z",
     "version": "1.2",
     "folders": [
         {
@@ -354,15 +354,15 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
             "name": "Delete glucose record by id",
-            "url": "{{LOCALHOST}}/api/diary/1",
+            "url": "{{LOCALHOST}}/api/diary/78412d60-ce7e-4a37-9bb1-6ab73187fa0d/7",
             "method": "DELETE",
             "sortNum": 90000,
             "created": "2024-02-13T19:33:44.017Z",
-            "modified": "2024-06-02T17:25:05.030Z",
+            "modified": "2024-06-04T01:41:14.690Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk0Yjk0NGMzLTc5MTItNGI4Mi04ODZkLTM2NzY3M2QwYTRjOSIsImlhdCI6MTcxNzM0NzU2MywiZXhwIjoxNzE3MzQ5MzYzfQ.pubA2qOwIYCsd-Llxsx9t4TXAsFBqslOXi_7jQV0hfU"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc4NDEyZDYwLWNlN2UtNGEzNy05YmIxLTZhYjczMTg3ZmEwZCIsImlhdCI6MTcxNzQ2NTEzNiwiZXhwIjoxNzE3NDY2OTM2fQ.eHBiP2nQiCrfnW70EwbA_leF0J8U7pv7HGFvBrlSOtg"
             }
         },
         {
@@ -914,5 +914,5 @@
     "settings": {
         "envId": "f0223d0d-c7c0-4d5a-b204-ecc7a093cbf2"
     },
-    "ref": "AacjCQHooDV61gcZhlKO5dE6COwnuMOEFbzomqOy1CWp2_ncWgnyqo_VKqfS2H3G2FuKZUkSI-nYNECdjwJYMg"
+    "ref": "AacjCQHooDV61gcZhlKO5dE6COwnuMOEFbzomqOy1CV3Ed4VwkvqDsU4tvk7iIkcHaKTaALgZkrdfByc7Uh_ZQ"
 }

@@ -173,12 +173,19 @@ class DiaryController {
   static deleteById = async (req, res) => {
     logger.info('Executing DiaryController.deleteById');
     try {
+      // Validate user code
+      const userCode = req.params.usercode;
+      if (!userCode) {
+        return res.status(CLIENT_ERROR).json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
+      }
+
+      // Validate id
       const id = Number.parseInt(req.params.id);
       if (isNaN(id)) {
         return res.status(NOT_FOUND).json({ message: Messages.NOTHING_FOUND });
       }
 
-      const result = await DiaryDAO.deleteById(id);
+      const result = await DiaryDAO.deleteById(id, userCode);
 
       if (result.success) {
         return res.status(OK).json({ message: result.message });
