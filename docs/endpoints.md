@@ -62,13 +62,11 @@
 - 🔒 **DELETE /systemconfiguration/user/:usercode** - Delete the system configuration of an existing user.
 
 ## Diary
-- 🔒 **POST /diary** - Register a new blood sugar diary.
-- 🔒 **GET /diary** - Get the list of blood sugar diaries.
-- 🔒 **GET /diary/:id** - Search by a specific register in the blood sugar diary.
-- 🔒 **PUT /diary/:id** - Update an existing register in the blood sugar diary.
-- 🔒 **DELETE /diary/:id** - Delete an existing register in the blood sugar diary.
-- 🔒 **DELETE /diary/user/:usercode** - Delete an existing register in the blood sugar diary by user id.
-- 🔒 **DELETE /diary/user/:usercode** - Search by the list of registers in the blood sugar diary by user id.
+- 🔒 **POST /diary/user/:usercode** - Register a new glycemia diary by user code.
+- 🔒 **GET /diary/user/:usercode** - Get the list of glycemia registers by user code.
+- 🔒 **PUT /diary/user/:usercode/:id** - Update an existing register in the glycemia diary by user code.
+- 🔒 **DELETE /diary/user/:usercode/:id** - Delete an existing register in the glycemia diary by user code.
+- 🔒 **DELETE /diary/user/:usercode** - Delete all registers by user code in the glycemia diary.
 
 ## Reset Password
 - 🔒 **POST /reset-password/forgot-password** - Send a message to the email provided about the password update.
