@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "Glicocheck",
     "collectionId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
-    "dateExported": "2024-06-04T01:43:50.010Z",
+    "dateExported": "2024-06-05T01:54:29.087Z",
     "version": "1.2",
     "folders": [
         {
@@ -100,11 +100,11 @@
             "method": "POST",
             "sortNum": 5000,
             "created": "2024-02-13T19:33:44.026Z",
-            "modified": "2024-06-04T01:20:36.584Z",
+            "modified": "2024-06-05T01:20:21.589Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"email\": \"juca@gmail.com\",\n    \"password\": \"asd\"\n}",
+                "raw": "{\n    \"email\": \"costaeduardoluiz@gmail.com\",\n    \"password\": \"asd\"\n}",
                 "form": []
             }
         },
@@ -139,21 +139,21 @@
             "_id": "9636018a-c404-45c4-852b-5534ad4740eb",
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
-            "name": "Add glucose record",
-            "url": "{{LOCALHOST}}/api/diary/78412d60-ce7e-4a37-9bb1-6ab73187fa0d",
+            "name": "Add to an user",
+            "url": "{{LOCALHOST}}/api/diary/user/94b944c3-7912-4b82-886d-367673d0a4c9",
             "method": "POST",
             "sortNum": 10000,
             "created": "2024-02-13T19:33:44.014Z",
-            "modified": "2024-06-04T01:21:01.515Z",
+            "modified": "2024-06-05T01:48:33.692Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"glucose\": 103,\n    \"total_carbs\": 128,\n    \"dateTime\": \"2024-02-08T00:54\",\n    \"id_markermeal\": 4\n}",
+                "raw": "{\n    \"glucose\": 58,\n    \"total_carbs\": 143,\n    \"dateTime\": \"2024-02-08T00:54\",\n    \"id_markermeal\": 4\n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc4NDEyZDYwLWNlN2UtNGEzNy05YmIxLTZhYjczMTg3ZmEwZCIsImlhdCI6MTcxNzQ2NDAzNiwiZXhwIjoxNzE3NDY1ODM2fQ.nOqDtTNKaHo95PpheHnK72InMkED1j1JzN_hhsIX88I"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk0Yjk0NGMzLTc5MTItNGI4Mi04ODZkLTM2NzY3M2QwYTRjOSIsImlhdCI6MTcxNzU1MjEwNSwiZXhwIjoxNzE3NTUzOTA1fQ.-BLmzD6_CQ46skZtJ0pESjf0cBmU2Bnpbk0Z8vv021Q"
             }
         },
         {
@@ -210,36 +210,6 @@
             }
         },
         {
-            "_id": "8ddddb03-e397-4010-876c-d086a332d0b3",
-            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
-            "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
-            "name": "Get all glucose record",
-            "url": "{{LOCALHOST}}/api/diary",
-            "method": "GET",
-            "sortNum": 20000,
-            "created": "2024-02-13T19:33:44.015Z",
-            "modified": "2024-06-04T00:29:06.586Z",
-            "headers": [],
-            "params": [
-                {
-                    "name": "start",
-                    "value": "2024-02-17",
-                    "isDisabled": true,
-                    "isPath": false
-                },
-                {
-                    "name": "end",
-                    "value": "2024-02-20",
-                    "isDisabled": true,
-                    "isPath": false
-                }
-            ],
-            "auth": {
-                "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk0Yjk0NGMzLTc5MTItNGI4Mi04ODZkLTM2NzY3M2QwYTRjOSIsImlhdCI6MTcxNzQ2MDcxOCwiZXhwIjoxNzE3NDYyNTE4fQ.ZiZYhk8BQnlSDHbpwIWNr7Uur_GTTczor95fJ-Ja7Z4"
-            }
-        },
-        {
             "_id": "886a9598-dbb2-4395-b2c9-a061777f8b80",
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "97fef3b4-9d0f-4b16-a0c9-cafe5ab1acad",
@@ -256,35 +226,19 @@
             }
         },
         {
-            "_id": "1c5a04e0-caee-4f1c-84c8-abd010cbfa01",
-            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
-            "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
-            "name": "Get glucose record by id",
-            "url": "{{LOCALHOST}}/api/diary/1",
-            "method": "GET",
-            "sortNum": 30000,
-            "created": "2024-02-13T19:33:44.018Z",
-            "modified": "2024-06-04T00:29:34.314Z",
-            "headers": [],
-            "auth": {
-                "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk0Yjk0NGMzLTc5MTItNGI4Mi04ODZkLTM2NzY3M2QwYTRjOSIsImlhdCI6MTcxNzQ2MDcxOCwiZXhwIjoxNzE3NDYyNTE4fQ.ZiZYhk8BQnlSDHbpwIWNr7Uur_GTTczor95fJ-Ja7Z4"
-            }
-        },
-        {
             "_id": "1a73095e-ca32-4bf5-bdbb-993164d2dfc9",
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
-            "name": "Get glucose by user code",
-            "url": "{{LOCALHOST}}/api/diary/user/78412d60-ce7e-4a37-9bb1-6ab73187fa0d",
+            "name": "Get all by user code",
+            "url": "{{LOCALHOST}}/api/diary/user/94b944c3-7912-4b82-886d-367673d0a4c9",
             "method": "GET",
             "sortNum": 35000,
             "created": "2024-02-13T19:33:44.024Z",
-            "modified": "2024-06-04T01:22:19.223Z",
+            "modified": "2024-06-05T01:51:10.890Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc4NDEyZDYwLWNlN2UtNGEzNy05YmIxLTZhYjczMTg3ZmEwZCIsImlhdCI6MTcxNzQ2NDAzNiwiZXhwIjoxNzE3NDY1ODM2fQ.nOqDtTNKaHo95PpheHnK72InMkED1j1JzN_hhsIX88I"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk0Yjk0NGMzLTc5MTItNGI4Mi04ODZkLTM2NzY3M2QwYTRjOSIsImlhdCI6MTcxNzU1MjEwNSwiZXhwIjoxNzE3NTUzOTA1fQ.-BLmzD6_CQ46skZtJ0pESjf0cBmU2Bnpbk0Z8vv021Q"
             }
         },
         {
@@ -314,12 +268,12 @@
             "_id": "927c3a0c-69e1-4063-b67c-bb531250353c",
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
-            "name": "Update glucose by id",
-            "url": "{{LOCALHOST}}/api/diary/78412d60-ce7e-4a37-9bb1-6ab73187fa0d/6",
+            "name": "Update to an user by id",
+            "url": "{{LOCALHOST}}/api/diary/user/94b944c3-7912-4b82-886d-367673d0a4c9/3",
             "method": "PUT",
             "sortNum": 65000,
             "created": "2024-02-13T19:33:44.016Z",
-            "modified": "2024-06-04T01:22:41.989Z",
+            "modified": "2024-06-05T01:52:19.227Z",
             "headers": [],
             "body": {
                 "type": "json",
@@ -328,14 +282,14 @@
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc4NDEyZDYwLWNlN2UtNGEzNy05YmIxLTZhYjczMTg3ZmEwZCIsImlhdCI6MTcxNzQ2NDAzNiwiZXhwIjoxNzE3NDY1ODM2fQ.nOqDtTNKaHo95PpheHnK72InMkED1j1JzN_hhsIX88I"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk0Yjk0NGMzLTc5MTItNGI4Mi04ODZkLTM2NzY3M2QwYTRjOSIsImlhdCI6MTcxNzU1MjEwNSwiZXhwIjoxNzE3NTUzOTA1fQ.-BLmzD6_CQ46skZtJ0pESjf0cBmU2Bnpbk0Z8vv021Q"
             }
         },
         {
             "_id": "0863dd21-893b-49c6-a401-a2d2a75e4eaa",
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
-            "name": "Delete glucose by user code",
+            "name": "Delete all by user code",
             "url": "{{LOCALHOST}}/api/diary/user/a98866b7-ab90-42ec-a21f-c191d98ee238",
             "method": "DELETE",
             "sortNum": 81250,
@@ -353,16 +307,16 @@
             "_id": "985ebc62-d77f-48b6-a1ed-c2c2585478d3",
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
-            "name": "Delete glucose record by id",
-            "url": "{{LOCALHOST}}/api/diary/78412d60-ce7e-4a37-9bb1-6ab73187fa0d/7",
+            "name": "Delete to an user by id",
+            "url": "{{LOCALHOST}}/api/diary/user/94b944c3-7912-4b82-886d-367673d0a4c9/3",
             "method": "DELETE",
             "sortNum": 90000,
             "created": "2024-02-13T19:33:44.017Z",
-            "modified": "2024-06-04T01:41:14.690Z",
+            "modified": "2024-06-05T01:53:11.120Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc4NDEyZDYwLWNlN2UtNGEzNy05YmIxLTZhYjczMTg3ZmEwZCIsImlhdCI6MTcxNzQ2NTEzNiwiZXhwIjoxNzE3NDY2OTM2fQ.eHBiP2nQiCrfnW70EwbA_leF0J8U7pv7HGFvBrlSOtg"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk0Yjk0NGMzLTc5MTItNGI4Mi04ODZkLTM2NzY3M2QwYTRjOSIsImlhdCI6MTcxNzU1MjEwNSwiZXhwIjoxNzE3NTUzOTA1fQ.-BLmzD6_CQ46skZtJ0pESjf0cBmU2Bnpbk0Z8vv021Q"
             }
         },
         {
@@ -914,5 +868,5 @@
     "settings": {
         "envId": "f0223d0d-c7c0-4d5a-b204-ecc7a093cbf2"
     },
-    "ref": "AacjCQHooDV61gcZhlKO5dE6COwnuMOEFbzomqOy1CV3Ed4VwkvqDsU4tvk7iIkcHaKTaALgZkrdfByc7Uh_ZQ"
+    "ref": "AacjCQHooDV61gcZhlKO5cnoi_3dUxm7_aTz_BPQW9F6ZXX9zklrGZJTr9qsiMeuF1LWw4KYh-kanWDhECDrhg"
 }
