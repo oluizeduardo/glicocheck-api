@@ -1,6 +1,6 @@
 <div align="center">
   <img src="./docs/glicocheck-logo.png">  
-</div align="center">
+</div>
 
 # Glicocheck API
 [Glicocheck's](https://github.com/oluizeduardo/glicocheck) API for diabetes management.
