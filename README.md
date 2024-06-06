@@ -1,7 +1,5 @@
 <div align="center">
-  <a href="glicocheck-api.onrender.com/api/ping" target="_blank">
-    <img src="./docs/glicocheck-logo.png">
-  </a>  
+  <img src="./docs/glicocheck-logo.png">  
 </div align="center">
 
 # Glicocheck API
