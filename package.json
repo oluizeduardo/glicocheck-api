@@ -7,7 +7,9 @@
   "scripts": {
     "dev": "nodemon server.js",
     "lint": "eslint --ignore-path .gitignore .",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "test:mocha": "mocha ./src/test/routes/*.test.js",
+    "test": "npm run test:mocha"
   },
   "engines": {
     "node": "20"
@@ -41,10 +43,12 @@
     "winston": "^3.9.0"
   },
   "devDependencies": {
-    "chai": "^4.3.7",
-    "chai-http": "^4.3.0",
+    "chai": "^5.1.1",
+    "chai-http": "^4.4.0",
     "eslint": "^8.35.0",
     "eslint-config-google": "^0.14.0",
-    "nodemon": "^2.0.20"
+    "mocha": "^10.4.0",
+    "nodemon": "^2.0.20",
+    "supertest": "^7.0.0"
   }
 }
