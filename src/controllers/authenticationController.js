@@ -39,7 +39,7 @@ export default class AuthenticationController {
           res.status(401).json({ message: Messages.WRONG_CREDENTIALS });
         }
       } else {
-        res.status(401).json({ message: Messages.WRONG_CREDENTIALS });
+        res.status(401).json({ message: Messages.USER_NOT_FOUND });
       }
     } catch (error) {
       logger.error('Error AuthenticationController.doLogin', error);
