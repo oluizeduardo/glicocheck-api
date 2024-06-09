@@ -4,6 +4,7 @@ import DiaryDAO from '../dao/DiaryDAO.js';
 import UserDAO from '../dao/UserDAO.js';
 import moment from 'moment';
 import DateTimeUtil from '../utils/dateTimeUtil.js';
+import GlycemiaStatistics from '../utils/GlycemiaStatistics.js';
 
 // HTTP status code
 const OK = 200;
@@ -185,6 +186,7 @@ class DiaryController {
         return res.status(NOT_FOUND).json({ message: Messages.NOTHING_FOUND });
       }
 
+      // Deletes a record by id.
       const result = await DiaryDAO.deleteById(id, userCode);
 
       if (result.success) {
@@ -200,29 +202,6 @@ class DiaryController {
     }
   };
 
-  static deleteDiaryRecordByUserCode = async (req, res) => {
-    logger.info('Executing DiaryController.deleteDiaryRecordById');
-    try {
-      const id = Number.parseInt(req.params.id);
-      if (isNaN(id)) {
-        return res.status(NOT_FOUND).json({ message: Messages.NOTHING_FOUND });
-      }
-
-      const result = await DiaryDAO.deleteById(id);
-
-      if (result.success) {
-        return res.status(OK).json({ message: result.message });
-      } else {
-        return res.status(NOT_FOUND).json({ message: result.message });
-      }
-    } catch (error) {
-      logger.error('Error DiaryController.deleteDiaryRecordById');
-      return res
-        .status(INTERNAL_SERVER_ERROR)
-        .json({ message: Messages.ERROR });
-    }
-  };
-
   static deleteByUserCode = async (req, res) => {
     logger.info('Executing DiaryController.deleteByUserCode');
     try {
@@ -232,6 +211,7 @@ class DiaryController {
         return res.status(CLIENT_ERROR).json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
       }
 
+      // Deletes all records for this user.
       const result = await DiaryDAO.deleteByUserCode(userCode);
 
       if (result.success) {
@@ -266,6 +246,41 @@ class DiaryController {
       return res.status(INTERNAL_SERVER_ERROR).json({ message: Messages.ERROR });
     }
   };
+
+  static getGlycemiaStatsByUserCode = async (req, res) => {
+    logger.info('Executing DiaryController.getGlycemiaStatsByUserCode');
+    try {
+      const userCode = req.params.usercode;
+
+      if (!userCode) {
+        return res.status(CLIENT_ERROR).json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
+      }
+
+      const result = await DiaryDAO.getByUserCode(userCode);
+
+      if (result.success) {
+        const glucoseReadings = result.diary.map(entry => entry.glucose);
+        const statistics = DiaryController.calculateStatistics(glucoseReadings);
+        res.status(OK).json(statistics);
+      } else {
+        res.status(NOT_FOUND).json({ message: result.message });
+      }
+    } catch (error) {
+      logger.error('Error DiaryController.getGlycemiaStatsByUserCode');
+      return res.status(INTERNAL_SERVER_ERROR).json({ message: Messages.ERROR });
+    }
+  };
+
+  static calculateStatistics(readings) {
+    const date_start = new Date().toLocaleDateString();
+    const date_end = new Date().toLocaleDateString();
+    const stats = new GlycemiaStatistics(readings).getAllStatistics();
+    return {
+      date_start,
+      date_end,
+      ...stats
+    };
+  }
 }
 
 export default DiaryController;
