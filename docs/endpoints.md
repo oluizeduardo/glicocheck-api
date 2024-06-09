@@ -8,7 +8,7 @@
 - **POST /authentication/validate-password** - Validates a user's password.
 
 ## Users
-- 🔒 **POST /users** - Register a new user.
+- **POST /users** - Register a new user.
 - 🔒 **GET /users** - Get the list of users.
 - 🔒 **GET /users/:usercode** - Search by a specific user.
 - 🔒 **PUT /users/:usercode** - Update an existing user.
@@ -67,6 +67,7 @@
 - 🔒 **PUT /diary/user/:usercode/:id** - Update an existing register in the glycemia diary by user code.
 - 🔒 **DELETE /diary/user/:usercode/:id** - Delete an existing register in the glycemia diary by user code.
 - 🔒 **DELETE /diary/user/:usercode** - Delete all registers by user code in the glycemia diary.
+- 🔒 **GET /diary/user/:usercode/stats** - Returns statistical information about a user's glycemia readings.
 
 ## Reset Password
 - 🔒 **POST /reset-password/forgot-password** - Send a message to the email provided about the password update.
