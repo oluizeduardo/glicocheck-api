@@ -13,6 +13,7 @@ DELETE FROM blood_sugar_diary;
 DELETE FROM health_info;
 DELETE FROM system_config_by_user;
 DELETE FROM password_reset_tokens;
+DELETE FROM jwt_token_reject_list;
 
 ---------- DROP TABLE
 DROP TABLE IF EXISTS roles;
@@ -26,3 +27,4 @@ DROP TABLE IF EXISTS blood_sugar_diary;
 DROP TABLE IF EXISTS health_info;
 DROP TABLE IF EXISTS system_config_by_user;
 DROP TABLE IF EXISTS password_reset_tokens;
+DROP TABLE IF EXISTS jwt_token_reject_list;

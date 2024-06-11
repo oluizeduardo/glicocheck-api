@@ -1,8 +1,12 @@
+/* eslint-disable no-undef */
 import logger from '../loggerUtil/logger.js';
 import Messages from '../utils/messages.js';
 import SecurityUtils from '../utils/securityUtils.js';
 import UserDAO from '../dao/UserDAO.js';
 import jwt from 'jsonwebtoken';
+import CryptoUtil from '../utils/cryptoUtil.js';
+import RejectListDAO from '../dao/RejectListDAO.js';
+const { verify } = jwt;
 /**
  * AuthenticationController.
  *
@@ -26,7 +30,10 @@ export default class AuthenticationController {
 
       if (result.success) {
         const user = result.user;
-        const isValidPassword = SecurityUtils.comparePassword(password, user.password);
+        const isValidPassword = SecurityUtils.comparePassword(
+          password,
+          user.password
+        );
 
         if (isValidPassword) {
           const tokenJWT = AuthenticationController.createTokenJWT(user);
@@ -47,6 +54,31 @@ export default class AuthenticationController {
     }
   };
 
+  static doLogOut = async (req, res) => {
+    logger.info('Executing AuthenticationController.doLogOut');
+    const { access_token } = req.body;
+
+    if (!access_token) {
+      return res
+        .status(400)
+        .json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
+    }
+
+    try {
+      const decodedToken = verify(access_token, process.env.SECRET_KEY);
+      const token_id = decodedToken.jti;
+      const result = await RejectListDAO.add({ token_id });
+
+      if (result.success) {
+        res.status(200).send({ message: 'Logout successful' });
+      } else {
+        res.status(500).send({ message: result.message });
+      }
+    } catch (err) {
+      res.status(500).json({ message: Messages.ERROR });
+    }
+  };
+
   static validatePassword = async (req, res) => {
     logger.info('Executing AuthenticationController.validatePassword');
     const { cod_user, password } = req.body;
@@ -62,7 +94,10 @@ export default class AuthenticationController {
 
       if (result.success) {
         const user = result.user;
-        const isValidPassword = SecurityUtils.comparePassword(password, user.password);
+        const isValidPassword = SecurityUtils.comparePassword(
+          password,
+          user.password
+        );
 
         res.status(200).json({ is_valid: isValidPassword });
       } else {
@@ -85,12 +120,13 @@ export default class AuthenticationController {
 
   /**
    * Returns a signed token.
-   * @param {number} id The user id to be embeded in the JWT token.
+   * @param {number} userCode The user code to be embeded in the JWT token.
    * @return {string} JWT signed token.
    */
-  static signToken(id) {
+  static signToken(userCode) {
     const payload = {
-      id: id,
+      id: userCode,
+      jti: CryptoUtil.createRandomUUID(),
     };
     const expires = {
       expiresIn: AuthenticationController.TOKEN_EXPIRING_TIME,

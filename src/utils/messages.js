@@ -82,4 +82,8 @@ export default class Messages {
   // Carbs counting
   static ERROR_LOADING_CARBS_COUTING_CREDENTIALS = 'Error loading EDAMAN\'s API credentials.';
   static ERROR_CONSULTING_CARBS_COUTING_API = 'Error consulting carbs counting API.';
+
+  // Reject list
+  static REJECT_LIST_TOKEN_ID_ADDED = 'Token Id added to the reject list.';
+  static REJECT_LIST_INVALID_TOKEN = 'Invalid token. Log in again';
 }

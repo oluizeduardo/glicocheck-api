@@ -128,3 +128,10 @@ CREATE TABLE password_reset_tokens (
 	email_owner varchar(50) NOT NULL,
   created_at  TIMESTAMP DEFAULT (datetime('now','localtime'))
 );
+
+-- ACCESS TOKEN JWT REJECT LIST
+CREATE TABLE jwt_token_reject_list (
+  id          INTEGER PRIMARY KEY AUTOINCREMENT,
+  token_id    varchar(50) NOT NULL UNIQUE,
+  created_at  TIMESTAMP DEFAULT (datetime('now','localtime'))
+);
