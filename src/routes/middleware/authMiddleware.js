@@ -1,8 +1,9 @@
 /* eslint-disable no-undef */
+import RejectListDAO from '../../dao/RejectListDAO.js';
 import logger from '../../loggerUtil/logger.js';
 import Messages from '../../utils/messages.js';
 import jwt from 'jsonwebtoken';
-const {verify} = jwt;
+const { verify } = jwt;
 
 export default class AuthMiddleware {
   /**
@@ -14,10 +15,10 @@ export default class AuthMiddleware {
    * @param {Function} next - The next middleware function.
    * @return {void}
    */
-  static checkToken = (req, res, next) => {
+  static checkToken = async (req, res, next) => {
     const authToken = req.headers['authorization'];
     if (!authToken) {
-      return res.status(401).json({message: Messages.TOKEN_REQUIRED});
+      return res.status(401).json({ message: Messages.TOKEN_REQUIRED });
     }
 
     const [, token] = authToken.split(' ');
@@ -25,6 +26,12 @@ export default class AuthMiddleware {
 
     try {
       const decodedToken = verify(req.token, process.env.SECRET_KEY);
+      const result = await RejectListDAO.getById(decodedToken.jti);
+
+      if (result.success) {
+        return res.status(401).send({ message: Messages.REJECT_LIST_INVALID_TOKEN });
+      }
+
       req.usercode = decodedToken.id;
       return next();
     } catch (err) {
@@ -35,7 +42,7 @@ export default class AuthMiddleware {
           expiredIn: err.expiredAt,
         });
       }
-      return res.status(401).json({message: Messages.REFUSED_ACCESS});
+      return res.status(401).json({ message: Messages.REFUSED_ACCESS });
     }
   };
 }

@@ -6,6 +6,7 @@ authenticationRouter.use(express.json());
 
 authenticationRouter
   .post('/login', AuthenticationController.doLogin)
+  .post('/logout', AuthenticationController.doLogOut)
   .post('/validate-password', AuthenticationController.validatePassword);
 
 export default authenticationRouter;
