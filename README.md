@@ -15,8 +15,6 @@
     - [SQLite](https://www.sqlite.org/index.html)
     - [KnexJS](https://knexjs.org/)
 - Quality
-    - Test
-        - [Mocha](https://mochajs.org/)
     - Static analysis
         - [ESLint](https://eslint.org/)
 - CICD
@@ -34,7 +32,11 @@
     - `npm run dev`
 
 ## ⚙ Environment Variables
-A `.env` file is required on the root folder and must contain the following key and values:
+
+A `.env` file is required on the root folder. Copy the example to a `.env` file and adjust values.
+- `cp .env-example .env`
+
+The `.env` file must contain the following key and values:
 
 | Key           | Value         |
 | ------------- |:-------------|
