@@ -29,20 +29,29 @@ export default class AuthMiddleware {
       const result = await RejectListDAO.getById(decodedToken.jti);
 
       if (result.success) {
-        return res.status(401).send({ message: Messages.REJECT_LIST_INVALID_TOKEN });
+        return res
+          .status(401)
+          .send({ message: Messages.REJECT_LIST_INVALID_TOKEN });
       }
 
       req.usercode = decodedToken.id;
       return next();
     } catch (err) {
-      logger.error(`Error cheking JWT token - ${err.name}`);
+      logger.error(`Error cheking JWT token - ${err.message}`);
       if (err.name === 'TokenExpiredError') {
         return res.status(401).json({
           message: Messages.TOKEN_EXPIRED,
           expiredIn: err.expiredAt,
         });
+      } else if (err.name === 'JsonWebTokenError') {
+        return res
+          .status(400)
+          .json({ message: Messages.ERROR, details: err.message });
+      } else {
+        return res
+          .status(400)
+          .json({ message: Messages.ERROR, details: err.message });
       }
-      return res.status(401).json({ message: Messages.REFUSED_ACCESS });
     }
   };
 }

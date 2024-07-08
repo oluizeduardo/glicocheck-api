@@ -56,16 +56,10 @@ export default class AuthenticationController {
 
   static doLogOut = async (req, res) => {
     logger.info('Executing AuthenticationController.doLogOut');
-    const { access_token } = req.body;
-
-    if (!access_token) {
-      return res
-        .status(400)
-        .json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
-    }
+    const { token } = req;
 
     try {
-      const decodedToken = verify(access_token, process.env.SECRET_KEY);
+      const decodedToken = verify(token, process.env.SECRET_KEY);
       const token_id = decodedToken.jti;
       const result = await RejectListDAO.add({ token_id });
 
