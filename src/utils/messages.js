@@ -85,5 +85,5 @@ export default class Messages {
 
   // Reject list
   static REJECT_LIST_TOKEN_ID_ADDED = 'Token Id added to the reject list.';
-  static REJECT_LIST_INVALID_TOKEN = 'Invalid token. Log in again';
+  static REJECT_LIST_INVALID_TOKEN = 'You have been disconnected. Please log in again to continue.';
 }
