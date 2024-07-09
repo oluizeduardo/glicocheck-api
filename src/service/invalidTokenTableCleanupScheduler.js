@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 import cron from 'node-cron';
 import RejectListDAO from '../dao/RejectListDAO.js';
+import logger from '../loggerUtil/logger.js';
 
 const cleanUpTable = () => {
   const hours = process.env.HOURS_TO_KEEP_TOKEN_IN_REJECT_LIST || 1;
@@ -19,12 +20,10 @@ const executeInvalidTokenTableCleanupScheduler = () => {
   const cronCleanRejectList =
     process.env.CRON_TASK_CLEAN_REJECT_LIST_TABLE || '0 * * * *';
 
-  console.log('cronCleanRejectList: '+cronCleanRejectList);
-
   cron.schedule(
     cronCleanRejectList,
     () => {
-      console.log('Executing Invalid Token Table Cleanup Scheduler.');
+      logger.info('Executing Invalid Token Table Cleanup Scheduler.');
       cleanUpTable();
     },
     {
