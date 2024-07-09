@@ -4,6 +4,7 @@ dotenv.config();
 import express, { json } from 'express';
 import helmet from 'helmet';
 import logger from './src/loggerUtil/logger.js';
+import executeInvalidTokenTableCleanupScheduler from './src/service/invalidTokenTableCleanupScheduler.js';
 
 // Root router
 const apiRouter = express.Router();
@@ -57,5 +58,7 @@ const port = process.env.PORT || 3000;
 app.listen(port, function () {
   logger.info(`Server running on ${port}.`);
 });
+
+executeInvalidTokenTableCleanupScheduler();
 
 export default app;
