@@ -47,10 +47,6 @@ export default class AuthMiddleware {
         return res
           .status(400)
           .json({ message: Messages.ERROR, details: err.message });
-      } else {
-        return res
-          .status(400)
-          .json({ message: Messages.ERROR, details: err.message });
       }
     }
   };

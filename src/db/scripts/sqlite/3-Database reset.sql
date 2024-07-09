@@ -2,18 +2,18 @@
 -- GLICOCHECK API - Database reset.
 
 ---------- CLEAN DATABASE
-DELETE FROM roles;
-DELETE FROM genders;
-DELETE FROM users;
-DELETE FROM diabetes_types;
-DELETE FROM blood_types;
-DELETE FROM measurement_units;
-DELETE FROM marker_meals;
-DELETE FROM blood_sugar_diary;
-DELETE FROM health_info;
-DELETE FROM system_config_by_user;
-DELETE FROM password_reset_tokens;
-DELETE FROM jwt_token_reject_list;
+DELETE FROM roles WHERE 1=1;
+DELETE FROM genders WHERE 1=1;
+DELETE FROM users WHERE 1=1;
+DELETE FROM diabetes_types WHERE 1=1;
+DELETE FROM blood_types WHERE 1=1;
+DELETE FROM measurement_units WHERE 1=1;
+DELETE FROM marker_meals WHERE 1=1;
+DELETE FROM blood_sugar_diary WHERE 1=1;
+DELETE FROM health_info WHERE 1=1;
+DELETE FROM system_config_by_user WHERE 1=1;
+DELETE FROM password_reset_tokens WHERE 1=1;
+DELETE FROM jwt_token_reject_list WHERE 1=1;
 
 ---------- DROP TABLE
 DROP TABLE IF EXISTS roles;
