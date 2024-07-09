@@ -5,6 +5,7 @@
 
 ## Authentication
 - **POST /authentication/login** - Authenticate user and get access token.
+- **POST /authentication/logout** - Do the logout.
 - **POST /authentication/validate-password** - Validates a user's password.
 
 ## Users
