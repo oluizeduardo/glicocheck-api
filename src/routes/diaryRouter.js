@@ -8,27 +8,27 @@ diaryRouter.use(AuthMiddleware.checkToken);
 diaryRouter.use(express.json());
 
 diaryRouter
-  .post('/user/:usercode',
+  .post('/users/:usercode',
     UserCodeMiddleware.validateUserCode,
     DiaryController.addNew
   )
-  .get('/user/:usercode',
+  .get('/users/:usercode',
     UserCodeMiddleware.validateUserCode,
     DiaryController.getByUserCode
   )
-  .get('/user/:usercode/stats',
+  .get('/users/:usercode/stats',
     UserCodeMiddleware.validateUserCode,
     DiaryController.getGlycemiaStatsByUserCode
   )
-  .put('/user/:usercode/:id',
+  .put('/users/:usercode/:id',
     UserCodeMiddleware.validateUserCode,
     DiaryController.updateById
   )
-  .delete('/user/:usercode/:id',
+  .delete('/users/:usercode/:id',
     UserCodeMiddleware.validateUserCode,
     DiaryController.deleteById
   )
-  .delete('/user/:usercode',
+  .delete('/users/:usercode',
     UserCodeMiddleware.validateUserCode,
     DiaryController.deleteByUserCode
   );
