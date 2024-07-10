@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "Glicocheck",
     "collectionId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
-    "dateExported": "2024-07-08T16:03:09.700Z",
+    "dateExported": "2024-07-10T14:57:09.772Z",
     "version": "1.2",
     "folders": [
         {
@@ -136,20 +136,20 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
             "name": "Add to an user",
-            "url": "{{LOCALHOST}}/api/diary/user/b691380c-5e5c-4a41-8557-300e1ed03867",
+            "url": "{{LOCALHOST}}/api/diary/users/16051a24-29ca-4809-a1e4-33038d66b3d1",
             "method": "POST",
             "sortNum": 10000,
             "created": "2024-02-13T19:33:44.014Z",
-            "modified": "2024-06-08T18:13:56.022Z",
+            "modified": "2024-07-10T14:33:39.847Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"glucose\": 158,\n    \"total_carbs\": 143,\n    \"dateTime\": \"2024-02-08T60:54\",\n    \"id_markermeal\": 1\n}",
+                "raw": "{\n    \"glucose\": 158,\n    \"total_carbs\": 143,\n    \"dateTime\": \"2024-07-10T06:00\",\n    \"id_markermeal\": 1\n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2OTEzODBjLTVlNWMtNGE0MS04NTU3LTMwMGUxZWQwMzg2NyIsImlhdCI6MTcxNzg3MDM3NCwiZXhwIjoxNzE3ODcyMTc0fQ.ZwULtK1dTgP0MHnc9UOrtYvWc5iUGwMnaHl0jNPYi48"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2MDUxYTI0LTI5Y2EtNDgwOS1hMWU0LTMzMDM4ZDY2YjNkMSIsImp0aSI6IjI4NGFiYmI2LWQ3ZmYtNDFjNC1iMTM5LWM5NTdiY2JhZDI1NSIsImlhdCI6MTcyMDYyMTkyMSwiZXhwIjoxNzIwNjIzNzIxfQ.idVpTOI76I5CRSU8tTr56oQN84AEiOW8WHZjx1RMjog"
             }
         },
         {
@@ -161,11 +161,11 @@
             "method": "GET",
             "sortNum": 12500,
             "created": "2024-02-13T19:33:44.010Z",
-            "modified": "2024-07-08T16:01:24.638Z",
+            "modified": "2024-07-09T15:10:43.625Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2MDUxYTI0LTI5Y2EtNDgwOS1hMWU0LTMzMDM4ZDY2YjNkMSIsImp0aSI6IjcyZTVjMjIyLTUzODQtNGMxOS05NGE0LTUyZDcxODdjMWQ2NSIsImlhdCI6MTcyMDQ1Mzc3NCwiZXhwIjoxNzIwNDU1NTc0fQ.9gz5sVbtVizLh3ioUDT5DFlxzLNN4bBVIx3pguYk0o8"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2MDUxYTI0LTI5Y2EtNDgwOS1hMWU0LTMzMDM4ZDY2YjNkMSIsImp0aSI6IjM0NzcyZDViLTNiY2EtNGVmZi1iZWEwLWZhZTVhYzBkNDg3NyIsImlhdCI6MTcyMDUzNzgxOSwiZXhwIjoxNzIwNTM5NjE5fQ._YgIV4wqrj-QmnNCModoOM4CLil6eROmT9267BLgOxA"
             }
         },
         {
@@ -173,15 +173,15 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "97fef3b4-9d0f-4b16-a0c9-cafe5ab1acad",
             "name": "Get user by user code",
-            "url": "{{LOCALHOST}}/api/users/94b944c3-7912-4b82-886d-367673d0a4c9",
+            "url": "{{LOCALHOST}}/api/users/16051a24-29ca-4809-a1e4-33038d66b3d1",
             "method": "GET",
             "sortNum": 13750,
             "created": "2024-02-13T19:33:44.012Z",
-            "modified": "2024-06-02T17:00:12.554Z",
+            "modified": "2024-07-08T18:15:42.332Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk0Yjk0NGMzLTc5MTItNGI4Mi04ODZkLTM2NzY3M2QwYTRjOSIsImlhdCI6MTcxNzM0NzU2MywiZXhwIjoxNzE3MzQ5MzYzfQ.pubA2qOwIYCsd-Llxsx9t4TXAsFBqslOXi_7jQV0hfU"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2MDUxYTI0LTI5Y2EtNDgwOS1hMWU0LTMzMDM4ZDY2YjNkMSIsImp0aSI6IjhiMmY5NDQzLWVjYzktNDNmNy1iMmNlLTg1NTI2ODE2YWYxMyIsImlhdCI6MTcyMDQ2MjM2NSwiZXhwIjoxNzIwNDY0MTY1fQ.XLiZMWP4pUb3CfV00wSzesQ3hO0LES2fg56AnkSQmpw"
             }
         },
         {
@@ -226,15 +226,15 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
             "name": "Get all by user code",
-            "url": "{{LOCALHOST}}/api/diary/user/b691380c-5e5c-4a41-8557-300e1ed03867",
+            "url": "{{LOCALHOST}}/api/diary/users/16051a24-29ca-4809-a1e4-33038d66b3d1",
             "method": "GET",
             "sortNum": 35000,
             "created": "2024-02-13T19:33:44.024Z",
-            "modified": "2024-06-09T14:50:53.221Z",
+            "modified": "2024-07-10T14:32:30.992Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2OTEzODBjLTVlNWMtNGE0MS04NTU3LTMwMGUxZWQwMzg2NyIsImlhdCI6MTcxNzk0Mzk3NCwiZXhwIjoxNzE3OTQ1Nzc0fQ.CSePx0n_aJcZcursCEzerQ6ln53HVMjKBeEddCFg-BM"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2MDUxYTI0LTI5Y2EtNDgwOS1hMWU0LTMzMDM4ZDY2YjNkMSIsImp0aSI6IjI4NGFiYmI2LWQ3ZmYtNDFjNC1iMTM5LWM5NTdiY2JhZDI1NSIsImlhdCI6MTcyMDYyMTkyMSwiZXhwIjoxNzIwNjIzNzIxfQ.idVpTOI76I5CRSU8tTr56oQN84AEiOW8WHZjx1RMjog"
             }
         },
         {
@@ -265,11 +265,11 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
             "name": "Update to an user by id",
-            "url": "{{LOCALHOST}}/api/diary/user/94b944c3-7912-4b82-886d-367673d0a4c9/3",
+            "url": "{{LOCALHOST}}/api/diary/users/16051a24-29ca-4809-a1e4-33038d66b3d1/1",
             "method": "PUT",
             "sortNum": 65000,
             "created": "2024-02-13T19:33:44.016Z",
-            "modified": "2024-06-05T01:52:19.227Z",
+            "modified": "2024-07-10T14:35:12.563Z",
             "headers": [],
             "body": {
                 "type": "json",
@@ -278,7 +278,7 @@
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk0Yjk0NGMzLTc5MTItNGI4Mi04ODZkLTM2NzY3M2QwYTRjOSIsImlhdCI6MTcxNzU1MjEwNSwiZXhwIjoxNzE3NTUzOTA1fQ.-BLmzD6_CQ46skZtJ0pESjf0cBmU2Bnpbk0Z8vv021Q"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2MDUxYTI0LTI5Y2EtNDgwOS1hMWU0LTMzMDM4ZDY2YjNkMSIsImp0aSI6IjI4NGFiYmI2LWQ3ZmYtNDFjNC1iMTM5LWM5NTdiY2JhZDI1NSIsImlhdCI6MTcyMDYyMTkyMSwiZXhwIjoxNzIwNjIzNzIxfQ.idVpTOI76I5CRSU8tTr56oQN84AEiOW8WHZjx1RMjog"
             }
         },
         {
@@ -286,33 +286,31 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
             "name": "Delete all by user code",
-            "url": "{{LOCALHOST}}/api/diary/user/a98866b7-ab90-42ec-a21f-c191d98ee238",
+            "url": "{{LOCALHOST}}/api/diary/users/a98866b7-ab90-42ec-a21f-c191d98ee238",
             "method": "DELETE",
             "sortNum": 81250,
             "created": "2024-02-13T19:33:44.027Z",
-            "modified": "2024-02-18T02:41:16.372Z",
+            "modified": "2024-07-10T14:30:15.405Z",
             "headers": [],
-            "params": [],
             "auth": {
                 "type": "bearer",
                 "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVhM2ZmM2FlLTRlMTQtNDg1Ny1hOTIxLTRmNTRhZWRkMTAxOCIsImlhdCI6MTY4NjQyNDM3NSwiZXhwIjoxNjg2NDI2MTc1fQ.pZJHLR8ZZbfdSX6wxkcPsA1XOPhn8CAph7hpekHSwI8"
-            },
-            "tests": []
+            }
         },
         {
             "_id": "985ebc62-d77f-48b6-a1ed-c2c2585478d3",
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
             "name": "Delete to an user by id",
-            "url": "{{LOCALHOST}}/api/diary/user/94b944c3-7912-4b82-886d-367673d0a4c9/3",
+            "url": "{{LOCALHOST}}/api/diary/users/16051a24-29ca-4809-a1e4-33038d66b3d1/1",
             "method": "DELETE",
             "sortNum": 90000,
             "created": "2024-02-13T19:33:44.017Z",
-            "modified": "2024-06-05T01:53:11.120Z",
+            "modified": "2024-07-10T14:55:35.353Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk0Yjk0NGMzLTc5MTItNGI4Mi04ODZkLTM2NzY3M2QwYTRjOSIsImlhdCI6MTcxNzU1MjEwNSwiZXhwIjoxNzE3NTUzOTA1fQ.-BLmzD6_CQ46skZtJ0pESjf0cBmU2Bnpbk0Z8vv021Q"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2MDUxYTI0LTI5Y2EtNDgwOS1hMWU0LTMzMDM4ZDY2YjNkMSIsImp0aSI6IjI4NGFiYmI2LWQ3ZmYtNDFjNC1iMTM5LWM5NTdiY2JhZDI1NSIsImlhdCI6MTcyMDYyMTkyMSwiZXhwIjoxNzIwNjIzNzIxfQ.idVpTOI76I5CRSU8tTr56oQN84AEiOW8WHZjx1RMjog"
             }
         },
         {
@@ -338,15 +336,15 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
             "name": "Get glycemia statistics",
-            "url": "{{LOCALHOST}}/api/diary/user/b691380c-5e5c-4a41-8557-300e1ed03867/stats",
+            "url": "{{LOCALHOST}}/api/diary/users/16051a24-29ca-4809-a1e4-33038d66b3d1/stats",
             "method": "GET",
             "sortNum": 100000,
             "created": "2024-06-08T19:09:56.875Z",
-            "modified": "2024-06-10T23:38:42.442Z",
+            "modified": "2024-07-10T14:39:51.935Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2OTEzODBjLTVlNWMtNGE0MS04NTU3LTMwMGUxZWQwMzg2NyIsImlhdCI6MTcxODA2MjcwOSwiZXhwIjoxNzE4MDY0NTA5fQ.uVEGIIiJ2WZItztTDFOwEb4vUmxZZOTj_E9c58xNGVo"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2MDUxYTI0LTI5Y2EtNDgwOS1hMWU0LTMzMDM4ZDY2YjNkMSIsImp0aSI6IjI4NGFiYmI2LWQ3ZmYtNDFjNC1iMTM5LWM5NTdiY2JhZDI1NSIsImlhdCI6MTcyMDYyMTkyMSwiZXhwIjoxNzIwNjIzNzIxfQ.idVpTOI76I5CRSU8tTr56oQN84AEiOW8WHZjx1RMjog"
             }
         },
         {
@@ -399,11 +397,11 @@
             "method": "POST",
             "sortNum": 160000,
             "created": "2024-02-13T19:33:44.028Z",
-            "modified": "2024-06-04T00:23:59.120Z",
+            "modified": "2024-07-08T18:14:34.287Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"cod_user\":\"94b944c3-7912-4b82-886d-367673d0a4c9\",\n  \"password\": \"asd\"\n}",
+                "raw": "{\n  \"cod_user\":\"16051a24-29ca-4809-a1e4-33038d66b3d1\",\n  \"password\": \"asd\"\n}",
                 "form": []
             }
         },
@@ -885,16 +883,16 @@
             "method": "POST",
             "sortNum": 370000,
             "created": "2024-06-11T01:27:14.087Z",
-            "modified": "2024-07-08T16:01:28.200Z",
+            "modified": "2024-07-09T15:10:31.288Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2MDUxYTI0LTI5Y2EtNDgwOS1hMWU0LTMzMDM4ZDY2YjNkMSIsImp0aSI6IjcyZTVjMjIyLTUzODQtNGMxOS05NGE0LTUyZDcxODdjMWQ2NSIsImlhdCI6MTcyMDQ1Mzc3NCwiZXhwIjoxNzIwNDU1NTc0fQ.9gz5sVbtVizLh3ioUDT5DFlxzLNN4bBVIx3pguYk0o8"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2MDUxYTI0LTI5Y2EtNDgwOS1hMWU0LTMzMDM4ZDY2YjNkMSIsImp0aSI6IjM0NzcyZDViLTNiY2EtNGVmZi1iZWEwLWZhZTVhYzBkNDg3NyIsImlhdCI6MTcyMDUzNzgxOSwiZXhwIjoxNzIwNTM5NjE5fQ._YgIV4wqrj-QmnNCModoOM4CLil6eROmT9267BLgOxA"
             }
         }
     ],
     "settings": {
         "envId": "f0223d0d-c7c0-4d5a-b204-ecc7a093cbf2"
     },
-    "ref": "AacjCQHooDV61gcZhlKO5dzB6VogcJq748WLF--7T4HOMxcQHlAHX485Q7aovr-2zUFyVE7B5Gb_tRGeR80E6Q"
+    "ref": "AacjCQHooDV61gcZhlKO5XrEvkYL-HD9mPHlaqrXweIqirzCk9aXinkhjFJfnX7rXtLFBGoMHIo0vghd_SkyPw"
 }
