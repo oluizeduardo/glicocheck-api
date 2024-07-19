@@ -17,7 +17,7 @@ export default class UserDAO {
         const cod_user = CryptoUtil.createRandomUUID();
         const hashedPassword = SecurityUtils.generateHashValue(user.password);
 
-        await database(TABLE_USERS).insert(
+        const result = await database(TABLE_USERS).insert(
           {
             cod_user,
             name: user.name,
@@ -25,10 +25,12 @@ export default class UserDAO {
             password: hashedPassword,
             id_role: user.id_role,
           },
-          ['cod_user']
+          ['cod_user', 'id']
         );
 
-        return { success: true, cod_user, message: Messages.NEW_USER_CREATED };
+        const id = result[0].id;
+
+        return { success: true, cod_user, id, message: Messages.NEW_USER_CREATED };
       }
     } catch (error) {
       logger.error('Error UserDAO.add', error);

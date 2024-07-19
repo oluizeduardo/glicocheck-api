@@ -145,7 +145,7 @@ class SystemConfigurationController {
     const result = await SystemConfigurationDAO.getByUserId(userResult.user.id);
 
     if (result.success) {
-      return res.status(201).json(result.systemConfiguration);
+      return res.status(200).json(result.systemConfiguration);
     } else {
       return res.status(404).json({ message: result.message });
     }

@@ -71,7 +71,7 @@
 - 🔒 **GET /diary/users/:usercode/stats** - Returns statistical information about a user's glycemia readings.
 
 ## Reset Password
-- 🔒 **POST /reset-password/forgot-password** - Send a message to the email provided about the password update.
-- 🔒 **GET /reset-password/:resetToken** - Get the reset password page.
-- 🔒 **PUT /reset-password** - Update the user's password.
-- 🔒 **GET /reset-password/cancel/:resetToken** - Cancels the password change request.
+- **POST /reset-password/forgot-password** - Send a message to the email provided about the password update.
+- **GET /reset-password/:resetToken** - Get the reset password page.
+- **PUT /reset-password** - Update the user's password.
+- **GET /reset-password/cancel/:resetToken** - Cancels the password change request.

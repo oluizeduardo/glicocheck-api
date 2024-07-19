@@ -2,6 +2,7 @@ import logger from '../loggerUtil/logger.js';
 import Messages from '../utils/messages.js';
 import UserDAO from '../dao/UserDAO.js';
 import DateTimeUtil from '../utils/dateTimeUtil.js';
+import SystemConfigurationDAO from '../dao/SystemConfigurationDAO.js';
 
 /**
  * UserController.
@@ -37,14 +38,29 @@ class UserController {
       }
 
       const user = { name, email, password, id_role };
-      const result = await UserDAO.add(user);
+      const addUserResult = await UserDAO.add(user);
 
-      if (result.success) {
+      const defaultConfiguration = {
+        id_user: addUserResult.id,
+        id_glucose_unity: 1,
+        limit_hypo: 70,
+        limit_hyper: 160,
+        time_bf_pre: '05:00',
+        time_bf_pos: '07:00',
+        time_lunch_pre: '11:00',
+        time_lunch_pos: '13:00',
+        time_dinner_pre: '19:00',
+        time_dinner_pos: '21:00',
+        time_sleep: '22:00'
+      };
+      const addSysConfigResult = await SystemConfigurationDAO.add(defaultConfiguration);
+
+      if (addUserResult.success && addSysConfigResult.success) {
         res
           .status(201)
-          .json({ message: result.message, cod_user: result.cod_user });
+          .json({ message: addUserResult.message, cod_user: addUserResult.cod_user });
       } else {
-        res.status(400).json({ message: result.message });
+        res.status(400).json({ message: addUserResult.message });
       }
     } catch (error) {
       logger.error(`Error UserController.addUser - ${error.message}`);
