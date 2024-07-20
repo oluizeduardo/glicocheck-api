@@ -112,23 +112,31 @@ class HealthInfoController {
       // Check existing user.
       const userResult = await UserDAO.getByUserCode(userCode);
       if (!userResult.success) {
+        logger.info('No user found to update health info.');
         return res.status(404).json({ message: result.message });
       }
 
-      const updatedHealthInfo = {
+      const healthInfo = {
         id_diabetes_type: req.body.id_diabetes_type,
         month_diagnosis: req.body.month_diagnosis,
         id_blood_type: req.body.id_blood_type,
         updated_at: DateTimeUtil.getCurrentDateTime(),
-      };
+      };      
 
-      const userId = userResult.user.id;
-      const result = await HealthInfoDAO.updateByUserId(userId, updatedHealthInfo);
+      const id_user = userResult.user.id;
+      const result = await HealthInfoDAO.updateByUserId(id_user, healthInfo);
 
       if (result.success) {
         res.status(200).json(result.healthInfo);
       } else {
-        res.status(404).json({ message: result.message });
+        // Add new Health info for this user.
+        const resultAdd = await HealthInfoDAO.add({id_user,...healthInfo});
+
+        if (resultAdd.success) {
+          res.status(200).json(result.healthInfo);
+        }else{
+          res.status(404).json({ message: result.message });
+        }
       }
     } catch (error) {
       logger.error('Error UserController.updateUserByUserCode', error);

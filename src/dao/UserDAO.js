@@ -56,7 +56,22 @@ export default class UserDAO {
     try {
       const users = await database(TABLE_USERS)
         .where('cod_user', userCode)
-        .select('*');
+        .join('health_info', 'users.id', 'health_info.id_user')
+        .select(
+          'users.id',
+          'users.cod_user',
+          'users.name',
+          'users.email',
+          'users.birthdate',
+          'users.phone',
+          'users.id_gender',
+          'users.weight',
+          'users.height',          
+          'health_info.id_diabetes_type',
+          'health_info.id_blood_type',
+          'health_info.month_diagnosis',
+          'users.picture',
+      );
 
       if (users.length > 0) {
         return { success: true, user: users[0] };
