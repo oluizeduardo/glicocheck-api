@@ -12,7 +12,7 @@ class SystemConfigurationController {
     // Destructure fields
     const {
       cod_user,
-      id_glucose_unity,
+      id_measurement_unity,
       limit_hypo,
       limit_hyper,
       time_breakfast_pre,
@@ -27,7 +27,7 @@ class SystemConfigurationController {
     // Validate input data
     if (
       !cod_user ||
-      !id_glucose_unity ||
+      !id_measurement_unity ||
       !limit_hypo ||
       !limit_hyper ||
       !time_breakfast_pre ||
@@ -60,7 +60,7 @@ class SystemConfigurationController {
     try {
       const newConfiguration = {
         id_user: userResult.user.id,
-        id_glucose_unity,
+        id_measurement_unity,
         limit_hypo,
         limit_hyper,
         time_bf_pre: time_breakfast_pre,
@@ -105,7 +105,7 @@ class SystemConfigurationController {
     logger.info('Executing SystemConfigurationController.saveDefaultSystemConfiguration');
     const defaultSystemConfig = {
       id_user: userId,
-      id_glucose_unity: 1,
+      id_measurement_unity: 1,
       limit_hypo: 70,
       limit_hyper: 160,
       time_bf_pre: '06:00',
@@ -188,7 +188,7 @@ class SystemConfigurationController {
 
       if (result.success) {
         const updatedConfiguration = {
-          id_glucose_unity: req.body.id_glucose_unity,
+          id_measurement_unity: req.body.id_measurement_unity,
           limit_hypo: req.body.limit_hypo,
           limit_hyper: req.body.limit_hyper,
           time_bf_pre: req.body.time_breakfast_pre,

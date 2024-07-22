@@ -2,7 +2,7 @@ import logger from '../loggerUtil/logger.js';
 import Messages from '../utils/messages.js';
 import UserDAO from '../dao/UserDAO.js';
 import DateTimeUtil from '../utils/dateTimeUtil.js';
-import SystemConfigurationDAO from '../dao/SystemConfigurationDAO.js';
+import SystemConfigurationController from './systemConfigurationController.js';
 
 /**
  * UserController.
@@ -37,25 +37,14 @@ class UserController {
           .json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
       }
 
+      // Save new user.
       const user = { name, email, password, id_role };
-      const addUserResult = await UserDAO.add(user);
+      const addUserResult = await UserDAO.add(user);      
 
-      const defaultConfiguration = {
-        id_user: addUserResult.id,
-        id_glucose_unity: 1,
-        limit_hypo: 70,
-        limit_hyper: 160,
-        time_bf_pre: '05:00',
-        time_bf_pos: '07:00',
-        time_lunch_pre: '11:00',
-        time_lunch_pos: '13:00',
-        time_dinner_pre: '19:00',
-        time_dinner_pos: '21:00',
-        time_sleep: '22:00'
-      };
-      const addSysConfigResult = await SystemConfigurationDAO.add(defaultConfiguration);
+      if (addUserResult.success) {
+        // Save default system configuration.
+        SystemConfigurationController.saveDefaultSystemConfiguration(addUserResult.id);
 
-      if (addUserResult.success && addSysConfigResult.success) {
         res
           .status(201)
           .json({ message: addUserResult.message, cod_user: addUserResult.cod_user });

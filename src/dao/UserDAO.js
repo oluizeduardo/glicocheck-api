@@ -55,8 +55,8 @@ export default class UserDAO {
   static async getByUserCode(userCode) {
     try {
       const users = await database(TABLE_USERS)
-        .where('cod_user', userCode)
-        .join('health_info', 'users.id', 'health_info.id_user')
+        .where('users.cod_user', userCode)
+        // .join('health_info', 'users.id', 'health_info.id_user')          
         .select(
           'users.id',
           'users.cod_user',
@@ -67,9 +67,9 @@ export default class UserDAO {
           'users.id_gender',
           'users.weight',
           'users.height',          
-          'health_info.id_diabetes_type',
-          'health_info.id_blood_type',
-          'health_info.month_diagnosis',
+          // 'health_info.id_diabetes_type',
+          // 'health_info.id_blood_type',
+          // 'health_info.month_diagnosis',
           'users.picture',
       );
 

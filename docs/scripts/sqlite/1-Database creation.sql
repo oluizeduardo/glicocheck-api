@@ -72,17 +72,19 @@ CREATE TABLE marker_meals (
 
 --- BLOOD SUGAR DIARY
 CREATE TABLE blood_sugar_diary ( 
-  id               INTEGER PRIMARY KEY AUTOINCREMENT,
-	id_user          INTEGER NOT NULL,
-	glucose          INTEGER NOT NULL,
-  total_carbs      INTEGER,
-	dateTime         varchar(20) NOT NULL,
-	id_markermeal    INTEGER NOT NULL,
-  created_at       TIMESTAMP DEFAULT (datetime('now','localtime')),
-  updated_at       TIMESTAMP DEFAULT (datetime('now','localtime')),
+  id                    INTEGER PRIMARY KEY AUTOINCREMENT,
+	id_user               INTEGER NOT NULL,
+	glucose               INTEGER NOT NULL,
+  total_carbs           INTEGER,
+	dateTime              varchar(20) NOT NULL,
+	id_markermeal         INTEGER NOT NULL,
+  id_measurement_unity  INTEGER NOT NULL,
+  created_at            TIMESTAMP DEFAULT (datetime('now','localtime')),
+  updated_at            TIMESTAMP DEFAULT (datetime('now','localtime')),
 
   FOREIGN KEY(id_user) REFERENCES users(id),
   FOREIGN KEY(id_markermeal) REFERENCES marker_meals(id)
+  FOREIGN KEY(id_measurement_unity) REFERENCES measurement_units(id)
 );
 
 -- HEALTH INFO
@@ -102,23 +104,23 @@ CREATE TABLE health_info (
 
 -- USER'S SYSTEM CONFIGURATION
 CREATE TABLE system_config_by_user (
-  id               INTEGER PRIMARY KEY AUTOINCREMENT,
-  id_user          INTEGER NOT NULL UNIQUE,
-  id_glucose_unity INTEGER NOT NULL,
-  limit_hypo       INTEGER,
-  limit_hyper      INTEGER,
-  time_bf_pre      varchar(5),
-  time_bf_pos      varchar(5),
-  time_lunch_pre   varchar(5),
-  time_lunch_pos   varchar(5),
-  time_dinner_pre  varchar(5),
-  time_dinner_pos  varchar(5),
-  time_sleep       varchar(5),
+  id                    INTEGER PRIMARY KEY AUTOINCREMENT,
+  id_user               INTEGER NOT NULL UNIQUE,
+  id_measurement_unity  INTEGER NOT NULL,
+  limit_hypo            INTEGER,
+  limit_hyper           INTEGER,
+  time_bf_pre           varchar(5),
+  time_bf_pos           varchar(5),
+  time_lunch_pre        varchar(5),
+  time_lunch_pos        varchar(5),
+  time_dinner_pre       varchar(5),
+  time_dinner_pos       varchar(5),
+  time_sleep            varchar(5),
   created_at  TIMESTAMP DEFAULT (datetime('now','localtime')),
   updated_at  TIMESTAMP DEFAULT (datetime('now','localtime')),
 
   FOREIGN KEY (id_user) REFERENCES users(id),
-  FOREIGN KEY (id_glucose_unity) REFERENCES measurement_units(id)
+  FOREIGN KEY (id_measurement_unity) REFERENCES measurement_units(id)
 );
 
 -- PASSWORD RESET TOKENS
