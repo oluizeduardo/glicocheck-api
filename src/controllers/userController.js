@@ -60,7 +60,7 @@ class UserController {
   };
 
   static getUserByUserCode = async (req, res) => {
-    logger.info('Executing UserController.getUserById');
+    logger.info('Executing UserController.getUserByUserCode');
     try {
       const userCode = req.params.usercode;
 
@@ -78,7 +78,7 @@ class UserController {
         res.status(404).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error UserController.getUserById');
+      logger.error('Error UserController.getUserByUserCode');
       res.status(500).json({
         message: Messages.ERROR,
       });
