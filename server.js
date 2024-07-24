@@ -26,7 +26,6 @@ import diaryRouter from './src/routes/diaryRouter.js';
 const app = express();
 
 // Applies security headers.
-
 app.use(
   helmet({
     contentSecurityPolicy: false,
@@ -37,7 +36,7 @@ app.use(
 app.use(
   cors({
     // origin: ['https://glicocheck-admin.vercel.app', 'https://glicocheck.onrender.com/'],
-    origin: 'http://localhost:4500',
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
   }),
