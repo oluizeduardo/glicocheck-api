@@ -1,3 +1,4 @@
+import logger from '../loggerUtil/logger.js';
 import Messages from '../utils/messages.js';
 /**
  * SystemHealthCheckController.
@@ -10,6 +11,7 @@ export default class SystemHealthCheckController {
    * @param {Response} res
    */
   static ping = async (_, res) => {
+    logger.info('Executing SystemHealthCheckController.ping - System running OK.');
     res.status(200).json({message: Messages.PONG});
   };
 }

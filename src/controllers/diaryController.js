@@ -24,8 +24,8 @@ class DiaryController {
       }
 
       // Validate input.
-      const { glucose, total_carbs, dateTime, id_markermeal } = req.body;
-      if (!glucose || !dateTime || !id_markermeal) {
+      const { glucose, total_carbs, dateTime, id_markermeal, id_measurement_unity } = req.body;
+      if (!glucose || !dateTime || !id_markermeal || !id_measurement_unity) {
         return res
           .status(CLIENT_ERROR)
           .json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
@@ -43,6 +43,7 @@ class DiaryController {
         total_carbs,
         dateTime,
         id_markermeal,
+        id_measurement_unity,
       });
 
       if (result.success) {
@@ -229,7 +230,7 @@ class DiaryController {
     logger.info('Executing DiaryController.getByUserCode');
     try {
       const userCode = req.params.usercode;
-
+      
       if (!userCode) {
         return res.status(CLIENT_ERROR).json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
       }
@@ -237,9 +238,17 @@ class DiaryController {
       const result = await DiaryDAO.getByUserCode(userCode);
 
       if (result.success) {
-        res.status(OK).json(result.diary);
+        const { start, end } = req.query;
+        let diary = result.diary;
+
+        if (start && end) {          
+          diary = diary.filter((record) => {
+            return DiaryController.isDateBetween(start, end, record.dateTime);
+          });
+        }
+        return res.status(OK).json(diary);
       } else {
-        res.status(NOT_FOUND).json({ message: result.message });
+        return res.status(NOT_FOUND).json({ message: result.message });
       }
     } catch (error) {
       logger.error('Error DiaryController.getByUserCode');

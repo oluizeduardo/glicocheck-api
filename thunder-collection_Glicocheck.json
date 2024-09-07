@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "Glicocheck",
     "collectionId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
-    "dateExported": "2024-07-10T14:57:09.772Z",
+    "dateExported": "2024-07-20T18:58:52.884Z",
     "version": "1.2",
     "folders": [
         {
@@ -10,6 +10,13 @@
             "name": "Authentication",
             "containerId": "",
             "created": "2024-02-13T19:33:44.012Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "7413a330-072b-48d4-bee2-8aac6a32d791",
+            "name": "Health Info",
+            "containerId": "97fef3b4-9d0f-4b16-a0c9-cafe5ab1acad",
+            "created": "2024-02-13T19:33:44.020Z",
             "sortNum": 10000
         },
         {
@@ -81,13 +88,6 @@
             "containerId": "",
             "created": "2024-02-13T19:33:44.018Z",
             "sortNum": 100000
-        },
-        {
-            "_id": "7413a330-072b-48d4-bee2-8aac6a32d791",
-            "name": "Health Info",
-            "containerId": "",
-            "created": "2024-02-13T19:33:44.020Z",
-            "sortNum": 110000
         }
     ],
     "requests": [
@@ -100,11 +100,11 @@
             "method": "POST",
             "sortNum": 5000,
             "created": "2024-02-13T19:33:44.026Z",
-            "modified": "2024-07-08T15:49:34.047Z",
+            "modified": "2024-07-19T00:13:27.685Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"email\": \"luiz@gmail.com\",\n    \"password\": \"asd\"\n}",
+                "raw": "{\n    \"email\": \"costaeduardoluiz@gmail.com\",\n    \"password\": \"asd\"\n}",
                 "form": []
             }
         },
@@ -161,11 +161,11 @@
             "method": "GET",
             "sortNum": 12500,
             "created": "2024-02-13T19:33:44.010Z",
-            "modified": "2024-07-09T15:10:43.625Z",
+            "modified": "2024-07-18T00:12:21.721Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2MDUxYTI0LTI5Y2EtNDgwOS1hMWU0LTMzMDM4ZDY2YjNkMSIsImp0aSI6IjM0NzcyZDViLTNiY2EtNGVmZi1iZWEwLWZhZTVhYzBkNDg3NyIsImlhdCI6MTcyMDUzNzgxOSwiZXhwIjoxNzIwNTM5NjE5fQ._YgIV4wqrj-QmnNCModoOM4CLil6eROmT9267BLgOxA"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2MDUxYTI0LTI5Y2EtNDgwOS1hMWU0LTMzMDM4ZDY2YjNkMSIsImp0aSI6IjZmMDNmNGZhLWE3MDctNGFjNy05NDZlLWUxMjUzMTI4NTFiZiIsImlhdCI6MTcyMTI2MTUxOSwiZXhwIjoxNzIxMjYzMzE5fQ.s87PpiI0bGSfQwFt-hsg_i5vcFnwtDTUbYOJkQuzaxk"
             }
         },
         {
@@ -173,15 +173,15 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "97fef3b4-9d0f-4b16-a0c9-cafe5ab1acad",
             "name": "Get user by user code",
-            "url": "{{LOCALHOST}}/api/users/16051a24-29ca-4809-a1e4-33038d66b3d1",
+            "url": "{{LOCALHOST}}/api/users/078a8aa1-9c18-43a6-8187-cf79bb5f1214",
             "method": "GET",
             "sortNum": 13750,
             "created": "2024-02-13T19:33:44.012Z",
-            "modified": "2024-07-08T18:15:42.332Z",
+            "modified": "2024-07-20T18:34:49.814Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2MDUxYTI0LTI5Y2EtNDgwOS1hMWU0LTMzMDM4ZDY2YjNkMSIsImp0aSI6IjhiMmY5NDQzLWVjYzktNDNmNy1iMmNlLTg1NTI2ODE2YWYxMyIsImlhdCI6MTcyMDQ2MjM2NSwiZXhwIjoxNzIwNDY0MTY1fQ.XLiZMWP4pUb3CfV00wSzesQ3hO0LES2fg56AnkSQmpw"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA3OGE4YWExLTljMTgtNDNhNi04MTg3LWNmNzliYjVmMTIxNCIsImp0aSI6Ijk2OWVkNjcwLWFiNGEtNDY3OS1iMGY1LTg4ZGFjZjE2ODY5NCIsImlhdCI6MTcyMTUwMDQ3NCwiZXhwIjoxNzIxNTAyMjc0fQ.6hQcQ3I10xHDYmbn85Hp2Ym8LSSLKqT0-bg03EZPkrA"
             }
         },
         {
@@ -189,20 +189,20 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "97fef3b4-9d0f-4b16-a0c9-cafe5ab1acad",
             "name": "Update user by user code",
-            "url": "{{LOCALHOST}}/api/users/94b944c3-7912-4b82-886d-367673d0a4c9",
+            "url": "{{LOCALHOST}}/api/users/078a8aa1-9c18-43a6-8187-cf79bb5f1214",
             "method": "PUT",
             "sortNum": 15000,
             "created": "2024-02-13T19:33:44.013Z",
-            "modified": "2024-06-02T17:01:59.663Z",
+            "modified": "2024-07-20T15:45:50.181Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"name\": \"Luiz Costa\",\n    \"email\": \"costaeduardoluiz@gmail.com\",\n    \"password\": \"abc\",\n    \"id_role\": 2\n}",
+                "raw": "{\n    \"name\": \"Luiz Costa\",\n    \"email\": \"costaeduardoluiz@gmail.com\",\n    \"password\": \"abc\",\n    \"id_role\": 2,\n    \"birthdate\": \"2024-07-20\",\n    \"id_gender\":1\n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk0Yjk0NGMzLTc5MTItNGI4Mi04ODZkLTM2NzY3M2QwYTRjOSIsImlhdCI6MTcxNzM0NzU2MywiZXhwIjoxNzE3MzQ5MzYzfQ.pubA2qOwIYCsd-Llxsx9t4TXAsFBqslOXi_7jQV0hfU"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA3OGE4YWExLTljMTgtNDNhNi04MTg3LWNmNzliYjVmMTIxNCIsImp0aSI6IjVjZWU3NTcwLWU1YTgtNDU5NC1hYTZjLWY0OWQwMzY4YmU3OSIsImlhdCI6MTcyMTQ5MDM0MCwiZXhwIjoxNzIxNDkyMTQwfQ.vvLUqUDTSJAOR9cfn1ilwS0fATjAmBGIFk-011w9Oy0"
             }
         },
         {
@@ -431,11 +431,11 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "ea668fe4-43d5-4904-8db5-8f944ab025b1",
             "name": "Forgot password",
-            "url": "https://glicocheck-api.onrender.com/api/reset-password/forgot-password",
+            "url": "{{LOCALHOST}}/api/reset-password/forgot-password",
             "method": "POST",
             "sortNum": 180000,
             "created": "2024-02-13T19:33:44.029Z",
-            "modified": "2024-05-31T01:09:17.623Z",
+            "modified": "2024-07-19T00:02:30.978Z",
             "headers": [],
             "body": {
                 "type": "json",
@@ -770,15 +770,15 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "59014f95-425b-4700-aa91-28dda7405edb",
             "name": "Get System configuration by user code",
-            "url": "{{LOCALHOST}}/api/systemconfiguration/user/94b944c3-7912-4b82-886d-367673d0a4c9",
+            "url": "{{LOCALHOST}}/api/systemconfiguration/user/9fff8098-84de-4b7d-af95-cf06db1b1536",
             "method": "GET",
             "sortNum": 320000,
             "created": "2024-02-13T19:33:44.048Z",
-            "modified": "2024-06-02T17:03:39.967Z",
+            "modified": "2024-07-19T01:40:14.066Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk0Yjk0NGMzLTc5MTItNGI4Mi04ODZkLTM2NzY3M2QwYTRjOSIsImlhdCI6MTcxNzM0NzU2MywiZXhwIjoxNzE3MzQ5MzYzfQ.pubA2qOwIYCsd-Llxsx9t4TXAsFBqslOXi_7jQV0hfU"
+                "bearer": " eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlmZmY4MDk4LTg0ZGUtNGI3ZC1hZjk1LWNmMDZkYjFiMTUzNiIsImp0aSI6IjM4YWYzMWRkLTBhNTgtNDVmOS1hM2NkLWI5YzExYmZlNGQzYSIsImlhdCI6MTcyMTM1MjkzOSwiZXhwIjoxNzIxMzU0NzM5fQ.iEZEZoqQA3BA3oAOUEovBwzwq_lr0eLv9Jh97o9DYHY"
             }
         },
         {
@@ -861,18 +861,16 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "7413a330-072b-48d4-bee2-8aac6a32d791",
             "name": "Get health info by user code",
-            "url": "{{LOCALHOST}}/api/healthinfo/user/973913c9-ccb5-4333-8283-f5bc490c2efc",
+            "url": "{{LOCALHOST}}/api/healthinfo/user/078a8aa1-9c18-43a6-8187-cf79bb5f1214",
             "method": "GET",
             "sortNum": 360000,
             "created": "2024-02-13T19:33:44.053Z",
-            "modified": "2024-02-13T19:33:44.053Z",
+            "modified": "2024-07-20T18:29:25.297Z",
             "headers": [],
-            "params": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI0Y2Y5ODkxLTkxZjYtNDY2Mi1hOGYzLTYzODRkMzNiM2EzNSIsImlhdCI6MTY4NjI3MzI1NCwiZXhwIjoxNjg2Mjc1MDU0fQ.vyHit5ZeR9vpKZlkWgXjDfiHNmdKe822lmWFiQrQc4A"
-            },
-            "tests": []
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA3OGE4YWExLTljMTgtNDNhNi04MTg3LWNmNzliYjVmMTIxNCIsImp0aSI6IjgxZDAwN2NhLTY0NzgtNGI0Mi1iYzJkLTJlNGUwMGM4N2NlYyIsImlhdCI6MTcyMTUwMDE0NSwiZXhwIjoxNzIxNTAxOTQ1fQ.XvpxBfIOKM9NWMgzkQVBkZk8x_O4_Yf9Fx8UJGaPjLI"
+            }
         },
         {
             "_id": "a37b5706-63f6-4b7f-be91-17fbcc455a0b",
@@ -889,10 +887,31 @@
                 "type": "bearer",
                 "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2MDUxYTI0LTI5Y2EtNDgwOS1hMWU0LTMzMDM4ZDY2YjNkMSIsImp0aSI6IjM0NzcyZDViLTNiY2EtNGVmZi1iZWEwLWZhZTVhYzBkNDg3NyIsImlhdCI6MTcyMDUzNzgxOSwiZXhwIjoxNzIwNTM5NjE5fQ._YgIV4wqrj-QmnNCModoOM4CLil6eROmT9267BLgOxA"
             }
+        },
+        {
+            "_id": "e5b2623e-59f2-41e9-81a3-410e0bdc2887",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "7413a330-072b-48d4-bee2-8aac6a32d791",
+            "name": "Update Health info by user code",
+            "url": "http://localhost:8001/api/healthinfo/user/078a8aa1-9c18-43a6-8187-cf79bb5f1214",
+            "method": "PUT",
+            "sortNum": 380000,
+            "created": "2024-07-20T18:07:55.558Z",
+            "modified": "2024-07-20T18:09:29.136Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id_diabetes_type\": 1,\n  \"id_blood_type\": 1\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA3OGE4YWExLTljMTgtNDNhNi04MTg3LWNmNzliYjVmMTIxNCIsImp0aSI6IjQ2Y2ZmYWFmLWY0NzMtNGFjNC04MjExLWViOGZlY2Y0MzgzNiIsImlhdCI6MTcyMTQ5ODkzNCwiZXhwIjoxNzIxNTAwNzM0fQ.Vj_cGG1fpSJUOCpWbSfJ8q1l6l_HK32mUe1-LwlN0O8"
+            }
         }
     ],
     "settings": {
         "envId": "f0223d0d-c7c0-4d5a-b204-ecc7a093cbf2"
     },
-    "ref": "AacjCQHooDV61gcZhlKO5XrEvkYL-HD9mPHlaqrXweIqirzCk9aXinkhjFJfnX7rXtLFBGoMHIo0vghd_SkyPw"
+    "ref": "AacjCQHooDV61gcZhlKO5UzXidHa__2LuvkOMXdAg4Tv6rV4H9RGQsXI6_T8dehgfTrLZhI_mPBUmK58pSHpSA"
 }

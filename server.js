@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 import express, { json } from 'express';
 import helmet from 'helmet';
+import cors from 'cors';
 import logger from './src/loggerUtil/logger.js';
 import executeInvalidTokenTableCleanupScheduler from './src/service/invalidTokenTableCleanupScheduler.js';
 
@@ -25,11 +26,20 @@ import diaryRouter from './src/routes/diaryRouter.js';
 const app = express();
 
 // Applies security headers.
-
 app.use(
   helmet({
     contentSecurityPolicy: false,
   })
+);
+
+// Specific CORS configuration.
+app.use(
+  cors({
+    // origin: ['https://glicocheck-admin.vercel.app', 'https://glicocheck.onrender.com/'],
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  }),
 );
 
 // Disclosing the fingerprinting of this web technology.

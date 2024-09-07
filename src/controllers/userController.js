@@ -2,6 +2,7 @@ import logger from '../loggerUtil/logger.js';
 import Messages from '../utils/messages.js';
 import UserDAO from '../dao/UserDAO.js';
 import DateTimeUtil from '../utils/dateTimeUtil.js';
+import SystemConfigurationController from './systemConfigurationController.js';
 
 /**
  * UserController.
@@ -36,15 +37,19 @@ class UserController {
           .json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
       }
 
+      // Save new user.
       const user = { name, email, password, id_role };
-      const result = await UserDAO.add(user);
+      const addUserResult = await UserDAO.add(user);      
 
-      if (result.success) {
+      if (addUserResult.success) {
+        // Save default system configuration.
+        SystemConfigurationController.saveDefaultSystemConfiguration(addUserResult.id);
+
         res
           .status(201)
-          .json({ message: result.message, cod_user: result.cod_user });
+          .json({ message: addUserResult.message, cod_user: addUserResult.cod_user });
       } else {
-        res.status(400).json({ message: result.message });
+        res.status(400).json({ message: addUserResult.message });
       }
     } catch (error) {
       logger.error(`Error UserController.addUser - ${error.message}`);
@@ -55,7 +60,7 @@ class UserController {
   };
 
   static getUserByUserCode = async (req, res) => {
-    logger.info('Executing UserController.getUserById');
+    logger.info('Executing UserController.getUserByUserCode');
     try {
       const userCode = req.params.usercode;
 
@@ -73,7 +78,7 @@ class UserController {
         res.status(404).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error UserController.getUserById');
+      logger.error('Error UserController.getUserByUserCode');
       res.status(500).json({
         message: Messages.ERROR,
       });

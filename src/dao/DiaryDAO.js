@@ -55,8 +55,8 @@ export default class DiaryDAO {
   static async getByUserCode(userCode) {
     try {
       const result = await database(TABLE_NAME + ' as bsd')
-        .where('users.cod_user', userCode)
-        .join('users', 'users.id', 'bsd.id_user')
+        .join('users', 'users.id', 'bsd.id_user')  
+        .where('users.cod_user', userCode)        
         .select(
           'bsd.id',
           'users.cod_user',
@@ -66,7 +66,7 @@ export default class DiaryDAO {
           'bsd.id_markermeal',
           'bsd.created_at',
           'bsd.updated_at'
-        );
+        ).orderBy('bsd.dateTime', 'asc');
 
       if (result.length > 0) {
         return { success: true, diary: result };

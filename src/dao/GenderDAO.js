@@ -7,7 +7,9 @@ const TABLE_GENDERS = 'genders';
 export default class GenderDAO {
   static async getAll() {
     try {
-      const genders = await database(TABLE_GENDERS).select('id', 'description');
+      const genders = await database(TABLE_GENDERS)
+        .select('id', 'description')
+        .orderBy('id');
 
       if (genders.length > 0) {
         return { success: true, genders };

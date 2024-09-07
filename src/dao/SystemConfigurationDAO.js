@@ -34,7 +34,7 @@ export default class SystemConfigurationDAO {
 
   static async getAll() {
     try {
-      const systemConfiguration = await database(TABLE_SYSTEM_CONFIGURATION).select('*');
+      const systemConfiguration = await database(TABLE_SYSTEM_CONFIGURATION).select('*').orderBy('id');
       if (systemConfiguration.length > 0) {
         return { success: true, systemConfiguration };
       } else {

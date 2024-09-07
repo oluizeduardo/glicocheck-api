@@ -17,7 +17,7 @@ export default class UserDAO {
         const cod_user = CryptoUtil.createRandomUUID();
         const hashedPassword = SecurityUtils.generateHashValue(user.password);
 
-        await database(TABLE_USERS).insert(
+        const result = await database(TABLE_USERS).insert(
           {
             cod_user,
             name: user.name,
@@ -25,10 +25,12 @@ export default class UserDAO {
             password: hashedPassword,
             id_role: user.id_role,
           },
-          ['cod_user']
+          ['cod_user', 'id']
         );
 
-        return { success: true, cod_user, message: Messages.NEW_USER_CREATED };
+        const id = result[0].id;
+
+        return { success: true, cod_user, id, message: Messages.NEW_USER_CREATED };
       }
     } catch (error) {
       logger.error('Error UserDAO.add', error);
@@ -38,7 +40,7 @@ export default class UserDAO {
 
   static async getAll() {
     try {
-      const users = await database(TABLE_USERS).select('*');
+      const users = await database(TABLE_USERS).select('*').orderBy('id');
       if (users.length > 0) {
         return { success: true, users };
       } else {
@@ -53,8 +55,23 @@ export default class UserDAO {
   static async getByUserCode(userCode) {
     try {
       const users = await database(TABLE_USERS)
-        .where('cod_user', userCode)
-        .select('*');
+        .where('users.cod_user', userCode)
+        .leftJoin('health_info', 'users.id', 'health_info.id_user')          
+        .select(
+          'users.id',
+          'users.cod_user',
+          'users.name',
+          'users.email',
+          'users.birthdate',
+          'users.phone',
+          'users.id_gender',
+          'users.weight',
+          'users.height',          
+          'health_info.id_diabetes_type',
+          'health_info.id_blood_type',
+          'health_info.month_diagnosis',
+          'users.picture',
+      );
 
       if (users.length > 0) {
         return { success: true, user: users[0] };

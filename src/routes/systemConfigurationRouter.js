@@ -10,7 +10,7 @@ systemConfigurationRouter.use(express.json());
 
 systemConfigurationRouter
   .get('/', RoleMiddleware.isAdminUser, SystemConfigurationController.getAll)
-  .post('/', RoleMiddleware.isAdminUser, SystemConfigurationController.addNew)
+  .post('/', SystemConfigurationController.addNew)
   .get('/:id', RoleMiddleware.isAdminUser, SystemConfigurationController.getById)
   .delete('/:id', RoleMiddleware.isAdminUser, SystemConfigurationController.deleteById)
   .get('/user/:usercode', UserCodeMiddleware.validateUserCode, SystemConfigurationController.getByUserCode)

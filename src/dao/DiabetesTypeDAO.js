@@ -7,7 +7,7 @@ const TABLE_DIABETES_TYPES = 'diabetes_types';
 export default class DiabetesTypeDAO {
   static async getAll() {
     try {
-      const types = await database(TABLE_DIABETES_TYPES).select('*');
+      const types = await database(TABLE_DIABETES_TYPES).select('*').orderBy('id');
 
       if (types.length > 0) {
         return { success: true, types };

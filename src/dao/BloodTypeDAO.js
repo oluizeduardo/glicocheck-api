@@ -28,7 +28,7 @@ export default class BloodTypeDAO {
 
   static async getAll() {
     try {
-      const types = await database(TABLE_BLOOD_TYPES).select('*');
+      const types = await database(TABLE_BLOOD_TYPES).select('*').orderBy('id');
       if (types.length > 0) {
         return { success: true, types };
       } else {
