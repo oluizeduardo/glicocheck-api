@@ -64,8 +64,10 @@ export default class AuthenticationController {
       const result = await RejectListDAO.add({ token_id });
 
       if (result.success) {
+        logger.info('Logout successful.');
         res.status(200).send({ message: 'Logout successful' });
       } else {
+        logger.error('Error during Logout.');
         res.status(500).send({ message: result.message });
       }
     } catch (err) {

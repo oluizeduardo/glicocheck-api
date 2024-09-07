@@ -40,7 +40,7 @@ export default class UserDAO {
 
   static async getAll() {
     try {
-      const users = await database(TABLE_USERS).select('*');
+      const users = await database(TABLE_USERS).select('*').orderBy('id');
       if (users.length > 0) {
         return { success: true, users };
       } else {
@@ -56,7 +56,7 @@ export default class UserDAO {
     try {
       const users = await database(TABLE_USERS)
         .where('users.cod_user', userCode)
-        .join('health_info', 'users.id', 'health_info.id_user')          
+        .leftJoin('health_info', 'users.id', 'health_info.id_user')          
         .select(
           'users.id',
           'users.cod_user',
