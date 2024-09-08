@@ -4,6 +4,9 @@ dotenv.config();
 import express, { json } from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
+import { readFile } from 'fs/promises';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
 import logger from './src/loggerUtil/logger.js';
 import executeInvalidTokenTableCleanupScheduler from './src/service/invalidTokenTableCleanupScheduler.js';
 
@@ -32,14 +35,21 @@ app.use(
   })
 );
 
-// Specific CORS configuration.
-app.use(
-  cors({
-    origin: ['https://glicocheck-admin.vercel.app', 'https://glicocheck.onrender.com/'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-  }),
-);
+const environment = process.env.ENVIRONMENT || 'dev';
+const corsOrigin =
+  environment === 'dev'
+    ? '*'
+    : [
+        'https://glicocheck-admin.vercel.app',
+        'https://glicocheck.onrender.com',
+      ];
+const corsOptions = {
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  origin: corsOrigin,
+};
+
+app.use(cors(corsOptions));
 
 // Disclosing the fingerprinting of this web technology.
 app.disable('x-powered-by');
@@ -63,9 +73,16 @@ app.use('/api', apiRouter);
 
 const port = process.env.PORT || 3000;
 
+// Get the app version from package.json.
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const data = await readFile(`${__dirname}/package.json`, 'utf-8');
+const packageJson = JSON.parse(data);
+const appVersion = packageJson.version;
+
 // Inicialize the server.
 app.listen(port, function () {
-  logger.info(`Server running on ${port}.`);
+  logger.info(`Glicocheck API [v${appVersion}] running on port [${port}] with profile [${environment}].`);
 });
 
 executeInvalidTokenTableCleanupScheduler();
