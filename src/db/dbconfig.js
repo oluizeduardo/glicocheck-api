@@ -4,13 +4,10 @@ import {fileURLToPath} from 'url';
 import {dirname, join} from 'path';
 import dotenv from 'dotenv';
 dotenv.config();
-import logger from '../loggerUtil/logger.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const databaseEnv = process.env.DATABASE_ENV;
-
-logger.info(`DATABASE ENVIRONMENT: ${databaseEnv}.`);
+const databaseEnv = process.env.ENVIRONMENT;
 
 const dbConfig = {
   client: 'sqlite3',
