@@ -35,8 +35,7 @@ app.use(
 // Specific CORS configuration.
 app.use(
   cors({
-    // origin: ['https://glicocheck-admin.vercel.app', 'https://glicocheck.onrender.com/'],
-    origin: '*',
+    origin: ['https://glicocheck-admin.vercel.app', 'https://glicocheck.onrender.com/'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
   }),
