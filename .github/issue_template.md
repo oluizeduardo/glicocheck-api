@@ -1,13 +1,20 @@
 ## I'm submitting a ...
 
-- [ ] bug report
-- [ ] feature request
+- [ ] Bug report
+- [ ] Feature request
+- [ ] Documentation
+- [ ] Enhancement
 
 ### Expected behavior
-Tell us what should happen.
+- Tell us what should happen.
 
 ### Actual behavior
-Tell us what happens instead.
+- Tell us what happens instead.
 
 ### What is the motivation / use case for changing the behavior?
-Describe the motivation for this issue.
+- Describe the motivation for this issue.
+
+### Priority
+- [ ] Low
+- [ ] Medium
+- [ ] High
