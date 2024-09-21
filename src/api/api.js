@@ -22,11 +22,7 @@ import diaryRouter from '../routes/diaryRouter.js';
 const server = express();
 
 // Applies security headers.
-server.use(
-  helmet({
-    contentSecurityPolicy: false,
-  })
-);
+server.use(helmet.contentSecurityPolicy());
 
 const environment = process.env.ENVIRONMENT || 'dev';
 const corsOrigin =
