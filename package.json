@@ -1,6 +1,6 @@
 {
   "name": "glicocheck-api",
-  "version": "1.0.0.2",
+  "version": "1.0.0.3",
   "description": "API for diabetes management.",
   "main": "index.js",
   "type": "module",
