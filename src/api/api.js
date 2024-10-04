@@ -21,8 +21,12 @@ import diaryRouter from '../routes/diaryRouter.js';
 
 const server = express();
 
-// Applies security headers.
-server.use(helmet.contentSecurityPolicy());
+// Disable security headers
+server.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
 
 const environment = process.env.ENVIRONMENT || 'dev';
 const corsOrigin =
