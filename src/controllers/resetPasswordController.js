@@ -131,10 +131,10 @@ class ResetPasswordController {
           logger.info(Messages.RESET_TOKEN_EXPIRED);
           await ResetPasswordTokenDAO.delete(resetToken);
           return res.status(HTTP_BAD_REQUEST).sendFile(PAGE_EXPIRED_LINK);
-        } else {
-          const fileContent = createContentResetPasswordPage(resultToken.token);
-          return res.status(HTTP_OK).send(fileContent);
-        }
+        } 
+
+        const fileContent = createContentResetPasswordPage(resultToken.token);
+        return res.status(HTTP_OK).send(fileContent);
       } else {
         // Reset token not found - show expired link page.
         logger.info(Messages.RESET_TOKEN_NOT_FOUND + ' - Showing expired link page');
@@ -149,9 +149,17 @@ class ResetPasswordController {
   static updateUserPassword = async (req, res) => {
     logger.info('Executing ResetPasswordController.updateUserPassword');
     try {
-      const { token, email, password } = req.body;
+      const { token, email, password, userId } = req.body;
 
-      if (!token || !email || !password) {
+      let updatedUser;
+      let result;
+
+      if(password){
+        updatedUser = {
+          password: SecurityUtils.generateHashValue(password),
+          updated_at: DateTimeUtil.getCurrentDateTime(),
+        };
+      }else{
         return res
           .status(HTTP_BAD_REQUEST)
           .json({
@@ -159,21 +167,28 @@ class ResetPasswordController {
             details: Messages.INCOMPLETE_DATA_PROVIDED,
           });
       }
+      
+      /////////////////////////
+      // Forgot password flow.
+      /////////////////////////
+      if (token && email) {        
+        const resultDeleteToken = await ResetPasswordTokenDAO.delete(token);
+        
+        if (resultDeleteToken.success) {
+          logger.info(Messages.RESET_TOKEN_DELETED);
+          result = await UserDAO.updateByEmail(email, updatedUser);
 
-      // Delete token.
-      const resultDeleteToken = await ResetPasswordTokenDAO.delete(token);
-      if (resultDeleteToken.success) {
-        logger.info(Messages.RESET_TOKEN_DELETED);
-      } else {
-        logger.error(Messages.ERROR_DELETE_RESET_TOKEN);
+        } else {
+          logger.error(Messages.ERROR_DELETE_RESET_TOKEN);
+        }
+      }      
+
+      /////////////////////////
+      // Inbound flow.
+      /////////////////////////
+      if(userId){
+        result = await UserDAO.updateByUserCode(userId, updatedUser);
       }
-
-      const updatedUser = {
-        password: SecurityUtils.generateHashValue(password),
-        updated_at: DateTimeUtil.getCurrentDateTime(),
-      };
-
-      const result = await UserDAO.updateByEmail(email, updatedUser);
 
       if (result.success) {
         return res
