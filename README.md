@@ -3,7 +3,9 @@
 </div>
 
 # Glicocheck API
-[Glicocheck's](https://github.com/oluizeduardo/glicocheck) API for diabetes management.
+API back-end for diabetes management.
+
+Check out the front-end project available in [Glicocheck](https://github.com/oluizeduardo/glicocheck) repository.
 
 ## 🛠 Technologies applied
 - Backend
