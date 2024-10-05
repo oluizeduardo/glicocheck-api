@@ -1,10 +1,10 @@
-# Description
-
+### Description
 - Please include a summary of the changes and the related issue.
 
-Fixes # (issue)
+### Fixes 
+- # (issue)
 
-## Type of change
+### Type of change
 
 Please delete options that are not relevant.
 
