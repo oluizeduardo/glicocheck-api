@@ -48,7 +48,7 @@ class ResetPasswordController {
       await ResetPasswordController.processForgotPasswordRequest(email, res);
     } catch (error) {
       logger.error('Error ResetPasswordController.handleForgotPassword', error);
-      res.status(HTTP_INTERNAL_SERVER_ERROR).sendFile(PAGE_ERROR);
+      res.status(HTTP_INTERNAL_SERVER_ERROR).send(createErrorPage());
     }
   };
 
@@ -90,7 +90,7 @@ class ResetPasswordController {
           'Error executing ResetPasswordController.handleCancelResetPasswordRequest - ' +
           Messages.UNINFORMED_PASSWORD_RESET_TOKEN;
         logger.error(errorMessage);
-        return res.status(HTTP_BAD_REQUEST).sendFile(PAGE_ERROR);
+        return res.status(HTTP_BAD_REQUEST).send(createErrorPage());
       }
 
       const resultDeleteToken = await ResetPasswordTokenDAO.delete(resetToken);
@@ -98,15 +98,15 @@ class ResetPasswordController {
       if (resultDeleteToken.success) {
         // Success cancelling reset password request.
         logger.info(Messages.RESET_TOKEN_DELETED);
-        return res.status(HTTP_OK).sendFile(PAGE_RESET_CANCEL);
+        return res.status(HTTP_OK).send(createResetCancelPage());
       } else {
         // Reset token not found - show expired link page.
         logger.info(Messages.RESET_TOKEN_NOT_FOUND + ' - Showing expired link page');
-        return res.status(HTTP_BAD_REQUEST).sendFile(PAGE_EXPIRED_LINK);
+        return res.status(HTTP_BAD_REQUEST).send(createExpiredLinkPage());
       }
     } catch (error) {
       logger.error('Error ResetPasswordController.handleCancelResetPasswordRequest', error);
-      return res.status(HTTP_INTERNAL_SERVER_ERROR).sendFile(PAGE_ERROR);
+      return res.status(HTTP_INTERNAL_SERVER_ERROR).send(createErrorPage());
     }
   };
 
@@ -117,7 +117,7 @@ class ResetPasswordController {
       const { resetToken } = req.params;
       if (!resetToken) {
         logger.error(Messages.UNINFORMED_PASSWORD_RESET_TOKEN);
-        return res.status(HTTP_BAD_REQUEST).sendFile(PAGE_ERROR);
+        return res.status(HTTP_BAD_REQUEST).send(createErrorPage());
       }
 
       // Search for the token in the database.
@@ -127,22 +127,24 @@ class ResetPasswordController {
         const dateCreateToken = resultToken.token.created_at;
         const isExpired = DateTimeUtil.isPassedOneHour(dateCreateToken);
 
+        let fileContent;
+
         if (isExpired) {
           logger.info(Messages.RESET_TOKEN_EXPIRED);
           await ResetPasswordTokenDAO.delete(resetToken);
-          return res.status(HTTP_BAD_REQUEST).sendFile(PAGE_EXPIRED_LINK);
+          return res.status(HTTP_BAD_REQUEST).send(createExpiredLinkPage());
         } 
 
-        const fileContent = createContentResetPasswordPage(resultToken.token);
+        fileContent = createResetPasswordPage(resultToken.token);
         return res.status(HTTP_OK).send(fileContent);
       } else {
         // Reset token not found - show expired link page.
         logger.info(Messages.RESET_TOKEN_NOT_FOUND + ' - Showing expired link page');
-        return res.status(HTTP_BAD_REQUEST).sendFile(PAGE_EXPIRED_LINK);
+        return res.status(HTTP_BAD_REQUEST).send(createExpiredLinkPage());
       }
     } catch (error) {
       logger.error('Error ResetPasswordController.handleResetPasswordRequest', error);
-      res.status(HTTP_INTERNAL_SERVER_ERROR).sendFile(PAGE_ERROR);
+      res.status(HTTP_INTERNAL_SERVER_ERROR).send(createErrorPage());
     }
   };
 
@@ -199,7 +201,7 @@ class ResetPasswordController {
       }
     } catch (error) {
       logger.error('Error ResetPasswordController.updateUserPassword', error);
-      res.status(HTTP_INTERNAL_SERVER_ERROR).sendFile(PAGE_ERROR);
+      res.status(HTTP_INTERNAL_SERVER_ERROR).send(createErrorPage());
     }
   };
 }
@@ -209,20 +211,15 @@ function getBaseFilePath() {
   return join(curentPath, '../../', 'assets/');
 }
 
-function loadResetPasswordFileContent() {
-  return fs.readFileSync(PAGE_RESET_PASSWORD).toString();
+function loadFileContent(path) {
+  if(!path) return '';
+  return fs.readFileSync(path).toString();
 }
 
-/**
- * Create content for the reset password page.
- * @param {string} token The reset token object recovered from the database.
- * @return {string} A string with the page's content.
- */
-function createContentResetPasswordPage(token) {
+function createResetPasswordPage(token) {
   const baseURL = process.env.BASE_URL;
-  const urlGlicocheckHomePage = process.env.URL_GLICOCHECK_HOME_PAGE;
-  let fileContent = loadResetPasswordFileContent();
-  fileContent = fileContent.replaceAll('#{urlGlicocheckHomePage}', urlGlicocheckHomePage);
+  let fileContent = loadFileContent(PAGE_RESET_PASSWORD);
+  fileContent = updateGlicocheckHomePageUrl(PAGE_RESET_PASSWORD);
   fileContent = fileContent.replace('#{email}', token.email_owner);
   fileContent = fileContent.replace('#{token}', token.token);
   fileContent = fileContent.replace(
@@ -230,6 +227,24 @@ function createContentResetPasswordPage(token) {
     `<a href="${baseURL}/api/reset-password/cancel/${token.token}">`
   );
   return fileContent;
+}
+
+function createExpiredLinkPage() {
+  return updateGlicocheckHomePageUrl(PAGE_EXPIRED_LINK);
+}
+
+function createErrorPage() {
+  return updateGlicocheckHomePageUrl(PAGE_ERROR);
+}
+
+function createResetCancelPage() {  
+  return updateGlicocheckHomePageUrl(PAGE_RESET_CANCEL);
+}
+
+function updateGlicocheckHomePageUrl(filePath) {
+  const urlGlicocheckHomePage = process.env.URL_GLICOCHECK_HOME_PAGE;
+  let fileContent = loadFileContent(filePath);
+  return fileContent.replaceAll('#{urlGlicocheckHomePage}', urlGlicocheckHomePage);
 }
 
 export default ResetPasswordController;
