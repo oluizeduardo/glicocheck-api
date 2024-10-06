@@ -242,7 +242,7 @@ function createResetCancelPage() {
 }
 
 function updateGlicocheckHomePageUrl(filePath) {
-  const urlGlicocheckHomePage = process.env.URL_GLICOCHECK_HOME_PAGE;
+  const urlGlicocheckHomePage = process.env.URL_GLICOCHECK_HOME_PAGE || '';
   let fileContent = loadFileContent(filePath);
   return fileContent.replaceAll('#{urlGlicocheckHomePage}', urlGlicocheckHomePage);
 }
