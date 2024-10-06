@@ -51,7 +51,7 @@ export default class RejectListDAO {
 
       return { success: true };
     } catch (error) {
-      logger.error('Error RejectListDAO.deleteRegistersOlderThan');
+      logger.error('Error RejectListDAO.deleteRegistersOlderThan - ', error);
       return { success: false };
     }
   }
