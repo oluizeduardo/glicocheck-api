@@ -7,15 +7,32 @@ dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const databaseEnv = process.env.ENVIRONMENT;
+const environment = process.env.ENVIRONMENT;
+let dbConfig;
 
-const dbConfig = {
-  client: 'sqlite3',
-  connection: {
-    filename: join(__dirname, `./${databaseEnv}/glicocheck_db.sqlite`),
-  },
-  useNullAsDefault: true,
-};
+if(environment === 'dev'){
+  dbConfig = {
+    client: 'sqlite3',
+    connection: {
+      filename: join(__dirname, `./${environment}/glicocheck_db.sqlite`),
+    },
+    useNullAsDefault: true,
+  };
+}
+
+if(environment === 'prod'){
+  dbConfig = {
+    client: 'pg', 
+    connection: {
+      host: process.env.DATABASE_HOST,
+      port: process.env.DATABASE_PORT,
+      user: process.env.DATABASE_USER,
+      password: process.env.DATABASE_PASSWORD,
+      database: process.env.DATABASE_NAME,
+      ssl: { rejectUnauthorized: false } 
+    }  
+  };
+}
 
 const db = knex(dbConfig);
 

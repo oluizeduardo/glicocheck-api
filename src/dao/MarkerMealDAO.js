@@ -28,7 +28,7 @@ export default class MarkerMealDAO {
 
   static async getAll() {
     try {
-      const markers = await database(TABLE_MARKER_MEALS).select('*');
+      const markers = await database(TABLE_MARKER_MEALS).select('*').orderBy('id', 'asc');
       if (markers.length > 0) {
         return { success: true, markers };
       } else {

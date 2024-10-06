@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "Glicocheck",
     "collectionId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
-    "dateExported": "2024-09-08T00:08:47.662Z",
+    "dateExported": "2024-10-06T03:11:52.943Z",
     "version": "1.2",
     "folders": [
         {
@@ -100,11 +100,11 @@
             "method": "POST",
             "sortNum": 5000,
             "created": "2024-02-13T19:33:44.026Z",
-            "modified": "2024-09-07T15:39:15.358Z",
+            "modified": "2024-10-06T02:02:47.010Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"email\": \"costaeduardoluiz@gmail.com\",\n    \"password\": \"asd\"\n}",
+                "raw": "{\n    \"email\": \"juninho@gmail.com\",\n    \"password\": \"asd\"\n}",
                 "form": []
             }
         },
@@ -117,7 +117,7 @@
             "method": "POST",
             "sortNum": 6250,
             "created": "2024-02-13T19:33:44.009Z",
-            "modified": "2024-09-07T15:38:28.481Z",
+            "modified": "2024-10-06T01:59:07.235Z",
             "headers": [
                 {
                     "name": "Authorization",
@@ -127,7 +127,7 @@
             ],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"name\": \"Luiz Costa\",\n    \"email\": \"costaeduardoluiz@gmail.com\",\n    \"password\": \"asd\",\n    \"id_role\": 1\n}",
+                "raw": "{\n    \"name\": \"Lucas Costa\",\n    \"email\": \"lucas@gmail.com\",\n    \"password\": \"asd\",\n    \"id_role\": 1\n}",
                 "form": []
             }
         },
@@ -136,11 +136,11 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
             "name": "Add to an user",
-            "url": "{{LOCALHOST}}/api/diary/users/899aec86-84f2-4f61-b286-3fd96698038a",
+            "url": "{{LOCALHOST}}/api/diary/users/178f61b4-18e5-48d1-bd71-43d4eb6d7fbe",
             "method": "POST",
             "sortNum": 10000,
             "created": "2024-02-13T19:33:44.014Z",
-            "modified": "2024-09-07T17:30:02.314Z",
+            "modified": "2024-10-06T02:16:50.215Z",
             "headers": [],
             "body": {
                 "type": "json",
@@ -149,7 +149,7 @@
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5OWFlYzg2LTg0ZjItNGY2MS1iMjg2LTNmZDk2Njk4MDM4YSIsImp0aSI6IjRlOGE2NWI1LTQ3M2YtNGZiOS05ZWFkLWRjYzYzOWFhZTg5MSIsImlhdCI6MTcyNTcyOTg4MCwiZXhwIjoxNzI1NzMxNjgwfQ.qj91YLeczUiLfkikxckQDZ_xaEkktFrHvKeScfqFWjs"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6IjI4MDRhMjJkLWM5MDItNGJkYy04MTc1LWZiMWI3ODNjNjg3OSIsImlhdCI6MTcyODE4MDUxOSwiZXhwIjoxNzI4MTgyMzE5fQ.Ks5KAs5HpQTYzrzvtRCDygBmmvs2UbaQYYLqPz9ML5w"
             }
         },
         {
@@ -161,11 +161,11 @@
             "method": "GET",
             "sortNum": 12500,
             "created": "2024-02-13T19:33:44.010Z",
-            "modified": "2024-09-07T17:45:25.188Z",
+            "modified": "2024-10-06T01:59:45.513Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5OWFlYzg2LTg0ZjItNGY2MS1iMjg2LTNmZDk2Njk4MDM4YSIsImp0aSI6IjA5YjMzOTYxLTY3NTYtNGJkMy1hZjUwLTQ3NDE2ZTUzZDVjOSIsImlhdCI6MTcyNTczMTExNiwiZXhwIjoxNzI1NzMyOTE2fQ.G8rQN5K3Q7g75PKx4VsUuepp6F-B6Vd3QI1KeIPPxnM"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6IjQ2NDllMmU0LTI1NjgtNGQ0ZC05YmJiLTg4ODUyM2Q0NDUxNyIsImlhdCI6MTcyODE3OTk3OCwiZXhwIjoxNzI4MTgxNzc4fQ.uR_wzY6dokVKoC-zaecEBFLIqj8rg9BFKnhFJ_mJ1vo"
             }
         },
         {
@@ -173,15 +173,15 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "97fef3b4-9d0f-4b16-a0c9-cafe5ab1acad",
             "name": "Get user by user code",
-            "url": "{{LOCALHOST}}/api/users/899aec86-84f2-4f61-b286-3fd96698038a",
+            "url": "{{LOCALHOST}}/api/users/178f61b4-18e5-48d1-bd71-43d4eb6d7fbe",
             "method": "GET",
             "sortNum": 13750,
             "created": "2024-02-13T19:33:44.012Z",
-            "modified": "2024-09-07T17:26:02.796Z",
+            "modified": "2024-10-06T02:03:24.126Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5OWFlYzg2LTg0ZjItNGY2MS1iMjg2LTNmZDk2Njk4MDM4YSIsImp0aSI6IjRlOGE2NWI1LTQ3M2YtNGZiOS05ZWFkLWRjYzYzOWFhZTg5MSIsImlhdCI6MTcyNTcyOTg4MCwiZXhwIjoxNzI1NzMxNjgwfQ.qj91YLeczUiLfkikxckQDZ_xaEkktFrHvKeScfqFWjs"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6IjQ1YTBiN2ViLTNiOWQtNDQyMS1hYzcxLWI1ZTAyZDZiOGZhNiIsImlhdCI6MTcyODE4MDE4NiwiZXhwIjoxNzI4MTgxOTg2fQ.IrCacddy8Z0g934Nyb8y2IW4ON2ADOieGYCinYYp1W0"
             }
         },
         {
@@ -189,20 +189,20 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "97fef3b4-9d0f-4b16-a0c9-cafe5ab1acad",
             "name": "Update user by user code",
-            "url": "{{LOCALHOST}}/api/users/3a781ac0-051e-46c6-9fbc-9aef56708272",
+            "url": "{{LOCALHOST}}/api/users/178f61b4-18e5-48d1-bd71-43d4eb6d7fbe",
             "method": "PUT",
             "sortNum": 15000,
             "created": "2024-02-13T19:33:44.013Z",
-            "modified": "2024-09-07T17:23:36.306Z",
+            "modified": "2024-10-06T02:08:34.150Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"name\": \"Luiz Juninho Costa\",\n    \"email\": \"costaeduardoluiz@gmail.com\",\n    \"password\": \"abc\",\n    \"id_role\": 2,\n    \"birthdate\": \"2024-05-24\",\n    \"id_gender\":1\n}",
+                "raw": "{\n    \"name\": \"Juninho Costa\",\n    \"email\": \"juninho@gmail.com\",\n    \"password\": \"abc\",\n    \"id_role\": 1,\n    \"birthdate\": \"2024-05-24\",\n    \"id_gender\":1\n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNhNzgxYWMwLTA1MWUtNDZjNi05ZmJjLTlhZWY1NjcwODI3MiIsImp0aSI6ImQwNDlmOTE3LTVlYzItNDQ3NS05MWM2LWNkY2IzNjc1MTYxOSIsImlhdCI6MTcyNTcyOTAwMSwiZXhwIjoxNzI1NzMwODAxfQ.G2DMt-0hPv2Vr1nMdiHecuPkyjOLa-FM8qHAtA7pLG4"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6IjQ2NDllMmU0LTI1NjgtNGQ0ZC05YmJiLTg4ODUyM2Q0NDUxNyIsImlhdCI6MTcyODE3OTk3OCwiZXhwIjoxNzI4MTgxNzc4fQ.uR_wzY6dokVKoC-zaecEBFLIqj8rg9BFKnhFJ_mJ1vo"
             }
         },
         {
@@ -210,15 +210,15 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "97fef3b4-9d0f-4b16-a0c9-cafe5ab1acad",
             "name": "Delete user by user code",
-            "url": "{{LOCALHOST}}/api/users/3a781ac0-051e-46c6-9fbc-9aef56708272",
+            "url": "{{LOCALHOST}}/api/users/178f61b4-18e5-48d1-bd71-43d4eb6d7fbe",
             "method": "DELETE",
             "sortNum": 30000,
             "created": "2024-02-13T19:33:44.011Z",
-            "modified": "2024-09-07T17:24:13.558Z",
+            "modified": "2024-10-06T02:05:53.426Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNhNzgxYWMwLTA1MWUtNDZjNi05ZmJjLTlhZWY1NjcwODI3MiIsImp0aSI6ImQwNDlmOTE3LTVlYzItNDQ3NS05MWM2LWNkY2IzNjc1MTYxOSIsImlhdCI6MTcyNTcyOTAwMSwiZXhwIjoxNzI1NzMwODAxfQ.G2DMt-0hPv2Vr1nMdiHecuPkyjOLa-FM8qHAtA7pLG4"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6IjQ1YTBiN2ViLTNiOWQtNDQyMS1hYzcxLWI1ZTAyZDZiOGZhNiIsImlhdCI6MTcyODE4MDE4NiwiZXhwIjoxNzI4MTgxOTg2fQ.IrCacddy8Z0g934Nyb8y2IW4ON2ADOieGYCinYYp1W0"
             }
         },
         {
@@ -226,15 +226,15 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
             "name": "Get all by user code",
-            "url": "{{LOCALHOST}}/api/diary/users/899aec86-84f2-4f61-b286-3fd96698038a",
+            "url": "{{LOCALHOST}}/api/diary/users/178f61b4-18e5-48d1-bd71-43d4eb6d7fbe",
             "method": "GET",
             "sortNum": 35000,
             "created": "2024-02-13T19:33:44.024Z",
-            "modified": "2024-09-07T17:29:47.990Z",
+            "modified": "2024-10-06T02:17:45.455Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5OWFlYzg2LTg0ZjItNGY2MS1iMjg2LTNmZDk2Njk4MDM4YSIsImp0aSI6IjRlOGE2NWI1LTQ3M2YtNGZiOS05ZWFkLWRjYzYzOWFhZTg5MSIsImlhdCI6MTcyNTcyOTg4MCwiZXhwIjoxNzI1NzMxNjgwfQ.qj91YLeczUiLfkikxckQDZ_xaEkktFrHvKeScfqFWjs"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6IjI4MDRhMjJkLWM5MDItNGJkYy04MTc1LWZiMWI3ODNjNjg3OSIsImlhdCI6MTcyODE4MDUxOSwiZXhwIjoxNzI4MTgyMzE5fQ.Ks5KAs5HpQTYzrzvtRCDygBmmvs2UbaQYYLqPz9ML5w"
             }
         },
         {
@@ -246,9 +246,8 @@
             "method": "POST",
             "sortNum": 50000,
             "created": "2024-02-13T19:33:44.020Z",
-            "modified": "2024-02-13T19:33:44.020Z",
+            "modified": "2024-10-06T02:28:05.143Z",
             "headers": [],
-            "params": [],
             "body": {
                 "type": "json",
                 "raw": "{\n    \"description\": \"Supper\"\n}",
@@ -256,20 +255,19 @@
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAzYjA2YzZhLTQzNjctNDVmMC04MjM3LTMzOThmNmM1NGNjMSIsImlhdCI6MTY4ODA4NzM5MiwiZXhwIjoxNjg4MDg5MTkyfQ.cHVuucIzsx8YO7YHYCwTo9T-sXy6-pZ0UzP2AwhKtk8"
-            },
-            "tests": []
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6IjI4MDRhMjJkLWM5MDItNGJkYy04MTc1LWZiMWI3ODNjNjg3OSIsImlhdCI6MTcyODE4MDUxOSwiZXhwIjoxNzI4MTgyMzE5fQ.Ks5KAs5HpQTYzrzvtRCDygBmmvs2UbaQYYLqPz9ML5w"
+            }
         },
         {
             "_id": "927c3a0c-69e1-4063-b67c-bb531250353c",
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
             "name": "Update by user and by diary id",
-            "url": "{{LOCALHOST}}/api/diary/users/899aec86-84f2-4f61-b286-3fd96698038a/5",
+            "url": "{{LOCALHOST}}/api/diary/users/178f61b4-18e5-48d1-bd71-43d4eb6d7fbe/1",
             "method": "PUT",
             "sortNum": 65000,
             "created": "2024-02-13T19:33:44.016Z",
-            "modified": "2024-09-07T17:32:33.856Z",
+            "modified": "2024-10-06T02:25:27.827Z",
             "headers": [],
             "body": {
                 "type": "json",
@@ -278,7 +276,7 @@
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5OWFlYzg2LTg0ZjItNGY2MS1iMjg2LTNmZDk2Njk4MDM4YSIsImp0aSI6IjRlOGE2NWI1LTQ3M2YtNGZiOS05ZWFkLWRjYzYzOWFhZTg5MSIsImlhdCI6MTcyNTcyOTg4MCwiZXhwIjoxNzI1NzMxNjgwfQ.qj91YLeczUiLfkikxckQDZ_xaEkktFrHvKeScfqFWjs"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6IjI4MDRhMjJkLWM5MDItNGJkYy04MTc1LWZiMWI3ODNjNjg3OSIsImlhdCI6MTcyODE4MDUxOSwiZXhwIjoxNzI4MTgyMzE5fQ.Ks5KAs5HpQTYzrzvtRCDygBmmvs2UbaQYYLqPz9ML5w"
             }
         },
         {
@@ -286,15 +284,15 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
             "name": "Delete all by user code",
-            "url": "{{LOCALHOST}}/api/diary/users/899aec86-84f2-4f61-b286-3fd96698038a",
+            "url": "{{LOCALHOST}}/api/diary/users/178f61b4-18e5-48d1-bd71-43d4eb6d7fbe",
             "method": "DELETE",
             "sortNum": 81250,
             "created": "2024-02-13T19:33:44.027Z",
-            "modified": "2024-09-07T17:33:18.633Z",
+            "modified": "2024-10-06T02:26:16.093Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5OWFlYzg2LTg0ZjItNGY2MS1iMjg2LTNmZDk2Njk4MDM4YSIsImp0aSI6IjRlOGE2NWI1LTQ3M2YtNGZiOS05ZWFkLWRjYzYzOWFhZTg5MSIsImlhdCI6MTcyNTcyOTg4MCwiZXhwIjoxNzI1NzMxNjgwfQ.qj91YLeczUiLfkikxckQDZ_xaEkktFrHvKeScfqFWjs"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6IjI4MDRhMjJkLWM5MDItNGJkYy04MTc1LWZiMWI3ODNjNjg3OSIsImlhdCI6MTcyODE4MDUxOSwiZXhwIjoxNzI4MTgyMzE5fQ.Ks5KAs5HpQTYzrzvtRCDygBmmvs2UbaQYYLqPz9ML5w"
             }
         },
         {
@@ -322,29 +320,27 @@
             "method": "GET",
             "sortNum": 100000,
             "created": "2024-02-13T19:33:44.019Z",
-            "modified": "2024-02-13T19:33:44.019Z",
+            "modified": "2024-10-06T02:28:11.608Z",
             "headers": [],
-            "params": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAzYjA2YzZhLTQzNjctNDVmMC04MjM3LTMzOThmNmM1NGNjMSIsImlhdCI6MTY4ODA4NzM5MiwiZXhwIjoxNjg4MDg5MTkyfQ.cHVuucIzsx8YO7YHYCwTo9T-sXy6-pZ0UzP2AwhKtk8"
-            },
-            "tests": []
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6IjI4MDRhMjJkLWM5MDItNGJkYy04MTc1LWZiMWI3ODNjNjg3OSIsImlhdCI6MTcyODE4MDUxOSwiZXhwIjoxNzI4MTgyMzE5fQ.Ks5KAs5HpQTYzrzvtRCDygBmmvs2UbaQYYLqPz9ML5w"
+            }
         },
         {
             "_id": "a3d29e07-d178-428b-9c91-d957e5183922",
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "f91b0224-a64c-403f-9552-eaeb5d066007",
             "name": "Get glycemia statistics",
-            "url": "{{LOCALHOST}}/api/diary/users/899aec86-84f2-4f61-b286-3fd96698038a/stats",
+            "url": "{{LOCALHOST}}/api/diary/users/178f61b4-18e5-48d1-bd71-43d4eb6d7fbe/stats",
             "method": "GET",
             "sortNum": 100000,
             "created": "2024-06-08T19:09:56.875Z",
-            "modified": "2024-09-07T17:35:07.647Z",
+            "modified": "2024-10-06T02:27:08.076Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5OWFlYzg2LTg0ZjItNGY2MS1iMjg2LTNmZDk2Njk4MDM4YSIsImp0aSI6IjRlOGE2NWI1LTQ3M2YtNGZiOS05ZWFkLWRjYzYzOWFhZTg5MSIsImlhdCI6MTcyNTcyOTg4MCwiZXhwIjoxNzI1NzMxNjgwfQ.qj91YLeczUiLfkikxckQDZ_xaEkktFrHvKeScfqFWjs"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6IjI4MDRhMjJkLWM5MDItNGJkYy04MTc1LWZiMWI3ODNjNjg3OSIsImlhdCI6MTcyODE4MDUxOSwiZXhwIjoxNzI4MTgyMzE5fQ.Ks5KAs5HpQTYzrzvtRCDygBmmvs2UbaQYYLqPz9ML5w"
             }
         },
         {
@@ -356,37 +352,49 @@
             "method": "PUT",
             "sortNum": 140000,
             "created": "2024-02-13T19:33:44.022Z",
-            "modified": "2024-02-13T19:33:44.022Z",
+            "modified": "2024-10-06T02:31:17.611Z",
             "headers": [],
-            "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"description\": \"Depois da janta\"\n}",
+                "raw": "{\n    \"description\": \"Fasting\"\n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAzYjA2YzZhLTQzNjctNDVmMC04MjM3LTMzOThmNmM1NGNjMSIsImlhdCI6MTY4ODA4NzM5MiwiZXhwIjoxNjg4MDg5MTkyfQ.cHVuucIzsx8YO7YHYCwTo9T-sXy6-pZ0UzP2AwhKtk8"
-            },
-            "tests": []
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6IjI4MDRhMjJkLWM5MDItNGJkYy04MTc1LWZiMWI3ODNjNjg3OSIsImlhdCI6MTcyODE4MDUxOSwiZXhwIjoxNzI4MTgyMzE5fQ.Ks5KAs5HpQTYzrzvtRCDygBmmvs2UbaQYYLqPz9ML5w"
+            }
         },
         {
             "_id": "a5f106cb-e566-40e6-93c6-ad3f6b3907b8",
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "e422379e-22e8-4c73-9c06-cbc3f72c73df",
             "name": "Delete marker by id",
-            "url": "{{LOCALHOST}}/api/markermeal/1",
+            "url": "{{LOCALHOST}}/api/markermeal/9",
             "method": "DELETE",
             "sortNum": 150000,
             "created": "2024-02-13T19:33:44.023Z",
-            "modified": "2024-02-13T19:33:44.023Z",
+            "modified": "2024-10-06T02:32:04.154Z",
             "headers": [],
-            "params": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAzYjA2YzZhLTQzNjctNDVmMC04MjM3LTMzOThmNmM1NGNjMSIsImlhdCI6MTY4ODA4NzM5MiwiZXhwIjoxNjg4MDg5MTkyfQ.cHVuucIzsx8YO7YHYCwTo9T-sXy6-pZ0UzP2AwhKtk8"
-            },
-            "tests": []
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6IjI4MDRhMjJkLWM5MDItNGJkYy04MTc1LWZiMWI3ODNjNjg3OSIsImlhdCI6MTcyODE4MDUxOSwiZXhwIjoxNzI4MTgyMzE5fQ.Ks5KAs5HpQTYzrzvtRCDygBmmvs2UbaQYYLqPz9ML5w"
+            }
+        },
+        {
+            "_id": "eff88ff4-b3f4-430a-8e50-87c466df232b",
+            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
+            "containerId": "59014f95-425b-4700-aa91-28dda7405edb",
+            "name": "Get all System configuration",
+            "url": "{{LOCALHOST}}/api/systemconfiguration",
+            "method": "GET",
+            "sortNum": 150000,
+            "created": "2024-02-13T19:33:44.047Z",
+            "modified": "2024-10-06T03:06:27.998Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6ImM3MTk3NzdhLTMwNzYtNDI5NS1hYzc2LTE5MjdhNzNiZTIyZiIsImlhdCI6MTcyODE4MzgxMiwiZXhwIjoxNzI4MTg1NjEyfQ.lwz6i6XJzHXse0S2BCfNA203SXwj-9iSr3_Da5v5Eq0"
+            }
         },
         {
             "_id": "e70005a3-4e01-4bf0-a7dc-b16aa763a3c9",
@@ -397,11 +405,11 @@
             "method": "POST",
             "sortNum": 160000,
             "created": "2024-02-13T19:33:44.028Z",
-            "modified": "2024-09-07T16:39:39.701Z",
+            "modified": "2024-10-06T02:40:43.364Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"cod_user\":\"3a781ac0-051e-46c6-9fbc-9aef56708272\",\n  \"password\": \"asd\"\n}",
+                "raw": "{\n  \"cod_user\":\"ec81b8e8-c487-4125-9303-26e242f6b06b\",\n  \"password\": \"123@@\"\n}",
                 "form": []
             }
         },
@@ -414,16 +422,16 @@
             "method": "POST",
             "sortNum": 170000,
             "created": "2024-02-13T19:33:44.052Z",
-            "modified": "2024-09-07T17:25:22.605Z",
+            "modified": "2024-10-06T02:07:47.002Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"cod_user\": \"899aec86-84f2-4f61-b286-3fd96698038a\",\n  \"id_diabetes_type\": 1,\n  \"month_diagnosis\": \"May 2021\",\n  \"id_blood_type\": 1\n}",
+                "raw": "{\n  \"cod_user\": \"178f61b4-18e5-48d1-bd71-43d4eb6d7fbe\",\n  \"id_diabetes_type\": 1,\n  \"month_diagnosis\": \"May 2021\",\n  \"id_blood_type\": 1\n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5OWFlYzg2LTg0ZjItNGY2MS1iMjg2LTNmZDk2Njk4MDM4YSIsImp0aSI6IjRlOGE2NWI1LTQ3M2YtNGZiOS05ZWFkLWRjYzYzOWFhZTg5MSIsImlhdCI6MTcyNTcyOTg4MCwiZXhwIjoxNzI1NzMxNjgwfQ.qj91YLeczUiLfkikxckQDZ_xaEkktFrHvKeScfqFWjs"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6IjFjY2ZiMjQzLTZmZDEtNDUwYi05MTEzLTQ4MGI1MDU4NWJiMSIsImlhdCI6MTcyODE4MDQ0MywiZXhwIjoxNzI4MTgyMjQzfQ.j0-FbsAP7fG3c-j8McfeeY3sn8JaBc4oz-paG7vb0D4"
             }
         },
         {
@@ -454,19 +462,17 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "ea668fe4-43d5-4904-8db5-8f944ab025b1",
             "name": "Update User Password",
-            "url": "{{LOCALHOST}}/api/reset/password",
+            "url": "{{LOCALHOST}}/api/reset-password",
             "method": "PUT",
             "sortNum": 190000,
             "created": "2024-02-13T19:33:44.031Z",
-            "modified": "2024-02-13T19:33:44.031Z",
+            "modified": "2024-10-06T02:40:04.544Z",
             "headers": [],
-            "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"token\": \"token_here\",\n  \"email\": \"costaeduardoluiz@gmail.com\",\n  \"password\": \"123@@\"\n}",
+                "raw": "{\n  \"token\": \"9a39513c-688a-4dfb-ade5-add81493d190\",\n  \"email\": \"costaeduardoluiz@gmail.com\",\n  \"password\": \"123@@\"\n}",
                 "form": []
-            },
-            "tests": []
+            }
         },
         {
             "_id": "e3428c6f-da80-4667-ac57-26633a392208",
@@ -493,11 +499,11 @@
             "method": "GET",
             "sortNum": 220000,
             "created": "2024-02-13T19:33:44.033Z",
-            "modified": "2024-09-07T17:41:34.332Z",
+            "modified": "2024-10-06T03:03:39.394Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5OWFlYzg2LTg0ZjItNGY2MS1iMjg2LTNmZDk2Njk4MDM4YSIsImp0aSI6IjRlOGE2NWI1LTQ3M2YtNGZiOS05ZWFkLWRjYzYzOWFhZTg5MSIsImlhdCI6MTcyNTcyOTg4MCwiZXhwIjoxNzI1NzMxNjgwfQ.qj91YLeczUiLfkikxckQDZ_xaEkktFrHvKeScfqFWjs"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6ImM3MTk3NzdhLTMwNzYtNDI5NS1hYzc2LTE5MjdhNzNiZTIyZiIsImlhdCI6MTcyODE4MzgxMiwiZXhwIjoxNzI4MTg1NjEyfQ.lwz6i6XJzHXse0S2BCfNA203SXwj-9iSr3_Da5v5Eq0"
             }
         },
         {
@@ -509,11 +515,11 @@
             "method": "GET",
             "sortNum": 220000,
             "created": "2024-02-13T19:33:44.036Z",
-            "modified": "2024-09-07T17:54:30.727Z",
+            "modified": "2024-10-06T03:04:48.082Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5OWFlYzg2LTg0ZjItNGY2MS1iMjg2LTNmZDk2Njk4MDM4YSIsImp0aSI6IjA5YjMzOTYxLTY3NTYtNGJkMy1hZjUwLTQ3NDE2ZTUzZDVjOSIsImlhdCI6MTcyNTczMTExNiwiZXhwIjoxNzI1NzMyOTE2fQ.G8rQN5K3Q7g75PKx4VsUuepp6F-B6Vd3QI1KeIPPxnM"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6ImM3MTk3NzdhLTMwNzYtNDI5NS1hYzc2LTE5MjdhNzNiZTIyZiIsImlhdCI6MTcyODE4MzgxMiwiZXhwIjoxNzI4MTg1NjEyfQ.lwz6i6XJzHXse0S2BCfNA203SXwj-9iSr3_Da5v5Eq0"
             }
         },
         {
@@ -525,11 +531,11 @@
             "method": "GET",
             "sortNum": 220000,
             "created": "2024-02-13T19:33:44.041Z",
-            "modified": "2024-09-07T17:59:34.975Z",
+            "modified": "2024-10-06T03:05:38.779Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5OWFlYzg2LTg0ZjItNGY2MS1iMjg2LTNmZDk2Njk4MDM4YSIsImp0aSI6IjA5YjMzOTYxLTY3NTYtNGJkMy1hZjUwLTQ3NDE2ZTUzZDVjOSIsImlhdCI6MTcyNTczMTExNiwiZXhwIjoxNzI1NzMyOTE2fQ.G8rQN5K3Q7g75PKx4VsUuepp6F-B6Vd3QI1KeIPPxnM"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6ImM3MTk3NzdhLTMwNzYtNDI5NS1hYzc2LTE5MjdhNzNiZTIyZiIsImlhdCI6MTcyODE4MzgxMiwiZXhwIjoxNzI4MTg1NjEyfQ.lwz6i6XJzHXse0S2BCfNA203SXwj-9iSr3_Da5v5Eq0"
             }
         },
         {
@@ -541,7 +547,7 @@
             "method": "POST",
             "sortNum": 222500,
             "created": "2024-02-13T19:33:44.034Z",
-            "modified": "2024-09-07T17:41:42.410Z",
+            "modified": "2024-10-06T03:03:51.702Z",
             "headers": [],
             "body": {
                 "type": "json",
@@ -550,7 +556,7 @@
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5OWFlYzg2LTg0ZjItNGY2MS1iMjg2LTNmZDk2Njk4MDM4YSIsImp0aSI6IjRlOGE2NWI1LTQ3M2YtNGZiOS05ZWFkLWRjYzYzOWFhZTg5MSIsImlhdCI6MTcyNTcyOTg4MCwiZXhwIjoxNzI1NzMxNjgwfQ.qj91YLeczUiLfkikxckQDZ_xaEkktFrHvKeScfqFWjs"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6ImM3MTk3NzdhLTMwNzYtNDI5NS1hYzc2LTE5MjdhNzNiZTIyZiIsImlhdCI6MTcyODE4MzgxMiwiZXhwIjoxNzI4MTg1NjEyfQ.lwz6i6XJzHXse0S2BCfNA203SXwj-9iSr3_Da5v5Eq0"
             }
         },
         {
@@ -562,7 +568,7 @@
             "method": "POST",
             "sortNum": 222500,
             "created": "2024-02-13T19:33:44.037Z",
-            "modified": "2024-09-07T17:56:52.916Z",
+            "modified": "2024-10-06T03:04:54.164Z",
             "headers": [],
             "body": {
                 "type": "json",
@@ -571,7 +577,7 @@
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5OWFlYzg2LTg0ZjItNGY2MS1iMjg2LTNmZDk2Njk4MDM4YSIsImp0aSI6IjA5YjMzOTYxLTY3NTYtNGJkMy1hZjUwLTQ3NDE2ZTUzZDVjOSIsImlhdCI6MTcyNTczMTExNiwiZXhwIjoxNzI1NzMyOTE2fQ.G8rQN5K3Q7g75PKx4VsUuepp6F-B6Vd3QI1KeIPPxnM"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6ImM3MTk3NzdhLTMwNzYtNDI5NS1hYzc2LTE5MjdhNzNiZTIyZiIsImlhdCI6MTcyODE4MzgxMiwiZXhwIjoxNzI4MTg1NjEyfQ.lwz6i6XJzHXse0S2BCfNA203SXwj-9iSr3_Da5v5Eq0"
             }
         },
         {
@@ -583,7 +589,7 @@
             "method": "POST",
             "sortNum": 230000,
             "created": "2024-02-13T19:33:44.042Z",
-            "modified": "2024-09-07T18:00:58.154Z",
+            "modified": "2024-10-06T03:05:46.915Z",
             "headers": [],
             "body": {
                 "type": "json",
@@ -592,7 +598,7 @@
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5OWFlYzg2LTg0ZjItNGY2MS1iMjg2LTNmZDk2Njk4MDM4YSIsImp0aSI6IjA5YjMzOTYxLTY3NTYtNGJkMy1hZjUwLTQ3NDE2ZTUzZDVjOSIsImlhdCI6MTcyNTczMTExNiwiZXhwIjoxNzI1NzMyOTE2fQ.G8rQN5K3Q7g75PKx4VsUuepp6F-B6Vd3QI1KeIPPxnM"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6ImM3MTk3NzdhLTMwNzYtNDI5NS1hYzc2LTE5MjdhNzNiZTIyZiIsImlhdCI6MTcyODE4MzgxMiwiZXhwIjoxNzI4MTg1NjEyfQ.lwz6i6XJzHXse0S2BCfNA203SXwj-9iSr3_Da5v5Eq0"
             }
         },
         {
@@ -604,7 +610,7 @@
             "method": "PUT",
             "sortNum": 250000,
             "created": "2024-02-13T19:33:44.039Z",
-            "modified": "2024-09-07T17:58:46.272Z",
+            "modified": "2024-10-06T03:05:11.961Z",
             "headers": [],
             "body": {
                 "type": "json",
@@ -613,7 +619,7 @@
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5OWFlYzg2LTg0ZjItNGY2MS1iMjg2LTNmZDk2Njk4MDM4YSIsImp0aSI6IjA5YjMzOTYxLTY3NTYtNGJkMy1hZjUwLTQ3NDE2ZTUzZDVjOSIsImlhdCI6MTcyNTczMTExNiwiZXhwIjoxNzI1NzMyOTE2fQ.G8rQN5K3Q7g75PKx4VsUuepp6F-B6Vd3QI1KeIPPxnM"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6ImM3MTk3NzdhLTMwNzYtNDI5NS1hYzc2LTE5MjdhNzNiZTIyZiIsImlhdCI6MTcyODE4MzgxMiwiZXhwIjoxNzI4MTg1NjEyfQ.lwz6i6XJzHXse0S2BCfNA203SXwj-9iSr3_Da5v5Eq0"
             }
         },
         {
@@ -625,7 +631,7 @@
             "method": "PUT",
             "sortNum": 250000,
             "created": "2024-02-13T19:33:44.043Z",
-            "modified": "2024-09-07T18:01:18.690Z",
+            "modified": "2024-10-06T03:05:52.630Z",
             "headers": [],
             "body": {
                 "type": "json",
@@ -634,7 +640,7 @@
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5OWFlYzg2LTg0ZjItNGY2MS1iMjg2LTNmZDk2Njk4MDM4YSIsImp0aSI6IjA5YjMzOTYxLTY3NTYtNGJkMy1hZjUwLTQ3NDE2ZTUzZDVjOSIsImlhdCI6MTcyNTczMTExNiwiZXhwIjoxNzI1NzMyOTE2fQ.G8rQN5K3Q7g75PKx4VsUuepp6F-B6Vd3QI1KeIPPxnM"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6ImM3MTk3NzdhLTMwNzYtNDI5NS1hYzc2LTE5MjdhNzNiZTIyZiIsImlhdCI6MTcyODE4MzgxMiwiZXhwIjoxNzI4MTg1NjEyfQ.lwz6i6XJzHXse0S2BCfNA203SXwj-9iSr3_Da5v5Eq0"
             }
         },
         {
@@ -646,11 +652,11 @@
             "method": "DELETE",
             "sortNum": 260000,
             "created": "2024-02-13T19:33:44.038Z",
-            "modified": "2024-09-07T17:59:03.692Z",
+            "modified": "2024-10-06T03:05:19.958Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5OWFlYzg2LTg0ZjItNGY2MS1iMjg2LTNmZDk2Njk4MDM4YSIsImp0aSI6IjA5YjMzOTYxLTY3NTYtNGJkMy1hZjUwLTQ3NDE2ZTUzZDVjOSIsImlhdCI6MTcyNTczMTExNiwiZXhwIjoxNzI1NzMyOTE2fQ.G8rQN5K3Q7g75PKx4VsUuepp6F-B6Vd3QI1KeIPPxnM"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6ImM3MTk3NzdhLTMwNzYtNDI5NS1hYzc2LTE5MjdhNzNiZTIyZiIsImlhdCI6MTcyODE4MzgxMiwiZXhwIjoxNzI4MTg1NjEyfQ.lwz6i6XJzHXse0S2BCfNA203SXwj-9iSr3_Da5v5Eq0"
             }
         },
         {
@@ -662,7 +668,7 @@
             "method": "PUT",
             "sortNum": 260000,
             "created": "2024-02-13T19:33:44.040Z",
-            "modified": "2024-09-07T17:46:18.352Z",
+            "modified": "2024-10-06T03:04:07.073Z",
             "headers": [],
             "body": {
                 "type": "json",
@@ -671,7 +677,7 @@
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5OWFlYzg2LTg0ZjItNGY2MS1iMjg2LTNmZDk2Njk4MDM4YSIsImp0aSI6IjA5YjMzOTYxLTY3NTYtNGJkMy1hZjUwLTQ3NDE2ZTUzZDVjOSIsImlhdCI6MTcyNTczMTExNiwiZXhwIjoxNzI1NzMyOTE2fQ.G8rQN5K3Q7g75PKx4VsUuepp6F-B6Vd3QI1KeIPPxnM"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6ImM3MTk3NzdhLTMwNzYtNDI5NS1hYzc2LTE5MjdhNzNiZTIyZiIsImlhdCI6MTcyODE4MzgxMiwiZXhwIjoxNzI4MTg1NjEyfQ.lwz6i6XJzHXse0S2BCfNA203SXwj-9iSr3_Da5v5Eq0"
             }
         },
         {
@@ -683,11 +689,11 @@
             "method": "DELETE",
             "sortNum": 260000,
             "created": "2024-02-13T19:33:44.044Z",
-            "modified": "2024-09-07T18:01:29.919Z",
+            "modified": "2024-10-06T03:05:59.968Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5OWFlYzg2LTg0ZjItNGY2MS1iMjg2LTNmZDk2Njk4MDM4YSIsImp0aSI6IjA5YjMzOTYxLTY3NTYtNGJkMy1hZjUwLTQ3NDE2ZTUzZDVjOSIsImlhdCI6MTcyNTczMTExNiwiZXhwIjoxNzI1NzMyOTE2fQ.G8rQN5K3Q7g75PKx4VsUuepp6F-B6Vd3QI1KeIPPxnM"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6ImM3MTk3NzdhLTMwNzYtNDI5NS1hYzc2LTE5MjdhNzNiZTIyZiIsImlhdCI6MTcyODE4MzgxMiwiZXhwIjoxNzI4MTg1NjEyfQ.lwz6i6XJzHXse0S2BCfNA203SXwj-9iSr3_Da5v5Eq0"
             }
         },
         {
@@ -699,11 +705,11 @@
             "method": "DELETE",
             "sortNum": 270000,
             "created": "2024-02-13T19:33:44.035Z",
-            "modified": "2024-09-07T17:46:36.020Z",
+            "modified": "2024-10-06T03:04:15.394Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5OWFlYzg2LTg0ZjItNGY2MS1iMjg2LTNmZDk2Njk4MDM4YSIsImp0aSI6IjA5YjMzOTYxLTY3NTYtNGJkMy1hZjUwLTQ3NDE2ZTUzZDVjOSIsImlhdCI6MTcyNTczMTExNiwiZXhwIjoxNzI1NzMyOTE2fQ.G8rQN5K3Q7g75PKx4VsUuepp6F-B6Vd3QI1KeIPPxnM"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6ImM3MTk3NzdhLTMwNzYtNDI5NS1hYzc2LTE5MjdhNzNiZTIyZiIsImlhdCI6MTcyODE4MzgxMiwiZXhwIjoxNzI4MTg1NjEyfQ.lwz6i6XJzHXse0S2BCfNA203SXwj-9iSr3_Da5v5Eq0"
             }
         },
         {
@@ -727,32 +733,16 @@
             "method": "POST",
             "sortNum": 300000,
             "created": "2024-02-13T19:33:44.046Z",
-            "modified": "2024-06-02T17:09:23.182Z",
+            "modified": "2024-10-06T03:08:27.826Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"cod_user\": \"47714fe1-5a57-4ab1-b41f-5a0f7145eba3\",\n  \"id_glucose_unity\": 1,\n  \"limit_hypo\": 70,\n  \"limit_hyper\": 160,\n  \"time_breakfast_pre\": \"05:00\",\n  \"time_breakfast_pos\": \"07:00\",\n  \"time_lunch_pre\": \"11:00\",\n  \"time_lunch_pos\": \"13:00\",\n  \"time_dinner_pre\": \"19:00\",\n  \"time_dinner_pos\": \"21:00\",\n  \"time_sleep\": \"22:00\"\n}",
+                "raw": "{\n  \"cod_user\": \"178f61b4-18e5-48d1-bd71-43d4eb6d7fqq\",\n  \"id_measurement_unity\": 1,\n  \"limit_hypo\": 70,\n  \"limit_hyper\": 160,\n  \"time_breakfast_pre\": \"05:00\",\n  \"time_breakfast_pos\": \"07:00\",\n  \"time_lunch_pre\": \"11:00\",\n  \"time_lunch_pos\": \"13:00\",\n  \"time_dinner_pre\": \"19:00\",\n  \"time_dinner_pos\": \"21:00\",\n  \"time_sleep\": \"22:00\"\n}",
                 "form": []
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk0Yjk0NGMzLTc5MTItNGI4Mi04ODZkLTM2NzY3M2QwYTRjOSIsImlhdCI6MTcxNzM0NzU2MywiZXhwIjoxNzE3MzQ5MzYzfQ.pubA2qOwIYCsd-Llxsx9t4TXAsFBqslOXi_7jQV0hfU"
-            }
-        },
-        {
-            "_id": "eff88ff4-b3f4-430a-8e50-87c466df232b",
-            "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
-            "containerId": "59014f95-425b-4700-aa91-28dda7405edb",
-            "name": "Get all System configuration",
-            "url": "{{LOCALHOST}}/api/systemconfiguration",
-            "method": "GET",
-            "sortNum": 310000,
-            "created": "2024-02-13T19:33:44.047Z",
-            "modified": "2024-09-07T18:01:54.598Z",
-            "headers": [],
-            "auth": {
-                "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5OWFlYzg2LTg0ZjItNGY2MS1iMjg2LTNmZDk2Njk4MDM4YSIsImp0aSI6IjA5YjMzOTYxLTY3NTYtNGJkMy1hZjUwLTQ3NDE2ZTUzZDVjOSIsImlhdCI6MTcyNTczMTExNiwiZXhwIjoxNzI1NzMyOTE2fQ.G8rQN5K3Q7g75PKx4VsUuepp6F-B6Vd3QI1KeIPPxnM"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6ImM3MTk3NzdhLTMwNzYtNDI5NS1hYzc2LTE5MjdhNzNiZTIyZiIsImlhdCI6MTcyODE4MzgxMiwiZXhwIjoxNzI4MTg1NjEyfQ.lwz6i6XJzHXse0S2BCfNA203SXwj-9iSr3_Da5v5Eq0"
             }
         },
         {
@@ -760,15 +750,15 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "59014f95-425b-4700-aa91-28dda7405edb",
             "name": "Get System configuration by user code",
-            "url": "{{LOCALHOST}}/api/systemconfiguration/user/899aec86-84f2-4f61-b286-3fd96698038a",
+            "url": "{{LOCALHOST}}/api/systemconfiguration/user/178f61b4-18e5-48d1-bd71-43d4eb6d7fbe",
             "method": "GET",
             "sortNum": 320000,
             "created": "2024-02-13T19:33:44.048Z",
-            "modified": "2024-09-07T18:04:19.288Z",
+            "modified": "2024-10-06T03:09:17.802Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5OWFlYzg2LTg0ZjItNGY2MS1iMjg2LTNmZDk2Njk4MDM4YSIsImp0aSI6IjA5YjMzOTYxLTY3NTYtNGJkMy1hZjUwLTQ3NDE2ZTUzZDVjOSIsImlhdCI6MTcyNTczMTExNiwiZXhwIjoxNzI1NzMyOTE2fQ.G8rQN5K3Q7g75PKx4VsUuepp6F-B6Vd3QI1KeIPPxnM"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6ImM3MTk3NzdhLTMwNzYtNDI5NS1hYzc2LTE5MjdhNzNiZTIyZiIsImlhdCI6MTcyODE4MzgxMiwiZXhwIjoxNzI4MTg1NjEyfQ.lwz6i6XJzHXse0S2BCfNA203SXwj-9iSr3_Da5v5Eq0"
             }
         },
         {
@@ -835,29 +825,27 @@
             "method": "GET",
             "sortNum": 340000,
             "created": "2024-02-13T19:33:44.051Z",
-            "modified": "2024-02-13T19:33:44.051Z",
+            "modified": "2024-10-06T02:09:01.223Z",
             "headers": [],
-            "params": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MWQ3YzM5LThkMmMtNGIxZS1iZWQ1LTBlYWE4ZThkYTE5NCIsImlhdCI6MTY4NjI2NzU0MiwiZXhwIjoxNjg2MjY5MzQyfQ.RDeQSOaLSAmkyNxLEO1bbdF7jkodF5UU4KacVkmjypw"
-            },
-            "tests": []
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6IjI4MDRhMjJkLWM5MDItNGJkYy04MTc1LWZiMWI3ODNjNjg3OSIsImlhdCI6MTcyODE4MDUxOSwiZXhwIjoxNzI4MTgyMzE5fQ.Ks5KAs5HpQTYzrzvtRCDygBmmvs2UbaQYYLqPz9ML5w"
+            }
         },
         {
             "_id": "1aae7279-b28c-4310-aad2-24c32f161822",
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "7413a330-072b-48d4-bee2-8aac6a32d791",
             "name": "Get health info by user code",
-            "url": "{{LOCALHOST}}/api/healthinfo/user/899aec86-84f2-4f61-b286-3fd96698038a",
+            "url": "{{LOCALHOST}}/api/healthinfo/user/178f61b4-18e5-48d1-bd71-43d4eb6d7fbe",
             "method": "GET",
             "sortNum": 360000,
             "created": "2024-02-13T19:33:44.053Z",
-            "modified": "2024-09-07T17:28:10.884Z",
+            "modified": "2024-10-06T02:09:37.608Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5OWFlYzg2LTg0ZjItNGY2MS1iMjg2LTNmZDk2Njk4MDM4YSIsImp0aSI6IjRlOGE2NWI1LTQ3M2YtNGZiOS05ZWFkLWRjYzYzOWFhZTg5MSIsImlhdCI6MTcyNTcyOTg4MCwiZXhwIjoxNzI1NzMxNjgwfQ.qj91YLeczUiLfkikxckQDZ_xaEkktFrHvKeScfqFWjs"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6IjI4MDRhMjJkLWM5MDItNGJkYy04MTc1LWZiMWI3ODNjNjg3OSIsImlhdCI6MTcyODE4MDUxOSwiZXhwIjoxNzI4MTgyMzE5fQ.Ks5KAs5HpQTYzrzvtRCDygBmmvs2UbaQYYLqPz9ML5w"
             }
         },
         {
@@ -869,11 +857,11 @@
             "method": "POST",
             "sortNum": 370000,
             "created": "2024-06-11T01:27:14.087Z",
-            "modified": "2024-09-07T17:08:03.645Z",
+            "modified": "2024-10-06T03:10:03.457Z",
             "headers": [],
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNhNzgxYWMwLTA1MWUtNDZjNi05ZmJjLTlhZWY1NjcwODI3MiIsImp0aSI6Ijg5OGZmOGI1LTY4ZTUtNDExMC05NjA3LWU0ZDU5NzI4MzZkZiIsImlhdCI6MTcyNTcyODg0NiwiZXhwIjoxNzI1NzMwNjQ2fQ.O-Gfb02iMWvCxvGi-06pfopxu_tOmrkdQcyCJ7mkMgk"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6ImM3MTk3NzdhLTMwNzYtNDI5NS1hYzc2LTE5MjdhNzNiZTIyZiIsImlhdCI6MTcyODE4MzgxMiwiZXhwIjoxNzI4MTg1NjEyfQ.lwz6i6XJzHXse0S2BCfNA203SXwj-9iSr3_Da5v5Eq0"
             }
         },
         {
@@ -881,11 +869,11 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "7413a330-072b-48d4-bee2-8aac6a32d791",
             "name": "Update Health info by user code",
-            "url": "http://localhost:8001/api/healthinfo/user/899aec86-84f2-4f61-b286-3fd96698038a",
+            "url": "http://localhost:8001/api/healthinfo/user/178f61b4-18e5-48d1-bd71-43d4eb6d7fbe",
             "method": "PUT",
             "sortNum": 380000,
             "created": "2024-07-20T18:07:55.558Z",
-            "modified": "2024-09-07T17:28:45.153Z",
+            "modified": "2024-10-06T02:11:24.011Z",
             "headers": [],
             "body": {
                 "type": "json",
@@ -894,12 +882,12 @@
             },
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5OWFlYzg2LTg0ZjItNGY2MS1iMjg2LTNmZDk2Njk4MDM4YSIsImp0aSI6IjRlOGE2NWI1LTQ3M2YtNGZiOS05ZWFkLWRjYzYzOWFhZTg5MSIsImlhdCI6MTcyNTcyOTg4MCwiZXhwIjoxNzI1NzMxNjgwfQ.qj91YLeczUiLfkikxckQDZ_xaEkktFrHvKeScfqFWjs"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6IjI4MDRhMjJkLWM5MDItNGJkYy04MTc1LWZiMWI3ODNjNjg3OSIsImlhdCI6MTcyODE4MDUxOSwiZXhwIjoxNzI4MTgyMzE5fQ.Ks5KAs5HpQTYzrzvtRCDygBmmvs2UbaQYYLqPz9ML5w"
             }
         }
     ],
     "settings": {
         "envId": "f0223d0d-c7c0-4d5a-b204-ecc7a093cbf2"
     },
-    "ref": "AacjCQHooDV61gcZhlKO5bmixOwE6imlBDDLhy-wZStGlJYr7m6Pvlj07kIwl5MgeLfnbVFH9HaL3PVJw9uGTw"
+    "ref": "AacjCQHooDV61gcZhlKO5fx70mZFAbPBTqK8vEzOv8h7PJ-7ZMU4UoJUMYgs6WXDApu-D2vSu18eT_o1MJ3U6A"
 }

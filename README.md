@@ -14,7 +14,8 @@ Check out the front-end project available in [Glicocheck](https://github.com/olu
     - [Bcrypt](https://www.npmjs.com/package/bcrypt)
     - [Json Web Token](https://jwt.io/)
 - Database
-    - [SQLite](https://www.sqlite.org/index.html)
+    - Postgres [Neon](https://neon.tech/home) (Production)
+    - [SQLite](https://www.sqlite.org/index.html) (Development)
     - [KnexJS](https://knexjs.org/)
 - Quality
     - Static analysis
