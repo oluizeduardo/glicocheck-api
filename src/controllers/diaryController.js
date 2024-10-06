@@ -41,7 +41,7 @@ class DiaryController {
         id_user: userResult.user.id,
         glucose,
         total_carbs,
-        dateTime,
+        datetime: dateTime,
         id_markermeal,
         id_measurement_unity,
       });

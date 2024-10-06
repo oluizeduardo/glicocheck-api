@@ -24,7 +24,7 @@ export default class DiaryDAO {
     try {
       const diary = await database(TABLE_NAME)
         .select('*')
-        .orderBy('dateTime', 'asc');
+        .orderBy('datetime', 'asc');
 
       if (diary.length > 0) {
         return { success: true, diary };
@@ -62,11 +62,11 @@ export default class DiaryDAO {
           'users.cod_user',
           'bsd.glucose',
           'bsd.total_carbs',
-          'bsd.dateTime',
+          'bsd.datetime as dateTime',
           'bsd.id_markermeal',
           'bsd.created_at',
           'bsd.updated_at'
-        ).orderBy('bsd.dateTime', 'asc');
+        ).orderBy('dateTime', 'asc');
 
       if (result.length > 0) {
         return { success: true, diary: result };
@@ -74,7 +74,7 @@ export default class DiaryDAO {
         return { success: false, message: Messages.NOTHING_FOUND };
       }
     } catch (error) {
-      logger.error('Error UserDAO.getByUserCode', error);
+      logger.error('Error DiaryDAO.getByUserCode', error);
       throw new Error(Messages.ERROR);
     }
   }
