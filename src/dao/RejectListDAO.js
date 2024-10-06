@@ -43,7 +43,6 @@ export default class RejectListDAO {
   static async deleteRegistersOlderThan(hours) {
     try {
       const hoursAgo = new Date(new Date().getTime() - hours * 3600000);
-      // const formattedDate = this.formatDate(hoursAgo);
       const timestamp = hoursAgo.toISOString();
     
       await database(TABLE_NAME)
@@ -52,22 +51,8 @@ export default class RejectListDAO {
 
       return { success: true };
     } catch (error) {
-      logger.error(`Error RejectListDAO.deleteRegistersOlderThan - Details: ${error.errors}.`);
+      logger.error(`Error RejectListDAO.deleteRegistersOlderThan - Details: ${error}.`);
       return { success: false };
     }
-  }
-
-  /**
-   * Formatting the date/time in the same format that is stored in the database.
-   * @param {Date} hour The hour to be formatted.
-   * @returns A string with the date in the same format that is stored in the database.
-   */
-  static formatDate(hour) {
-    return `${hour.getFullYear()}-${(hour.getMonth() + 1).toString()
-        .padStart(2, '0')}-${hour.getDate().toString()}`;
-        // .padStart(2, '0')} ${hour.getHours().toString()
-        // .padStart(2, '0')}:${hour.getMinutes().toString()
-        // .padStart(2, '0')}:${hour.getSeconds().toString()
-        // .padStart(2, '0')}`;
   }
 }
