@@ -12,6 +12,7 @@ export default class Messages {
   static REGISTER_DELETED = 'The register has been deleted.';
   static WRONG_CREDENTIALS = 'Wrong credentials.';
   static ERROR_CHECKING_CREDENTIALS = 'Error checking credentials.';
+  static ERROR_PROCESSING_FORGOT_PASSWORD = 'Error processing forgot password.';
 
   // Access Token
   static TOKEN_REQUIRED = 'Access token required.';

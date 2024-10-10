@@ -8,7 +8,7 @@ const TABLE_USERS = 'users';
 
 export default class UserDAO {
   static async add(user) {
-    try {
+    try {      
       const emailAlreadyUsed = await this.isEmailAlreadyUsed(user.email);
 
       if (emailAlreadyUsed) {
@@ -17,15 +17,16 @@ export default class UserDAO {
         const cod_user = CryptoUtil.createRandomUUID();
         const hashedPassword = SecurityUtils.generateHashValue(user.password);
 
-        const result = await database(TABLE_USERS).insert(
+        const result = await database(TABLE_USERS)
+        .returning(['cod_user', 'id'])
+        .insert(
           {
             cod_user,
             name: user.name,
             email: user.email,
             password: hashedPassword,
             id_role: user.id_role,
-          },
-          ['cod_user', 'id']
+          }
         );
 
         const id = result[0].id;
@@ -33,7 +34,7 @@ export default class UserDAO {
         return { success: true, cod_user, id, message: Messages.NEW_USER_CREATED };
       }
     } catch (error) {
-      logger.error('Error UserDAO.add', error);
+      logger.error(`Error UserDAO.add - Details: ${error}`);
       throw new Error(Messages.ERROR);
     }
   }
@@ -47,7 +48,7 @@ export default class UserDAO {
         return { success: false, message: Messages.NOTHING_FOUND };
       }
     } catch (error) {
-      logger.error('Error UserDAO.getAll', error);
+      logger.error(`Error UserDAO.getAll - Details: ${error}`);
       throw new Error(Messages.ERROR);
     }
   }
@@ -79,16 +80,16 @@ export default class UserDAO {
         return { success: false, message: Messages.USER_NOT_FOUND };
       }
     } catch (error) {
-      logger.error('Error UserDAO.getByUserCode', error);
+      logger.error(`Error UserDAO.getByUserCode - Details: ${error}`);
       throw new Error(Messages.ERROR);
     }
   }
 
   static async getByEmail(email) {
-    try {
+    try {     
       const users = await database(TABLE_USERS)
         .where('email', email)
-        .select('*');
+        .select('*');        
 
       if (users.length > 0) {
         return { success: true, user: users[0] };
@@ -96,8 +97,8 @@ export default class UserDAO {
         return { success: false, message: Messages.USER_NOT_FOUND };
       }
     } catch (error) {
-      logger.error('Error UserDAO.getByEmail', error);
-      throw new Error(Messages.ERROR);
+      logger.error(`Error UserDAO.getByEmail - Details: ${error}`);
+      return { success: false, message: Messages.ERROR};
     }
   }
 
@@ -113,7 +114,7 @@ export default class UserDAO {
         return { success: false, message: Messages.USER_NOT_FOUND };
       }
     } catch (error) {
-      logger.error('Error UserDAO.getPasswordByUserCode', error);
+      logger.error(`Error UserDAO.getPasswordByUserCode - Details: ${error}`);
       throw new Error(Messages.ERROR);
     }
   }
@@ -130,7 +131,7 @@ export default class UserDAO {
         return { success: true, updatedUser };
       }
     } catch (error) {
-      logger.error(`Error UserDAO.updateBy${conditionName}`, error);
+      logger.error(`Error UserDAO.updateBy${conditionName} - Details: ${error}`);
       throw new Error(Messages.ERROR);
     }
   }
@@ -164,7 +165,7 @@ export default class UserDAO {
         return { success: true, message: Messages.USER_DELETED };
       }
     } catch (error) {
-      logger.error('Error UserDAO.deleteByUserCode', error);
+      logger.error(`Error UserDAO.deleteByUserCode - Details: ${error}`);
       throw new Error(Messages.ERROR);
     }
   }
@@ -201,8 +202,8 @@ export default class UserDAO {
       } else {
         return { success: false, message: Messages.USER_NOT_FOUND };
       }
-    } catch (err) {
-      logger.error(`Error executing Role.getUserRoleId: ${err.message}`);
+    } catch (error) {
+      logger.error(`Error executing Role.getUserRoleId - Details: ${error}`);
       throw new Error(Messages.ERROR_CHECKING_USER_ROLE);
     }
   };
