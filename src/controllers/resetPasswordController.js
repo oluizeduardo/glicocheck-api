@@ -43,12 +43,15 @@ class ResetPasswordController {
           message: Messages.INCOMPLETE_DATA_PROVIDED,
           details: 'An email must be informed.',
         });
-      }
+      }     
 
       await ResetPasswordController.processForgotPasswordRequest(email, res);
     } catch (error) {
-      logger.error('Error ResetPasswordController.handleForgotPassword', error);
-      res.status(HTTP_INTERNAL_SERVER_ERROR).send(createErrorPage());
+      logger.error(`Error ResetPasswordController.handleForgotPassword - Details: ${error}`);
+      res.status(HTTP_INTERNAL_SERVER_ERROR).json({
+        message: Messages.ERROR,
+        details: Messages.ERROR_PROCESSING_FORGOT_PASSWORD,
+      });
     }
   };
 
@@ -105,7 +108,7 @@ class ResetPasswordController {
         return res.status(HTTP_BAD_REQUEST).send(createExpiredLinkPage());
       }
     } catch (error) {
-      logger.error('Error ResetPasswordController.handleCancelResetPasswordRequest', error);
+      logger.error(`Error ResetPasswordController.handleCancelResetPasswordRequest - Details: ${error}.`);
       return res.status(HTTP_INTERNAL_SERVER_ERROR).send(createErrorPage());
     }
   };
@@ -143,7 +146,7 @@ class ResetPasswordController {
         return res.status(HTTP_BAD_REQUEST).send(createExpiredLinkPage());
       }
     } catch (error) {
-      logger.error('Error ResetPasswordController.handleResetPasswordRequest', error);
+      logger.error(`Error ResetPasswordController.handleResetPasswordRequest - Details: ${error}.`);
       res.status(HTTP_INTERNAL_SERVER_ERROR).send(createErrorPage());
     }
   };
@@ -200,7 +203,7 @@ class ResetPasswordController {
         return res.status(HTTP_NOT_FOUND).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error ResetPasswordController.updateUserPassword', error);
+      logger.error(`Error ResetPasswordController.updateUserPassword - Details: ${error}.`);
       res.status(HTTP_INTERNAL_SERVER_ERROR).send(createErrorPage());
     }
   };
