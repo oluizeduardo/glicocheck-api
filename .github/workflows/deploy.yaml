@@ -1,12 +1,14 @@
 name: Deploy to Render
 on: 
   push:
-    branches: [main]
+    tags:
+      - '*'
 
 jobs:
   build-node:
     name: Build and run Node project
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     container: node:20
     steps:
       - uses: actions/checkout@v3
