@@ -1,7 +1,6 @@
 import express from 'express';
 const authenticationRouter = express.Router();
 import AuthenticationController from '../controllers/authenticationController.js';
-// import AuthMiddleware from './middleware/authMiddleware.js';
 
 authenticationRouter.use(express.json());
 

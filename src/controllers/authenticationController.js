@@ -53,10 +53,10 @@ export default class AuthenticationController {
 
   static doLogOut = async (req, res) => {
     logger.info('Executing AuthenticationController.doLogOut');
-    const { token } = req;
+    const { access_token } = req.body;
 
     try {
-      const decodedToken = verify(token, process.env.SECRET_KEY);
+      const decodedToken = verify(access_token, process.env.SECRET_KEY);
       const token_id = decodedToken.jti;
       const result = await RejectListDAO.add({ token_id });
 
@@ -64,7 +64,7 @@ export default class AuthenticationController {
         logger.info('Logout successful.');
         res.status(200).send({ message: 'Logout successful' });
       } else {
-        logger.error('Error during Logout.');
+        logger.error('Error during Logout - The system could not save the access token.');
         res.status(500).send({ message: result.message });
       }
     } catch (err) {
