@@ -55,6 +55,12 @@ export default class AuthenticationController {
     logger.info('Executing AuthenticationController.doLogOut');
     const { access_token } = req.body;
 
+    if(!access_token){
+      logger.info('Access token not received.');
+      res.status(400).send({ message: 'Access token not received.' });
+      return;
+    }
+
     try {
       const decodedToken = verify(access_token, process.env.SECRET_KEY);
       const token_id = decodedToken.jti;
