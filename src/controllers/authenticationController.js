@@ -30,10 +30,7 @@ export default class AuthenticationController {
 
       if (result.success) {
         const user = result.user;
-        const isValidPassword = SecurityUtils.comparePassword(
-          password,
-          user.password
-        );
+        const isValidPassword = SecurityUtils.comparePassword(password,user.password);
 
         if (isValidPassword) {
           const tokenJWT = AuthenticationController.createTokenJWT(user);
@@ -46,7 +43,7 @@ export default class AuthenticationController {
           res.status(401).json({ message: Messages.WRONG_CREDENTIALS });
         }
       } else {
-        res.status(401).json({ message: Messages.USER_NOT_FOUND });
+        res.status(404).json({ message: Messages.USER_NOT_FOUND });
       }
     } catch (error) {
       logger.error('Error AuthenticationController.doLogin', error);
