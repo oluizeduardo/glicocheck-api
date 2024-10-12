@@ -56,8 +56,8 @@ export default class AuthenticationController {
     const { access_token } = req.body;
 
     if(!access_token){
-      logger.info('Access token not received.');
-      res.status(400).send({ message: 'Access token not received.' });
+      logger.info(Messages.TOKEN_REQUIRED);
+      res.status(400).send({ message: Messages.TOKEN_REQUIRED });
       return;
     }
 
@@ -67,10 +67,10 @@ export default class AuthenticationController {
       const result = await RejectListDAO.add({ token_id });
 
       if (result.success) {
-        logger.info('Logout successful.');
-        res.status(200).send({ message: 'Logout successful' });
+        logger.info(Messages.LOGOUT_SUCCESSFUL);
+        res.status(200).send({ message: Messages.LOGOUT_SUCCESSFUL });
       } else {
-        logger.error('Error during Logout - The system could not save the access token.');
+        logger.error('Error during Logout - The system could not save the token identifier.');
         res.status(500).send({ message: result.message });
       }
     } catch (err) {

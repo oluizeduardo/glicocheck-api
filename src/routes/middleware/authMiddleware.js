@@ -29,6 +29,7 @@ export default class AuthMiddleware {
       const result = await RejectListDAO.getById(decodedToken.jti);
 
       if (result.success) {
+        // The token identifier was found in the database, it must not continue.
         return res
           .status(401)
           .send({ message: Messages.REJECT_LIST_INVALID_TOKEN });

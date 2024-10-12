@@ -14,6 +14,9 @@ export default class Messages {
   static ERROR_CHECKING_CREDENTIALS = 'Error checking credentials.';
   static ERROR_PROCESSING_FORGOT_PASSWORD = 'Error processing forgot password.';
 
+  // Login/Logout
+  static LOGOUT_SUCCESSFUL = 'Logout successful';
+
   // Access Token
   static TOKEN_REQUIRED = 'Access token required.';
   static TOKEN_EXPIRED = 'Token expired.';
