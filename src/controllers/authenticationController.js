@@ -53,18 +53,24 @@ export default class AuthenticationController {
 
   static doLogOut = async (req, res) => {
     logger.info('Executing AuthenticationController.doLogOut');
-    const { token } = req;
+    const { access_token } = req.body;
+
+    if(!access_token){
+      logger.info(Messages.TOKEN_REQUIRED);
+      res.status(400).send({ message: Messages.TOKEN_REQUIRED });
+      return;
+    }
 
     try {
-      const decodedToken = verify(token, process.env.SECRET_KEY);
+      const decodedToken = verify(access_token, process.env.SECRET_KEY);
       const token_id = decodedToken.jti;
       const result = await RejectListDAO.add({ token_id });
 
       if (result.success) {
-        logger.info('Logout successful.');
-        res.status(200).send({ message: 'Logout successful' });
+        logger.info(Messages.LOGOUT_SUCCESSFUL);
+        res.status(200).send({ message: Messages.LOGOUT_SUCCESSFUL });
       } else {
-        logger.error('Error during Logout.');
+        logger.error('Error during Logout - The system could not save the token identifier.');
         res.status(500).send({ message: result.message });
       }
     } catch (err) {

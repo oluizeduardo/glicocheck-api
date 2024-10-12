@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "Glicocheck",
     "collectionId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
-    "dateExported": "2024-10-06T03:11:52.943Z",
+    "dateExported": "2024-10-12T18:55:52.780Z",
     "version": "1.2",
     "folders": [
         {
@@ -100,11 +100,11 @@
             "method": "POST",
             "sortNum": 5000,
             "created": "2024-02-13T19:33:44.026Z",
-            "modified": "2024-10-06T02:02:47.010Z",
+            "modified": "2024-10-12T03:03:31.363Z",
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n    \"email\": \"juninho@gmail.com\",\n    \"password\": \"asd\"\n}",
+                "raw": "{\n    \"email\": \"costaeduardoluiz@gmail.com\",\n    \"password\": \"asd\"\n}",
                 "form": []
             }
         },
@@ -717,11 +717,11 @@
             "colId": "a9cf7d89-7e3f-410e-928f-c83cbed2644f",
             "containerId": "9e544e9b-68d9-460c-86b4-515ee3acaeb4",
             "name": "System health check",
-            "url": "{{LOCALHOST}}/api/ping",
+            "url": "https://glicocheck-api.onrender.com/api/ping",
             "method": "GET",
             "sortNum": 280000,
             "created": "2024-02-13T19:33:44.045Z",
-            "modified": "2024-09-07T23:53:56.914Z",
+            "modified": "2024-10-06T17:55:06.600Z",
             "headers": []
         },
         {
@@ -857,11 +857,12 @@
             "method": "POST",
             "sortNum": 370000,
             "created": "2024-06-11T01:27:14.087Z",
-            "modified": "2024-10-06T03:10:03.457Z",
+            "modified": "2024-10-12T18:55:22.551Z",
             "headers": [],
-            "auth": {
-                "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE3OGY2MWI0LTE4ZTUtNDhkMS1iZDcxLTQzZDRlYjZkN2ZiZSIsImp0aSI6ImM3MTk3NzdhLTMwNzYtNDI5NS1hYzc2LTE5MjdhNzNiZTIyZiIsImlhdCI6MTcyODE4MzgxMiwiZXhwIjoxNzI4MTg1NjEyfQ.lwz6i6XJzHXse0S2BCfNA203SXwj-9iSr3_Da5v5Eq0"
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRjZmRjMWEzLThmMmQtNGYyZS05MTA3LTgzYmFiYjRhN2U4ZiIsImp0aSI6ImE5ZWIwMjEzLWE2MzEtNDdkZC04YzA3LWVjMGVhZmI5N2YxNCIsImlhdCI6MTcyODcwMjIxMSwiZXhwIjoxNzI4NzA0MDExfQ.y5hSQtkYx4q-kcjzvEYqNcTfGxul6ucN0pk-tzzd568\"\n}",
+                "form": []
             }
         },
         {
@@ -889,5 +890,5 @@
     "settings": {
         "envId": "f0223d0d-c7c0-4d5a-b204-ecc7a093cbf2"
     },
-    "ref": "AacjCQHooDV61gcZhlKO5fx70mZFAbPBTqK8vEzOv8h7PJ-7ZMU4UoJUMYgs6WXDApu-D2vSu18eT_o1MJ3U6A"
+    "ref": "AacjCQHooDV61gcZhlKO5ZoVzsecQgTfquWkEgC6oA-0t--HfH-0L0-Jz7_4v6rEC9Y-iLTa1qUpDTgWPz-x3g"
 }
