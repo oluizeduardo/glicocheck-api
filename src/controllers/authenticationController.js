@@ -64,7 +64,7 @@ export default class AuthenticationController {
     try {
       const decodedToken = verify(access_token, process.env.SECRET_KEY);
       const token_id = decodedToken.jti;
-      const result = await RejectListDAO.add({ token_id });
+      const result = await RejectListDAO.add(token_id);
 
       if (result.success) {
         logger.info(Messages.LOGOUT_SUCCESSFUL);
@@ -93,10 +93,7 @@ export default class AuthenticationController {
 
       if (result.success) {
         const user = result.user;
-        const isValidPassword = SecurityUtils.comparePassword(
-          password,
-          user.password
-        );
+        const isValidPassword = SecurityUtils.comparePassword(password, user.password);
 
         res.status(200).json({ is_valid: isValidPassword });
       } else {

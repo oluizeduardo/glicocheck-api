@@ -70,6 +70,8 @@ class SystemConfigurationController {
         time_dinner_pre,
         time_dinner_pos,
         time_sleep,
+        created_at: DateTimeUtil.getCurrentDateTime(),
+        updated_at: DateTimeUtil.getCurrentDateTime()
       };
 
       const result = await SystemConfigurationDAO.add(newConfiguration);
@@ -115,6 +117,8 @@ class SystemConfigurationController {
       time_dinner_pre: '19:00',
       time_dinner_pos: '21:00',
       time_sleep: '23:00',
+      created_at: DateTimeUtil.getCurrentDateTime(),
+      updated_at: DateTimeUtil.getCurrentDateTime()
     };
     const result = await SystemConfigurationDAO.add(defaultSystemConfig);
 

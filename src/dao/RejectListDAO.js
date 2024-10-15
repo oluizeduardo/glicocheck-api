@@ -1,13 +1,18 @@
 import database from '../db/dbconfig.js';
 import logger from '../loggerUtil/logger.js';
+import DateTimeUtil from '../utils/dateTimeUtil.js';
 import Messages from '../utils/messages.js';
 
 const TABLE_NAME = 'jwt_token_reject_list';
 
 export default class RejectListDAO {
   static async add(tokenId) {
-    try {
-      const addedTokenId = await database(TABLE_NAME).insert(tokenId);
+    try {     
+      const addedTokenId = await database(TABLE_NAME)
+      .insert({
+        token_id: tokenId,
+        created_at: DateTimeUtil.getCurrentDateTime(),
+      });
 
       if (addedTokenId) {
         return {

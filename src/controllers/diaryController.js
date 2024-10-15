@@ -44,6 +44,8 @@ class DiaryController {
         datetime: dateTime,
         id_markermeal,
         id_measurement_unity,
+        created_at: DateTimeUtil.getCurrentDateTime(),
+        updated_at: DateTimeUtil.getCurrentDateTime()
       });
 
       if (result.success) {
@@ -71,7 +73,7 @@ class DiaryController {
 
         if (start && end) {
           diary = diary.filter((record) => {
-            return DiaryController.isDateBetween(start, end, record.dateTime);
+            return this.isDateBetween(start, end, record.dateTime);
           });
         }
         return res.status(OK).json(diary);
@@ -243,7 +245,7 @@ class DiaryController {
 
         if (start && end) {          
           diary = diary.filter((record) => {
-            return DiaryController.isDateBetween(start, end, record.dateTime);
+            return this.isDateBetween(start, end, record.dateTime);
           });
         }
         return res.status(OK).json(diary);
@@ -269,7 +271,7 @@ class DiaryController {
 
       if (result.success) {
         const glucoseReadings = result.diary.map(entry => entry.glucose);
-        const statistics = DiaryController.calculateStatistics(glucoseReadings);
+        const statistics = this.calculateStatistics(glucoseReadings);
         res.status(OK).json(statistics);
       } else {
         res.status(NOT_FOUND).json({ message: result.message });

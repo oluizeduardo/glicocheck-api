@@ -50,6 +50,8 @@ class DiabetesTypeController {
     try {
       const newType = {
         description: req.body.description,
+        created_at: DateTimeUtil.getCurrentDateTime(),
+        updated_at: DateTimeUtil.getCurrentDateTime()
       };
 
       const result = await DiabetesTypeDAO.add(newType);

@@ -50,6 +50,8 @@ class HealthInfoController {
         id_diabetes_type,
         id_blood_type,
         month_diagnosis,
+        created_at: DateTimeUtil.getCurrentDateTime(),
+        updated_at: DateTimeUtil.getCurrentDateTime()
       };
       const result = await HealthInfoDAO.add(healthInfo);
 

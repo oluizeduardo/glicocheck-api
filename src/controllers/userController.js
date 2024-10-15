@@ -38,7 +38,14 @@ class UserController {
       }
 
       // Save new user.
-      const user = { name, email, password, id_role };
+      const user = { 
+        name, 
+        email, 
+        password, 
+        id_role,
+        created_at: DateTimeUtil.getCurrentDateTime(),
+        updated_at: DateTimeUtil.getCurrentDateTime()
+       };
       const addUserResult = await UserDAO.add(user);      
 
       if (addUserResult.success) {
