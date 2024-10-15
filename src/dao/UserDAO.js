@@ -3,6 +3,7 @@ import logger from '../loggerUtil/logger.js';
 import Messages from '../utils/messages.js';
 import CryptoUtil from '../utils/cryptoUtil.js';
 import SecurityUtils from '../utils/securityUtils.js';
+import DateTimeUtil from '../utils/dateTimeUtil.js';
 
 const TABLE_USERS = 'users';
 
@@ -26,6 +27,8 @@ export default class UserDAO {
             email: user.email,
             password: hashedPassword,
             id_role: user.id_role,
+            created_at: DateTimeUtil.getCurrentDateTime(),
+            updated_at: DateTimeUtil.getCurrentDateTime()
           }
         );
 

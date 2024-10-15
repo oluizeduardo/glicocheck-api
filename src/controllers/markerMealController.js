@@ -79,7 +79,11 @@ class MarkerMealController {
         return res.status(400).json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
       }
 
-      const newMarkerMeal = { description: req.body.description };
+      const newMarkerMeal = {         
+        description: req.body.description,
+        created_at: DateTimeUtil.getCurrentDateTime(),
+        updated_at: DateTimeUtil.getCurrentDateTime()
+      };
       const result = await MarkerMealDAO.add(newMarkerMeal);
 
       if (result.success) {

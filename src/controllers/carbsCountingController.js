@@ -21,7 +21,7 @@ class CarbsCountingController {
       return res.status(401).json({message: Messages.INCOMPLETE_DATA_PROVIDED});
     }
 
-    const {appId, appKey} = CarbsCountingController.loadEdamanCredentials();
+    const {appId, appKey} = this.loadEdamanCredentials();
     if(!appId || !appKey){
       logger.error(Messages.ERROR_LOADING_CARBS_COUTING_CREDENTIALS);
       return res.status(500).json({message: Messages.ERROR_CONSULTING_CARBS_COUTING_API});

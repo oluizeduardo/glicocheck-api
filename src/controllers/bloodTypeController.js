@@ -46,7 +46,11 @@ class BloodTypeController {
         return res.status(400).json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
       }
 
-      const newType = { description: req.body.description };
+      const newType = { 
+        description: req.body.description,
+        created_at: DateTimeUtil.getCurrentDateTime(),
+        updated_at: DateTimeUtil.getCurrentDateTime()
+      };
 
       const result = await BloodTypeDAO.add(newType);
 
