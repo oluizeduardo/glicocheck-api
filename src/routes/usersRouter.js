@@ -27,7 +27,7 @@ usersRouter
   .delete('/:usercode',
     AuthMiddleware.checkToken,
     UserCodeMiddleware.validateUserCode,
-    UserController.deleteUserByUserCode
+    UserController.deleteUserAccountByUserCode
   );
 
 export default usersRouter;

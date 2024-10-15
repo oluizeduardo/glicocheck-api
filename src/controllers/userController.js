@@ -3,6 +3,9 @@ import Messages from '../utils/messages.js';
 import UserDAO from '../dao/UserDAO.js';
 import DateTimeUtil from '../utils/dateTimeUtil.js';
 import SystemConfigurationController from './systemConfigurationController.js';
+import HealthInfoDAO from '../dao/HealthInfoDAO.js';
+import SystemConfigurationDAO from '../dao/SystemConfigurationDAO.js';
+import DiaryDAO from '../dao/DiaryDAO.js';
 
 /**
  * UserController.
@@ -125,19 +128,40 @@ class UserController {
     }
   };
 
-  static deleteUserByUserCode = async (req, res) => {
-    logger.info('Executing UserController.deleteUserByUserCode');
+  static deleteUserAccountByUserCode = async (req, res) => {
+    logger.info('Executing UserController.deleteUserAccountByUserCode');
+
+    const userCode = req.params.usercode;
+    if (!userCode) 
+      return res.status(400).json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
 
     try {
-      const userCode = req.params.usercode;
+      // Get user id.
+      const {userId} = await UserDAO.getUserIdByUserCode(userCode);
+      if(!userId){
+        logger.error('UserController.deleteUserAccountByUserCode ' + Messages.USER_NOT_FOUND);
+        return res.status(404).json({ message: Messages.USER_NOT_FOUND });
+      }        
 
-      if (!userCode) {
-        return res
-          .status(400)
-          .json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
-      }
+      // Delete health info.
+      let result = await HealthInfoDAO.deleteByUserId(userId);
+      if(!result.success)
+        logger.error(Messages.ERROR_DELETE_HEALTH_INFO);
 
-      const result = await UserDAO.deleteByUserCode(userCode);
+      // Delete system configuration.
+      result = await SystemConfigurationDAO.deleteByUserId(userId);
+      if(!result.success)
+        logger.error(Messages.ERROR_DELETE_SYSTEM_CONFIGURATION);
+      
+      // Delete glucose diary registers.
+      result = await DiaryDAO.deleteByUserCode(userCode);
+      if(!result.success)
+        logger.error(Messages.ERROR_DELETING_DIARY);
+
+      // Delete user.
+      result = await UserDAO.deleteByUserId(userId);
+      if(!result.success)
+        logger.error(Messages.ERROR_DELETE_USER);
 
       if (result.success) {
         res.status(200).json({ message: Messages.USER_DELETED });
@@ -145,7 +169,7 @@ class UserController {
         res.status(404).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error UserController.deleteUserByUserCode');
+      logger.error('Error UserController.deleteUserAccountByUserCode');
       res.status(500).json({
         message: Messages.ERROR,
       });

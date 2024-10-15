@@ -80,13 +80,21 @@ export default class HealthInfoDAO {
     }
   }
 
-  static async deleteById(id) {
+  static async delete(condition) {
     try {
-      await database(TABLE_HEALTH_INFO).where('id', id).del();
+      await database(TABLE_HEALTH_INFO).where(condition).del();
       return { success: true, message: Messages.HEALTH_INFO_DELETED };
     } catch (error) {
-      logger.error('Error HealthInfoDAO.deleteById', error);
+      logger.error('Error HealthInfoDAO.delete', error);
       throw new Error(Messages.ERROR);
     }
+  }
+  
+  static async deleteById(id) {
+    return this.delete({ id });
+  }
+  
+  static async deleteByUserId(userId) {
+    return this.delete({ id_user: userId });
   }
 }

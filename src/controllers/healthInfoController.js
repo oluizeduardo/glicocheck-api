@@ -13,7 +13,7 @@ class HealthInfoController {
       const result = await HealthInfoDAO.getAll();
 
       if (result.success) {
-        return res.status(201).json(result.healthInfo);
+        return res.status(200).json(result.healthInfo);
       } else {
         return res.status(500).json({ message: result.message });
       }
@@ -90,7 +90,7 @@ class HealthInfoController {
       const result = await HealthInfoDAO.getByUserId(userResult.user.id);
 
       if (result.success) {
-        return res.status(201).json(result.healthInfo);
+        return res.status(200).json(result.healthInfo);
       } else {
         return res.status(404).json({ message: result.message });
       }
@@ -129,7 +129,7 @@ class HealthInfoController {
       const result = await HealthInfoDAO.updateByUserId(id_user, healthInfo);
 
       if (result.success) {
-        res.status(200).json(result.healthInfo);
+        res.status(201).json(result.healthInfo);
       } else {
         // Add new Health info for this user.
         const resultAdd = await HealthInfoDAO.add({id_user,...healthInfo});
@@ -163,21 +163,17 @@ class HealthInfoController {
 
       // Retrives healthinfo by user id.
       let healthInfoResult = await HealthInfoDAO.getByUserId(userResult.user.id);
-
-      if (healthInfoResult.success) {
-        
-        // Deletes Health Info by id.
-        const healthInfoId = healthInfoResult.healthInfo.id;
-        healthInfoResult = await HealthInfoDAO.deleteById(healthInfoId);
-
-        if(healthInfoResult.success){
-          res.status(200).json({ message: healthInfoResult.message });
-        }else{
-          res.status(500).json({ message: Messages.ERROR });
-        }
-      } else {
-        res.status(404).json({ message: healthInfoResult.message });
+      if (!healthInfoResult.success) {
+        return res.status(404).json({ message: healthInfoResult.message });
       }
+        
+      // Deletes Health Info by id.
+      healthInfoResult = await HealthInfoDAO.deleteById(healthInfoResult.healthInfo.id);
+      if(healthInfoResult.success){
+        res.status(200).json({ message: healthInfoResult.message });
+      }else{
+        res.status(500).json({ message: Messages.ERROR });
+      }      
     } catch (error) {
       logger.error('Error HealthInfoController.deleteByUserCode.', error);
       res.status(500).json({ message: Messages.ERROR });
