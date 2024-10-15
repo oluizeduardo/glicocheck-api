@@ -36,7 +36,7 @@ export default class Messages {
   static NEW_DIARY_DATA_ADDED = 'New blood sugar diary register added.';
   static DIARY_DATA_DELETED = 'Blood sugar diary register deleted.';
   static ERROR_UPDATING_DIARY = 'Error updating blood sugar diary.';
-  static ERROR_DELETING_DIARY = 'Error deleting diary register.';
+  static ERROR_DELETING_DIARY = 'Error deleting diary registers.';
 
   // Gender
   static NEW_GENDER_CREATED = 'New gender created.';
@@ -73,6 +73,7 @@ export default class Messages {
   static SYSTEM_CONFIGURATION_DELETED = 'System configuration deleted.';
   static SYSTEM_CONFIGURATION_EXISTING = 'There is already a system configuration for this user.';
   static SAVED_DEFAULT_SYSTEM_CONFIGURATION = 'Saved default system configuration.';
+  static ERROR_DELETE_SYSTEM_CONFIGURATION = 'Error deleting system configuration.';
 
   // Marker meal
   static MARKER_MEAL_DELETED = 'Marker meal deleted.';
@@ -82,6 +83,7 @@ export default class Messages {
   static HEALTH_INFO_CREATED = 'New health info created.';
   static HEALTH_INFO_EXISTING = 'There is already health information registered for this user.';
   static HEALTH_INFO_DELETED = 'User\'s health info deleted.';
+  static ERROR_DELETE_HEALTH_INFO = 'Error deleting health info.';
 
   // Carbs counting
   static ERROR_LOADING_CARBS_COUTING_CREDENTIALS = 'Error loading EDAMAN\'s API credentials.';

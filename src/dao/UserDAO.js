@@ -88,6 +88,23 @@ export default class UserDAO {
     }
   }
 
+  static async getUserIdByUserCode(userCode) {
+    try {
+      const users = await database(TABLE_USERS)
+      .where('cod_user', userCode)
+      .select('users.id');
+
+      if (users.length > 0) {
+        return { success: true, userId: users[0].id };
+      } else {
+        return { success: false, message: Messages.USER_NOT_FOUND };
+      }
+    } catch (error) {
+      logger.error(`Error UserDAO.getByUserCode - Details: ${error}`);
+      throw new Error(Messages.ERROR);
+    }
+  }
+
   static async getByEmail(email) {
     try {     
       const users = await database(TABLE_USERS)
@@ -152,23 +169,12 @@ export default class UserDAO {
     return this.updateByCondition('email', email, updatedUser, 'Email');
   }
 
-  static async deleteByUserCode(userCode) {
+  static async deleteByUserId(userId) {
     try {
-      const users = await database(TABLE_USERS)
-        .where('cod_user', userCode)
-        .select('id');
-
-      if (users.length === 0) {
-        return { success: false, message: Messages.USER_NOT_FOUND };
-      } else {
-        const user = users[0];
-
-        await database(TABLE_USERS).where('id', user.id).del();
-
-        return { success: true, message: Messages.USER_DELETED };
-      }
+        await database(TABLE_USERS).where('id', userId).del();
+        return { success: true, message: Messages.USER_DELETED };      
     } catch (error) {
-      logger.error(`Error UserDAO.deleteByUserCode - Details: ${error}`);
+      logger.error(`Error UserDAO.deleteByUserId - Details: ${error}`);
       throw new Error(Messages.ERROR);
     }
   }
