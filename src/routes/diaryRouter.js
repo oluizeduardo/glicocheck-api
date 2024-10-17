@@ -3,7 +3,9 @@ const diaryRouter = express.Router();
 import DiaryController from '../controllers/diaryController.js';
 import AuthMiddleware from '../routes/middleware/authMiddleware.js';
 import UserCodeMiddleware from '../routes/middleware/userCodeMiddleware.js';
+import RateLimiter from './middleware/apiRateLimiter.js';
 
+diaryRouter.use(RateLimiter.getLimiter());
 diaryRouter.use(AuthMiddleware.checkToken);
 diaryRouter.use(express.json());
 

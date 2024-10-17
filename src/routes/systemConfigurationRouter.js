@@ -4,7 +4,9 @@ import SystemConfigurationController from '../controllers/systemConfigurationCon
 import AuthMiddleware from '../routes/middleware/authMiddleware.js';
 import RoleMiddleware from '../routes/middleware/roleMiddleware.js';
 import UserCodeMiddleware from '../routes/middleware/userCodeMiddleware.js';
+import RateLimiter from './middleware/apiRateLimiter.js';
 
+systemConfigurationRouter.use(RateLimiter.getLimiter());
 systemConfigurationRouter.use(AuthMiddleware.checkToken);
 systemConfigurationRouter.use(express.json());
 
