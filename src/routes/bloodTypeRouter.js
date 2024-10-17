@@ -3,7 +3,9 @@ const bloodTypeRouter = express.Router();
 import BloodTypeController from '../controllers/bloodTypeController.js';
 import AuthMiddleware from '../routes/middleware/authMiddleware.js';
 import RoleMiddleware from '../routes/middleware/roleMiddleware.js';
+import RateLimiter from './middleware/apiRateLimiter.js';
 
+bloodTypeRouter.use(RateLimiter.getLimiter());
 bloodTypeRouter.use(AuthMiddleware.checkToken);
 bloodTypeRouter.use(express.json());
 

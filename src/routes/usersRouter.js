@@ -4,8 +4,10 @@ import UserController from '../controllers/userController.js';
 import AuthMiddleware from '../routes/middleware/authMiddleware.js';
 import RoleMiddleware from '../routes/middleware/roleMiddleware.js';
 import UserCodeMiddleware from '../routes/middleware/userCodeMiddleware.js';
+import RateLimiter from './middleware/apiRateLimiter.js';
 
 usersRouter.use(express.json());
+usersRouter.use(RateLimiter.getLimiter());
 
 usersRouter
   .get('/',

@@ -4,7 +4,9 @@ import HealthInfoController from '../controllers/healthInfoController.js';
 import AuthMiddleware from '../routes/middleware/authMiddleware.js';
 import RoleMiddleware from '../routes/middleware/roleMiddleware.js';
 import UserCodeMiddleware from '../routes/middleware/userCodeMiddleware.js';
+import RateLimiter from './middleware/apiRateLimiter.js';
 
+healthInfoRouter.use(RateLimiter.getLimiter());
 healthInfoRouter.use(AuthMiddleware.checkToken);
 healthInfoRouter.use(express.json());
 

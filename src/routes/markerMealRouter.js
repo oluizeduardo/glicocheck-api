@@ -3,7 +3,9 @@ const markerMealRouter = express.Router();
 import MarkerMealController from '../controllers/markerMealController.js';
 import AuthMiddleware from '../routes/middleware/authMiddleware.js';
 import RoleMiddleware from '../routes/middleware/roleMiddleware.js';
+import RateLimiter from './middleware/apiRateLimiter.js';
 
+markerMealRouter.use(RateLimiter.getLimiter());
 markerMealRouter.use(AuthMiddleware.checkToken);
 markerMealRouter.use(express.json());
 

@@ -3,7 +3,9 @@ const diabetesTypeRouter = express.Router();
 import DiabetesTypeController from '../controllers/diabetesTypeController.js';
 import AuthMiddleware from '../routes/middleware/authMiddleware.js';
 import RoleMiddleware from '../routes/middleware/roleMiddleware.js';
+import RateLimiter from './middleware/apiRateLimiter.js';
 
+diabetesTypeRouter.use(RateLimiter.getLimiter());
 diabetesTypeRouter.use(AuthMiddleware.checkToken);
 diabetesTypeRouter.use(express.json());
 

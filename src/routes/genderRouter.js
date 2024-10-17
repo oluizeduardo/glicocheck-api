@@ -3,7 +3,9 @@ const genderRouter = express.Router();
 import GenderController from '../controllers/genderController.js';
 import AuthMiddleware from '../routes/middleware/authMiddleware.js';
 import RoleMiddleware from '../routes/middleware/roleMiddleware.js';
+import RateLimiter from './middleware/apiRateLimiter.js';
 
+genderRouter.use(RateLimiter.getLimiter());
 genderRouter.use(AuthMiddleware.checkToken);
 genderRouter.use(express.json());
 
