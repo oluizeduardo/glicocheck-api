@@ -221,8 +221,7 @@ function loadFileContent(path) {
 
 function createResetPasswordPage(token) {
   const baseURL = process.env.BASE_URL;
-  let fileContent = loadFileContent(PAGE_RESET_PASSWORD);
-  fileContent = updateGlicocheckHomePageUrl(PAGE_RESET_PASSWORD);
+  let fileContent = updateGlicocheckHomePageUrl(PAGE_RESET_PASSWORD);
   fileContent = fileContent.replace('#{email}', token.email_owner);
   fileContent = fileContent.replace('#{token}', token.token);
   fileContent = fileContent.replace(
