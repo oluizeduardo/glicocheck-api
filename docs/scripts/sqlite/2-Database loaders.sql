@@ -38,3 +38,8 @@ INSERT INTO marker_meals (description) VALUES('After lunch');
 INSERT INTO marker_meals (description) VALUES('Before dinner');
 INSERT INTO marker_meals (description) VALUES('After dinner');
 INSERT INTO marker_meals (description) VALUES('Before sleeping');
+
+-- USER ADMIN
+INSERT INTO users (cod_user, name, email, password, id_role) 
+VALUES('00000000-0000-0000-0000-000000000000', 'User Admin', 'admin@glicocheck.com', 
+'$2a$12$OHjxTub/6SuOg9OiSM58i.WNWwJBlLeMSEfS/KT4Rre4qiIHH49fS', 1);
