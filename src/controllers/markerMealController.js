@@ -87,11 +87,9 @@ class MarkerMealController {
       const result = await MarkerMealDAO.add(newMarkerMeal);
 
       if (result.success) {
-        res
-          .status(201)
-          .json({ message: result.message, description: result.description });
+        return res.status(201).json(result.marker);
       } else {
-        res.status(500).json({ message: result.message });
+        return res.status(500).json({ message: result.message });
       }
     } catch (error) {
       logger.error('Error MarkerMealController.addMarkerMeal');

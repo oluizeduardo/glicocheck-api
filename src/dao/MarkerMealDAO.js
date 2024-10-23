@@ -8,14 +8,14 @@ export default class MarkerMealDAO {
   static async add(newMarkerMeal) {
     try {
       const marker = await database(TABLE_MARKER_MEALS).insert(newMarkerMeal, [
-        'description',
+        'id', 'description',
       ]);
 
       if (marker) {
         return {
           success: true,
-          description: marker[0].description,
           message: Messages.MARKER_MEAL_CREATED,
+          marker: marker[0],          
         };
       } else {
         return { success: false, message: Messages.ERROR };
