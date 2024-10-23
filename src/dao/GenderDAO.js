@@ -2,12 +2,12 @@ import database from '../db/dbconfig.js';
 import logger from '../loggerUtil/logger.js';
 import Messages from '../utils/messages.js';
 
-const TABLE_GENDERS = 'genders';
+const TABLE_NAME = 'genders';
 
 export default class GenderDAO {
   static async getAll() {
     try {
-      const genders = await database(TABLE_GENDERS)
+      const genders = await database(TABLE_NAME)
         .select('id', 'description')
         .orderBy('id');
 
@@ -24,15 +24,14 @@ export default class GenderDAO {
 
   static async add(gender) {
     try {
-      const createdGender = await database(TABLE_GENDERS).insert(gender, [
-        'description',
-      ]);
+      const createdGender = await database(TABLE_NAME)
+      .insert(gender, ['id', 'description']);
 
       if (createdGender) {
         return {
           success: true,
-          gender: createdGender[0].description,
           message: Messages.NEW_GENDER_CREATED,
+          gender: createdGender[0],
         };
       } else {
         return { success: false, message: Messages.ERROR };
@@ -45,7 +44,7 @@ export default class GenderDAO {
 
   static async getById(id) {
     try {
-      const genders = await database(TABLE_GENDERS)
+      const genders = await database(TABLE_NAME)
         .where('id', id)
         .select('id', 'description');
 
@@ -62,7 +61,7 @@ export default class GenderDAO {
 
   static async updateById(id, gender) {
     try {
-      const numAffectedRegisters = await database(TABLE_GENDERS)
+      const numAffectedRegisters = await database(TABLE_NAME)
         .where('id', id)
         .update(gender);
 
@@ -79,13 +78,13 @@ export default class GenderDAO {
 
   static async deleteById(id) {
     try {
-      const genders = await database(TABLE_GENDERS)
+      const genders = await database(TABLE_NAME)
         .where('id', id)
         .select('id');
 
       if (genders.length > 0) {
         const gender = genders[0];
-        await database(TABLE_GENDERS).where('id', gender.id).del();
+        await database(TABLE_NAME).where('id', gender.id).del();
         return { success: true, message: Messages.GENDER_DELETED };
       } else {
         return { success: false, message: Messages.NOTHING_FOUND };

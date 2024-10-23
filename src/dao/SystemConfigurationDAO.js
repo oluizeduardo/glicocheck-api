@@ -2,12 +2,12 @@ import database from '../db/dbconfig.js';
 import logger from '../loggerUtil/logger.js';
 import Messages from '../utils/messages.js';
 
-const TABLE_SYSTEM_CONFIGURATION = 'system_config_by_user';
+const TABLE_NAME = 'system_config_by_user';
 
 export default class SystemConfigurationDAO {
   static async add(configuration) {
     try {
-      await database(TABLE_SYSTEM_CONFIGURATION).insert(configuration, ['id']);
+      await database(TABLE_NAME).insert(configuration, ['id']);
       return { success: true, message: Messages.NEW_CONFIGURATION_CREATED };
     } catch (error) {
       logger.error('SystemConfigurationDAO.add', error);
@@ -17,7 +17,7 @@ export default class SystemConfigurationDAO {
 
   static async getByUserId(userId) {
     try {
-      const systemConfiguration = await database(TABLE_SYSTEM_CONFIGURATION)
+      const systemConfiguration = await database(TABLE_NAME)
         .where('id_user', userId)
         .select('*');
 
@@ -34,7 +34,7 @@ export default class SystemConfigurationDAO {
 
   static async getAll() {
     try {
-      const systemConfiguration = await database(TABLE_SYSTEM_CONFIGURATION).select('*').orderBy('id');
+      const systemConfiguration = await database(TABLE_NAME).select('*').orderBy('id');
       if (systemConfiguration.length > 0) {
         return { success: true, systemConfiguration };
       } else {
@@ -48,7 +48,7 @@ export default class SystemConfigurationDAO {
 
   static async getById(id) {
     try {
-      const result = await database(TABLE_SYSTEM_CONFIGURATION)
+      const result = await database(TABLE_NAME)
         .where('id', id)
         .select('*');
 
@@ -65,7 +65,7 @@ export default class SystemConfigurationDAO {
 
   static async updateByUserId(userId, systemConfig) {
     try {
-      const numAffectedRegisters = await database(TABLE_SYSTEM_CONFIGURATION)
+      const numAffectedRegisters = await database(TABLE_NAME)
         .where('id_user', userId)
         .update(systemConfig);
 
@@ -82,7 +82,7 @@ export default class SystemConfigurationDAO {
 
   static async deleteById(id) {
     try {
-      await database(TABLE_SYSTEM_CONFIGURATION).where('id', id).del();
+      await database(TABLE_NAME).where('id', id).del();
       return { success: true, message: Messages.SYSTEM_CONFIGURATION_DELETED };
     } catch (error) {
       logger.error('SystemConfigurationDAO.deleteById', error);
@@ -92,7 +92,7 @@ export default class SystemConfigurationDAO {
 
   static async deleteByUserId(userId) {
     try {
-      await database(TABLE_SYSTEM_CONFIGURATION).where('id_user', userId).del();
+      await database(TABLE_NAME).where('id_user', userId).del();
       return { success: true, message: Messages.SYSTEM_CONFIGURATION_DELETED };
     } catch (error) {
       logger.error('SystemConfigurationDAO.deleteByUserId', error);

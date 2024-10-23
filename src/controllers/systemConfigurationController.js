@@ -38,8 +38,7 @@ class SystemConfigurationController {
       !time_dinner_pos ||
       !time_sleep
     ) {
-      res.status(400).json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
-      return;
+      return res.status(400).json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
     }
 
     // Check existing user.
@@ -82,7 +81,7 @@ class SystemConfigurationController {
         return res.status(500).json({ message: Messages.ERROR });
       }
     } catch (error) {
-      logger.error('Error SystemConfigurationController.addNew', error);
+      logger.error(`Error SystemConfigurationController.addNew - Details: ${error}`);
       return res.status(500).json({ message: Messages.ERROR });
     }
   };
@@ -98,7 +97,7 @@ class SystemConfigurationController {
         return res.status(500).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error SystemConfigurationController.getAll', error);
+      logger.error(`Error SystemConfigurationController.getAll - Details: ${error}`);
       return res.status(500).json({ message: Messages.ERROR });
     }
   };
@@ -220,7 +219,7 @@ class SystemConfigurationController {
         return res.status(404).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error SystemConfigurationController.updateByUserCode');
+      logger.error(`Error SystemConfigurationController.updateByUserCode - Details: ${error}`);
       return res.status(500).json({
         message: Messages.ERROR,
         details: error.message,
@@ -235,12 +234,12 @@ class SystemConfigurationController {
       const result = await SystemConfigurationDAO.deleteById(id);
 
       if (result.success) {
-        res.status(200).json({ message: result.message });
+        return res.status(200).json({ message: result.message });
       } else {
-        res.status(500).json({ message: Messages.ERROR });
+        return res.status(500).json({ message: Messages.ERROR });
       }
     } catch (error) {
-      logger.error('Error SystemConfigurationController.deleteByUserCode.', error);
+      logger.error(`Error SystemConfigurationController.deleteByUserCode - Details: ${error}`);
       return res.status(500).json({ message: Messages.ERROR });
     }
   };
@@ -267,12 +266,12 @@ class SystemConfigurationController {
       const deleteResult = await SystemConfigurationDAO.deleteByUserId(userId);
 
       if (deleteResult.success) {
-        res.status(200).json({ message: deleteResult.message });
+        return res.status(200).json({ message: deleteResult.message });
       } else {
-        res.status(500).json({ message: Messages.ERROR });
+        return res.status(500).json({ message: Messages.ERROR });
       }
     } catch (error) {
-      logger.error('Error SystemConfigurationController.deleteByUserCode.', error);
+      logger.error(`Error SystemConfigurationController.deleteByUserCode - Details: ${error}`);
       return res.status(500).json({ message: Messages.ERROR });
     }
   };

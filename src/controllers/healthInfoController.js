@@ -18,8 +18,8 @@ class HealthInfoController {
         return res.status(500).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error HealthInfoController.getAll', error);
-      res.status(500).json({ message: Messages.ERROR });
+      logger.error(`Error HealthInfoController.getAll - Details: ${error}`);
+      return res.status(500).json({ message: Messages.ERROR });
     }
   };
 
@@ -61,8 +61,8 @@ class HealthInfoController {
         return res.status(500).json(Messages.ERROR);
       }
     } catch (error) {
-      logger.error('Error HealthInfoController.addNew.', error);
-      res.status(500).json({ message: Messages.ERROR });
+      logger.error(`Error HealthInfoController.addNew - Details: ${error}`);
+      return res.status(500).json({ message: Messages.ERROR });
     }
   };
 
@@ -95,8 +95,8 @@ class HealthInfoController {
         return res.status(404).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error HealthInfoController.getByUserCode', error);
-      res.status(500).json({ message: Messages.ERROR });
+      logger.error(`Error HealthInfoController.getByUserCode - Details: ${error}`);
+      return res.status(500).json({ message: Messages.ERROR });
     }
   };
 
@@ -129,20 +129,20 @@ class HealthInfoController {
       const result = await HealthInfoDAO.updateByUserId(id_user, healthInfo);
 
       if (result.success) {
-        res.status(201).json(result.healthInfo);
+        return res.status(201).json(result.healthInfo);
       } else {
         // Add new Health info for this user.
         const resultAdd = await HealthInfoDAO.add({id_user,...healthInfo});
 
         if (resultAdd.success) {
-          res.status(200).json(result.healthInfo);
+          return res.status(200).json(result.healthInfo);
         }else{
-          res.status(404).json({ message: result.message });
+          return res.status(404).json({ message: result.message });
         }
       }
     } catch (error) {
-      logger.error('Error UserController.updateUserByUserCode', error);
-      res.status(500).json({ message: Messages.ERROR });
+      logger.error(`Error UserController.updateUserByUserCode - Details: ${error}`);
+      return res.status(500).json({ message: Messages.ERROR });
     }
   };
 
@@ -170,13 +170,13 @@ class HealthInfoController {
       // Deletes Health Info by id.
       healthInfoResult = await HealthInfoDAO.deleteById(healthInfoResult.healthInfo.id);
       if(healthInfoResult.success){
-        res.status(200).json({ message: healthInfoResult.message });
+        return res.status(200).json({ message: healthInfoResult.message });
       }else{
-        res.status(500).json({ message: Messages.ERROR });
+        return res.status(500).json({ message: Messages.ERROR });
       }      
     } catch (error) {
-      logger.error('Error HealthInfoController.deleteByUserCode.', error);
-      res.status(500).json({ message: Messages.ERROR });
+      logger.error(`Error HealthInfoController.deleteByUserCode - Details: ${error}`);
+      return res.status(500).json({ message: Messages.ERROR });
     }
   };
 }

@@ -12,6 +12,6 @@ export default class SystemHealthCheckController {
    */
   static ping = async (_, res) => {
     logger.info('Executing SystemHealthCheckController.ping - System running OK.');
-    res.status(200).json({message: Messages.PONG});
+    return res.status(200).json({message: Messages.PONG});
   };
 }
