@@ -2,12 +2,12 @@ import database from '../db/dbconfig.js';
 import logger from '../loggerUtil/logger.js';
 import Messages from '../utils/messages.js';
 
-const TABLE_RESET_TOKENS = 'password_reset_tokens';
+const TABLE_NAME = 'password_reset_tokens';
 
 export default class ResetPasswordTokenDAO {
   static async add(token, email_owner) {
     try {
-      await database(TABLE_RESET_TOKENS).insert({ token, email_owner });
+      await database(TABLE_NAME).insert({ token, email_owner });
       return { success: true, message: Messages.RESET_TOKEN_CREATED };
     } catch (error) {
       logger.error('Error ResetPasswordTokenDAO.add', error);
@@ -17,7 +17,7 @@ export default class ResetPasswordTokenDAO {
 
   static async getByToken(token) {
     try {
-      const result = await database(TABLE_RESET_TOKENS)
+      const result = await database(TABLE_NAME)
         .where('token', token)
         .select('*');
 
@@ -34,7 +34,7 @@ export default class ResetPasswordTokenDAO {
 
   static async getAll() {
     try {
-      const tokens = await database(TABLE_RESET_TOKENS).select('*');
+      const tokens = await database(TABLE_NAME).select('*');
       if (tokens.length > 0) {
         return { success: true, tokens };
       } else {
@@ -48,7 +48,7 @@ export default class ResetPasswordTokenDAO {
 
   static async getByEmailOwner(email) {
     try {
-      const tokens = await database(TABLE_RESET_TOKENS)
+      const tokens = await database(TABLE_NAME)
         .where('email_owner', email)
         .select('*');
 
@@ -65,14 +65,14 @@ export default class ResetPasswordTokenDAO {
 
   static async delete(token) {
     try {
-      const tokens = await database(TABLE_RESET_TOKENS)
+      const tokens = await database(TABLE_NAME)
         .where('token', token)
         .select('id');
 
       if (tokens.length === 0) {
         return { success: false, message: Messages.NOTHING_FOUND };
       } else {
-        await database(TABLE_RESET_TOKENS).where('token', token).del();
+        await database(TABLE_NAME).where('token', token).del();
         return { success: true, message: Messages.RESET_TOKEN_DELETED };
       }
     } catch (error) {
@@ -83,14 +83,14 @@ export default class ResetPasswordTokenDAO {
 
   static async deleteByEmailOwner(email) {
     try {
-      const tokens = await database(TABLE_RESET_TOKENS)
+      const tokens = await database(TABLE_NAME)
         .where('email_owner', email)
         .select('id');
 
       if (tokens.length === 0) {
         return { success: false, message: Messages.NOTHING_FOUND };
       } else {
-        await database(TABLE_RESET_TOKENS).where('id', tokens[0].id).del();
+        await database(TABLE_NAME).where('id', tokens[0].id).del();
         return { success: true, message: Messages.RESET_TOKEN_DELETED };
       }
     } catch (error) {

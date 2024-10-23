@@ -5,7 +5,7 @@ import CryptoUtil from '../utils/cryptoUtil.js';
 import SecurityUtils from '../utils/securityUtils.js';
 import DateTimeUtil from '../utils/dateTimeUtil.js';
 
-const TABLE_USERS = 'users';
+const TABLE_NAME = 'users';
 
 export default class UserDAO {
   static async add(user) {
@@ -18,7 +18,7 @@ export default class UserDAO {
         const cod_user = CryptoUtil.createRandomUUID();
         const hashedPassword = SecurityUtils.generateHashValue(user.password);
 
-        const result = await database(TABLE_USERS)
+        const result = await database(TABLE_NAME)
         .returning(['cod_user', 'id'])
         .insert(
           {
@@ -44,7 +44,7 @@ export default class UserDAO {
 
   static async getAll() {
     try {
-      const users = await database(TABLE_USERS).select('*').orderBy('id');
+      const users = await database(TABLE_NAME).select('*').orderBy('id');
       if (users.length > 0) {
         return { success: true, users };
       } else {
@@ -58,7 +58,7 @@ export default class UserDAO {
 
   static async getByUserCode(userCode) {
     try {
-      const users = await database(TABLE_USERS)
+      const users = await database(TABLE_NAME)
         .where('users.cod_user', userCode)
         .leftJoin('health_info', 'users.id', 'health_info.id_user')          
         .select(
@@ -90,7 +90,7 @@ export default class UserDAO {
 
   static async getUserIdByUserCode(userCode) {
     try {
-      const users = await database(TABLE_USERS)
+      const users = await database(TABLE_NAME)
       .where('cod_user', userCode)
       .select('users.id');
 
@@ -107,7 +107,7 @@ export default class UserDAO {
 
   static async getByEmail(email) {
     try {     
-      const users = await database(TABLE_USERS)
+      const users = await database(TABLE_NAME)
         .where('email', email)
         .select('*');        
 
@@ -124,7 +124,7 @@ export default class UserDAO {
 
   static async getPasswordByUserCode(userCode) {
     try {
-      const users = await database(TABLE_USERS)
+      const users = await database(TABLE_NAME)
         .where('cod_user', userCode)
         .select('password');
 
@@ -141,7 +141,7 @@ export default class UserDAO {
 
   static async updateByCondition(condition, value, updatedUser, conditionName) {
     try {
-      const numAffectedRegisters = await database(TABLE_USERS)
+      const numAffectedRegisters = await database(TABLE_NAME)
         .where(condition, value)
         .update(updatedUser);
 
@@ -171,7 +171,7 @@ export default class UserDAO {
 
   static async deleteByUserId(userId) {
     try {
-        await database(TABLE_USERS).where('id', userId).del();
+        await database(TABLE_NAME).where('id', userId).del();
         return { success: true, message: Messages.USER_DELETED };      
     } catch (error) {
       logger.error(`Error UserDAO.deleteByUserId - Details: ${error}`);
@@ -185,7 +185,7 @@ export default class UserDAO {
    * is already used.
    */
   static async isEmailAlreadyUsed(email) {
-    const registers = await database(TABLE_USERS)
+    const registers = await database(TABLE_NAME)
       .where('email', email)
       .select('id')
       .limit(1);
@@ -202,7 +202,7 @@ export default class UserDAO {
    */
   static getUserRoleId = async (userCode) => {
     try {
-      const result = await database(TABLE_USERS)
+      const result = await database(TABLE_NAME)
         .where('cod_user', userCode)
         .select('id_role');
 

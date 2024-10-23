@@ -2,12 +2,12 @@ import database from '../db/dbconfig.js';
 import logger from '../loggerUtil/logger.js';
 import Messages from '../utils/messages.js';
 
-const TABLE_HEALTH_INFO = 'health_info';
+const TABLE_NAME = 'health_info';
 
 export default class HealthInfoDAO {
   static async add(healthInfo) {
     try {
-      await database(TABLE_HEALTH_INFO).insert(healthInfo, ['id']);
+      await database(TABLE_NAME).insert(healthInfo, ['id']);
       return { success: true, message: Messages.HEALTH_INFO_CREATED };
     } catch (error) {
       logger.error('Error HealthInfoDAO.add', error);
@@ -17,7 +17,7 @@ export default class HealthInfoDAO {
 
   static async getByUserId(userId) {
     try {
-      const healthInfo = await database(TABLE_HEALTH_INFO)
+      const healthInfo = await database(TABLE_NAME)
         .where('id_user', userId)
         .select('*');
 
@@ -34,7 +34,7 @@ export default class HealthInfoDAO {
 
   static async getAll() {
     try {
-      const healthInfo = await database(TABLE_HEALTH_INFO).select('*');
+      const healthInfo = await database(TABLE_NAME).select('*');
       if (healthInfo.length > 0) {
         return { success: true, healthInfo };
       } else {
@@ -48,7 +48,7 @@ export default class HealthInfoDAO {
 
   static async getById(id) {
     try {
-      const types = await database(TABLE_HEALTH_INFO)
+      const types = await database(TABLE_NAME)
         .where('id', id)
         .select('*');
 
@@ -65,7 +65,7 @@ export default class HealthInfoDAO {
 
   static async updateByUserId(userId, healthInfo) {
     try {
-      const numAffectedRegisters = await database(TABLE_HEALTH_INFO)
+      const numAffectedRegisters = await database(TABLE_NAME)
         .where('id_user', userId)
         .update(healthInfo);
 
@@ -82,7 +82,7 @@ export default class HealthInfoDAO {
 
   static async delete(condition) {
     try {
-      await database(TABLE_HEALTH_INFO).where(condition).del();
+      await database(TABLE_NAME).where(condition).del();
       return { success: true, message: Messages.HEALTH_INFO_DELETED };
     } catch (error) {
       logger.error('Error HealthInfoDAO.delete', error);
