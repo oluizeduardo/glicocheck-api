@@ -8,40 +8,23 @@ import MarkerMealDAO from '../dao/MarkerMealDAO.js';
  * Contains methods to deal with the marker meals.
  */
 class MarkerMealController {
-  /**
-   * Retrieves all marker meals.
-   *
-   * @async
-   * @param {Object} req - The request object.
-   * @param {Object} res - The response object.
-   * @return {Promise<void>} - A promise that resolves to void.
-   * @throws {Error} - If an error occurs during the process.
-   */
+
   static getAllMarkerMeals = async (req, res) => {
     logger.info('Executing MarkerMealController.getAllMarkerMeals');
     try {
       const result = await MarkerMealDAO.getAll();
 
       if (result.success) {
-        res.status(200).json(result.markers);
+        return res.status(200).json(result.markers);
       } else {
-        res.status(404).json({ message: result.message });
+        return res.status(404).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error MarkerMealController.getAllMarkerMeals');
-      res.status(500).json({ message: Messages.ERROR });
+      logger.error(`Error MarkerMealController.getAllMarkerMeals - Details: ${error}`);
+      return res.status(500).json({ message: Messages.ERROR });
     }
   };
 
-  /**
-   * Retrieves a marker meal by ID.
-   *
-   * @async
-   * @param {Object} req - The request object.
-   * @param {Object} res - The response object.
-   * @return {Promise<void>} - A promise that resolves to void.
-   * @throws {Error} - If an error occurs during the process.
-   */
   static getMarkerMealById = async (req, res) => {
     logger.info('Executing MarkerMealController.getMarkerMealById');
     try {
@@ -53,25 +36,16 @@ class MarkerMealController {
       const result = await MarkerMealDAO.getById(id);
 
       if (result.success) {
-        res.status(200).json(result.type);
+        return res.status(200).json(result.type);
       } else {
-        res.status(404).json({ message: result.message });
+        return res.status(404).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error MarkerMealController.getMarkerMealById');
-      res.status(500).json({ message: Messages.ERROR });
+      logger.error(`Error MarkerMealController.getMarkerMealById - Details: ${error}`);
+      return res.status(500).json({ message: Messages.ERROR });
     }
   };
 
-  /**
-   * Creates a new marker meal.
-   *
-   * @async
-   * @param {Object} req - The request object.
-   * @param {Object} res - The response object.
-   * @return {Promise<void>} - A promise that resolves to void.
-   * @throws {Error} - If an error occurs during the process.
-   */
   static addMarkerMeal = async (req, res) => {
     logger.info('Executing MarkerMealController.addMarkerMeal');
     try {
@@ -92,20 +66,11 @@ class MarkerMealController {
         return res.status(500).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error MarkerMealController.addMarkerMeal');
-      res.status(500).json({ message: Messages.ERROR });
+      logger.error(`Error MarkerMealController.addMarkerMeal - Details: ${error}`);
+      return res.status(500).json({ message: Messages.ERROR });
     }
   };
 
-  /**
-   * Updates a marker meal by ID.
-   *
-   * @async
-   * @param {Object} req - The request object.
-   * @param {Object} res - The response object.
-   * @return {Promise<void>} - A promise that resolves to void.
-   * @throws {Error} - If an error occurs during the process.
-   */
   static updateMarkerMealById = async (req, res) => {
     logger.info('Executing MarkerMealController.updateMarkerMealById');
     try {
@@ -127,25 +92,16 @@ class MarkerMealController {
       const result = await MarkerMealDAO.updateById(id, updatedMarker);
 
       if (result.success) {
-        res.status(200).json(result.marker);
+        return res.status(200).json(result.marker);
       } else {
-        res.status(404).json({ message: result.message });
+        return res.status(404).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error MarkerMealController.updateMarkerMealById');
-      res.status(500).json({ message: Messages.ERROR });
+      logger.error(`Error MarkerMealController.updateMarkerMealById - Details: ${error}`);
+      return res.status(500).json({ message: Messages.ERROR });
     }
   };
 
-  /**
-   * Deletes a marker meal by ID.
-   *
-   * @async
-   * @param {Object} req - The request object.
-   * @param {Object} res - The response object.
-   * @return {Promise<void>} - A promise that resolves to void.
-   * @throws {Error} - If an error occurs during the process.
-   */
   static deleteMarkerMealById = async (req, res) => {
     logger.info('Executing MarkerMealController.deleteMarkerMealById');
     try {
@@ -157,13 +113,13 @@ class MarkerMealController {
       const result = await MarkerMealDAO.deleteById(id);
 
       if (result.success) {
-        res.status(200).json({ message: result.message });
+        return res.status(200).json({ message: result.message });
       } else {
-        res.status(404).json({ message: result.message });
+        return res.status(404).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error MarkerMealController.deleteMarkerMealById');
-      res.status(500).json({ message: Messages.ERROR });
+      logger.error(`Error MarkerMealController.deleteMarkerMealById - Details: ${error}`);
+      return res.status(500).json({ message: Messages.ERROR });
     }
   };
 }

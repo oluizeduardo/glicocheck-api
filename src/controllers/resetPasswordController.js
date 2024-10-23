@@ -48,7 +48,7 @@ class ResetPasswordController {
       await ResetPasswordController.processForgotPasswordRequest(email, res);
     } catch (error) {
       logger.error(`Error ResetPasswordController.handleForgotPassword - Details: ${error}`);
-      res.status(HTTP_INTERNAL_SERVER_ERROR).json({
+      return res.status(HTTP_INTERNAL_SERVER_ERROR).json({
         message: Messages.ERROR,
         details: Messages.ERROR_PROCESSING_FORGOT_PASSWORD,
       });
@@ -74,7 +74,7 @@ class ResetPasswordController {
         return res.status(HTTP_INTERNAL_SERVER_ERROR).json({ message: Messages.ERROR });
       }
     } else {
-      res.status(HTTP_NOT_FOUND).json({ message: Messages.USER_NOT_FOUND });
+      return res.status(HTTP_NOT_FOUND).json({ message: Messages.USER_NOT_FOUND });
     }
   };
 
@@ -147,7 +147,7 @@ class ResetPasswordController {
       }
     } catch (error) {
       logger.error(`Error ResetPasswordController.handleResetPasswordRequest - Details: ${error}.`);
-      res.status(HTTP_INTERNAL_SERVER_ERROR).send(createErrorPage());
+      return res.status(HTTP_INTERNAL_SERVER_ERROR).send(createErrorPage());
     }
   };
 
@@ -204,7 +204,7 @@ class ResetPasswordController {
       }
     } catch (error) {
       logger.error(`Error ResetPasswordController.updateUserPassword - Details: ${error}.`);
-      res.status(HTTP_INTERNAL_SERVER_ERROR).send(createErrorPage());
+      return res.status(HTTP_INTERNAL_SERVER_ERROR).send(createErrorPage());
     }
   };
 }

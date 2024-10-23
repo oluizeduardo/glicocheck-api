@@ -54,7 +54,7 @@ class DiaryController {
         return res.status(CLIENT_ERROR).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error DiaryController.addNew.', error);
+      logger.error(`Error DiaryController.addNew - Details: ${error}`);
       return res
         .status(INTERNAL_SERVER_ERROR)
         .json({ message: Messages.ERROR });
@@ -81,7 +81,7 @@ class DiaryController {
         return res.status(CLIENT_ERROR).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error DiaryController.getAll');
+      logger.error(`Error DiaryController.getAll - Details: ${error}`);
       return res
         .status(INTERNAL_SERVER_ERROR)
         .json({ message: Messages.ERROR });
@@ -122,7 +122,7 @@ class DiaryController {
         return res.status(CLIENT_ERROR).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error DiaryController.getById');
+      logger.error(`Error DiaryController.getById - Details: ${error}`);
       return res
         .status(INTERNAL_SERVER_ERROR)
         .json({ message: Messages.ERROR });
@@ -167,7 +167,7 @@ class DiaryController {
         return res.status(NOT_FOUND).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error DiaryController.updateById');
+      logger.error(`Error DiaryController.updateById - Details: ${error}`);
       return res
         .status(INTERNAL_SERVER_ERROR)
         .json({ message: Messages.ERROR });
@@ -198,7 +198,7 @@ class DiaryController {
         return res.status(NOT_FOUND).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error DiaryController.deleteById');
+      logger.error(`Error DiaryController.deleteById - Details: ${error}`);
       return res
         .status(INTERNAL_SERVER_ERROR)
         .json({ message: Messages.ERROR });
@@ -223,7 +223,7 @@ class DiaryController {
         return res.status(NOT_FOUND).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error DiaryController.deleteByUserCode');
+      logger.error(`Error DiaryController.deleteByUserCode - Details: ${error}`);
       return res.status(INTERNAL_SERVER_ERROR).json({ message: Messages.ERROR });
     }
   };
@@ -253,7 +253,7 @@ class DiaryController {
         return res.status(NOT_FOUND).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error DiaryController.getByUserCode');
+      logger.error(`Error DiaryController.getByUserCode - Details: ${error}`);
       return res.status(INTERNAL_SERVER_ERROR).json({ message: Messages.ERROR });
     }
   };
@@ -277,7 +277,7 @@ class DiaryController {
         res.status(NOT_FOUND).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error DiaryController.getGlycemiaStatsByUserCode');
+      logger.error(`Error DiaryController.getGlycemiaStatsByUserCode - Details: ${error}`);
       return res.status(INTERNAL_SERVER_ERROR).json({ message: Messages.ERROR });
     }
   };

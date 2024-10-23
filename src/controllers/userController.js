@@ -17,13 +17,13 @@ class UserController {
       const result = await UserDAO.getAll();
 
       if (result.success) {
-        res.status(200).json(result.users);
+        return res.status(200).json(result.users);
       } else {
-        res.status(404).json({ message: result.message });
+        return res.status(404).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error UserController.getAllUsers');
-      res.status(500).json({
+      logger.error(`Error UserController.getAllUsers - Details: ${error}`);
+      return res.status(500).json({
         message: Messages.ERROR,
       });
     }
@@ -55,15 +55,15 @@ class UserController {
         // Save default system configuration.
         SystemConfigurationController.saveDefaultSystemConfiguration(addUserResult.id);
 
-        res
+        return res
           .status(201)
           .json({ message: addUserResult.message, cod_user: addUserResult.cod_user });
       } else {
-        res.status(400).json({ message: addUserResult.message });
+        return res.status(400).json({ message: addUserResult.message });
       }
     } catch (error) {
-      logger.error(`Error UserController.addUser - ${error.message}`);
-      res.status(500).json({
+      logger.error(`Error UserController.addUser - Details: ${error}`);
+      return res.status(500).json({
         message: Messages.ERROR,
       });
     }
@@ -83,13 +83,13 @@ class UserController {
       const result = await UserDAO.getByUserCode(userCode);
 
       if (result.success) {
-        res.status(200).json(result.user);
+        return res.status(200).json(result.user);
       } else {
-        res.status(404).json({ message: result.message });
+        return res.status(404).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error UserController.getUserByUserCode');
-      res.status(500).json({
+      logger.error(`Error UserController.getUserByUserCode - Details: ${error}`);
+      return res.status(500).json({
         message: Messages.ERROR,
       });
     }
@@ -116,13 +116,13 @@ class UserController {
       const result = await UserDAO.updateByUserCode(userCode, updatedUser);
 
       if (result.success) {
-        res.status(200).json(result.updatedUser);
+        return res.status(200).json(result.updatedUser);
       } else {
-        res.status(404).json({ message: result.message });
+        return res.status(404).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error UserController.updateUserByUserCode');
-      res.status(500).json({
+      logger.error(`Error UserController.updateUserByUserCode - Details: ${error}`);
+      return res.status(500).json({
         message: Messages.ERROR,
       });
     }
@@ -164,13 +164,13 @@ class UserController {
         logger.error(Messages.ERROR_DELETE_USER);
 
       if (result.success) {
-        res.status(200).json({ message: Messages.USER_DELETED });
+        return res.status(200).json({ message: Messages.USER_DELETED });
       } else {
-        res.status(404).json({ message: result.message });
+        return res.status(404).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error UserController.deleteUserAccountByUserCode');
-      res.status(500).json({
+      logger.error(`Error UserController.deleteUserAccountByUserCode - Details: ${error}`);
+      return res.status(500).json({
         message: Messages.ERROR,
       });
     }
