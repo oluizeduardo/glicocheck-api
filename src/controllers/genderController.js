@@ -18,7 +18,7 @@ class GenderController {
         return res.status(400).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error GenderController.getAllGenders');
+      logger.error(`Error GenderController.getAllGenders - Details: ${error}`);
       return res.status(500).json({ message: Messages.ERROR });
     }
   };
@@ -33,14 +33,12 @@ class GenderController {
       const result = await GenderDAO.add(gender);
 
       if (result.success) {
-        res
-          .status(201)
-          .json({ message: result.message, gender: result.gender });
+        return res.status(201).json(result.gender);
       } else {
         return res.status(400).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error GenderController.addGender');
+      logger.error(`Error GenderController.addGender - Details: ${error}`);
       return res.status(500).json({ message: Messages.ERROR });
     }
   };
@@ -61,7 +59,7 @@ class GenderController {
         return res.status(404).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error GenderController.getGenderById');
+      logger.error(`Error GenderController.getGenderById - Details: ${error}`);
       return res.status(500).json({ message: Messages.ERROR });
     }
   };
@@ -96,7 +94,7 @@ class GenderController {
         return res.status(404).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error GenderController.updateGenderById');
+      logger.error(`Error GenderController.updateGenderById - Details: ${error}`);
       return res.status(500).json({ message: Messages.ERROR });
     }
   };
@@ -117,7 +115,7 @@ class GenderController {
         return res.status(404).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error GenderController.deleteGenderById');
+      logger.error(`Error GenderController.deleteGenderById - Details: ${error}`);
       return res.status(500).json({ message: Messages.ERROR });
     }
   };
