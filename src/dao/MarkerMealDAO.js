@@ -2,12 +2,12 @@ import database from '../db/dbconfig.js';
 import logger from '../loggerUtil/logger.js';
 import Messages from '../utils/messages.js';
 
-const TABLE_MARKER_MEALS = 'marker_meals';
+const TABLE_NAME = 'marker_meals';
 
 export default class MarkerMealDAO {
   static async add(newMarkerMeal) {
     try {
-      const marker = await database(TABLE_MARKER_MEALS).insert(newMarkerMeal, [
+      const marker = await database(TABLE_NAME).insert(newMarkerMeal, [
         'id', 'description',
       ]);
 
@@ -28,7 +28,7 @@ export default class MarkerMealDAO {
 
   static async getAll() {
     try {
-      const markers = await database(TABLE_MARKER_MEALS).select('*').orderBy('id', 'asc');
+      const markers = await database(TABLE_NAME).select('*').orderBy('id', 'asc');
       if (markers.length > 0) {
         return { success: true, markers };
       } else {
@@ -42,7 +42,7 @@ export default class MarkerMealDAO {
 
   static async getById(id) {
     try {
-      const types = await database(TABLE_MARKER_MEALS)
+      const types = await database(TABLE_NAME)
         .where('id', id)
         .select('*');
 
@@ -59,7 +59,7 @@ export default class MarkerMealDAO {
 
   static async updateById(id, marker) {
     try {
-      const numAffectedRegisters = await database(TABLE_MARKER_MEALS)
+      const numAffectedRegisters = await database(TABLE_NAME)
         .where('id', id)
         .update(marker);
 
@@ -76,13 +76,13 @@ export default class MarkerMealDAO {
 
   static async deleteById(id) {
     try {
-      const markers = await database(TABLE_MARKER_MEALS)
+      const markers = await database(TABLE_NAME)
         .where('id', id)
         .select('id');
 
       if (markers.length > 0) {
         const marker = markers[0];
-        await database(TABLE_MARKER_MEALS).where('id', marker.id).del();
+        await database(TABLE_NAME).where('id', marker.id).del();
         return { success: true, message: Messages.MARKER_MEAL_DELETED };
       } else {
         return { success: false, message: Messages.NOTHING_FOUND };

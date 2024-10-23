@@ -6,38 +6,23 @@ import BloodTypeDAO from '../dao/BloodTypeDAO.js';
  * BloodTypeController.
  */
 class BloodTypeController {
-  /**
-   * Retrieves all blood types.
-   * @param {Object} req - The request object.
-   * @param {Object} res - The response object.
-   * @return {Promise<void>} - A promise that resolves to void.
-   * @throws {Error} - If an error occurs during the process.
-   */
+
   static getAllTypes = async (req, res) => {
     logger.info('Executing BloodTypeController.getAllTypes');
     try {
       const result = await BloodTypeDAO.getAll();
 
       if (result.success) {
-        res.status(200).json(result.types);
+        return res.status(200).json(result.types);
       } else {
-        res.status(404).json({ message: result.message });
+        return res.status(404).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error BloodTypeController.getAllTypes');
-      res.status(500).json({ message: Messages.ERROR });
+      logger.error(`Error BloodTypeController.getAllTypes - Details: ${error}`);
+      return res.status(500).json({ message: Messages.ERROR });
     }
   };
 
-  /**
-   * Creates a new blood type.
-   *
-   * @async
-   * @param {Object} req - The request object.
-   * @param {Object} res - The response object.
-   * @return {Promise<void>} - A promise that resolves to void.
-   * @throws {Error} - If an error occurs during the process.
-   */
   static addType = async (req, res) => {
     logger.info('Executing BloodTypeController.addType');
     try {
@@ -55,27 +40,16 @@ class BloodTypeController {
       const result = await BloodTypeDAO.add(newType);
 
       if (result.success) {
-        res
-          .status(201)
-          .json({ message: result.message, description: result.description });
+        return res.status(201).json(result.blood_type);
       } else {
-        res.status(500).json({ message: result.message });
+        return res.status(500).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error BloodTypeController.addType');
-      res.status(500).json({ message: Messages.ERROR });
+      logger.error(`Error BloodTypeController.addType - Details: ${error}`);
+      return res.status(500).json({ message: Messages.ERROR });
     }
   };
 
-  /**
-   * Retrieves a blood type by its ID.
-   *
-   * @async
-   * @param {Object} req - The request object.
-   * @param {Object} res - The response object.
-   * @return {Promise<void>} - A promise that resolves to void.
-   * @throws {Error} - If an error occurs during the process.
-   */
   static getTypeById = async (req, res) => {
     logger.info('Executing BloodTypeController.getTypeById');
     try {
@@ -87,25 +61,16 @@ class BloodTypeController {
       const result = await BloodTypeDAO.getById(id);
 
       if (result.success) {
-        res.status(200).json(result.type);
+        return res.status(200).json(result.type);
       } else {
-        res.status(404).json({ message: result.message });
+        return res.status(404).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error BloodTypeController.getTypeById');
-      res.status(500).json({ message: Messages.ERROR });
+      logger.error(`Error BloodTypeController.getTypeById - Details: ${error}`);
+      return res.status(500).json({ message: Messages.ERROR });
     }
   };
 
-  /**
-   * Updates a blood type by its ID.
-   *
-   * @async
-   * @param {Object} req - The request object.
-   * @param {Object} res - The response object.
-   * @return {Promise<void>} - A promise that resolves to void.
-   * @throws {Error} - If an error occurs during the process.
-   */
   static updateTypeById = async (req, res) => {
     logger.info('Executing BloodTypeController.updateTypeById');
     try {
@@ -128,25 +93,16 @@ class BloodTypeController {
       const result = await BloodTypeDAO.updateById(id, updatedType);
 
       if (result.success) {
-        res.status(200).json(result.type);
+        return res.status(200).json(result.type);
       } else {
-        res.status(404).json({ message: result.message });
+        return res.status(404).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error BloodTypeController.updateTypeById');
-      res.status(500).json({ message: Messages.ERROR });
+      logger.error(`Error BloodTypeController.updateTypeById - Details: ${error}`);
+      return res.status(500).json({ message: Messages.ERROR });
     }
   };
 
-  /**
-   * Deletes a blood type by its ID.
-   *
-   * @async
-   * @param {Object} req - The request object.
-   * @param {Object} res - The response object.
-   * @return {Promise<void>} - A promise that resolves to void.
-   * @throws {Error} - If an error occurs during the process.
-   */
   static deleteTypeById = async (req, res) => {
     logger.info('Executing BloodTypeController.deleteTypeById');
     try {
@@ -158,13 +114,13 @@ class BloodTypeController {
       const result = await BloodTypeDAO.deleteById(id);
 
       if (result.success) {
-        res.status(200).json({ message: result.message });
+        return res.status(200).json({ message: result.message });
       } else {
-        res.status(404).json({ message: result.message });
+        return res.status(404).json({ message: result.message });
       }
     } catch (error) {
-      logger.error('Error BloodTypeController.deleteTypeById');
-      res.status(500).json({ message: Messages.ERROR });
+      logger.error(`Error BloodTypeController.deleteTypeById - Details: ${error}`);
+      return res.status(500).json({ message: Messages.ERROR });
     }
   };
 }
