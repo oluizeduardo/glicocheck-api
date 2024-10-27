@@ -37,6 +37,7 @@ export default class Messages {
   static DIARY_DATA_DELETED = 'Blood sugar diary register deleted.';
   static ERROR_UPDATING_DIARY = 'Error updating blood sugar diary.';
   static ERROR_DELETING_DIARY = 'Error deleting diary registers.';
+  static ERROR_CONSULTING_DIARY = 'Error consulting diary registers.';
 
   // Gender
   static NEW_GENDER_CREATED = 'New gender created.';
