@@ -2,7 +2,6 @@ import logger from '../loggerUtil/logger.js';
 import Messages from '../utils/messages.js';
 import DiaryDAO from '../dao/DiaryDAO.js';
 import UserDAO from '../dao/UserDAO.js';
-import moment from 'moment';
 import DateTimeUtil from '../utils/dateTimeUtil.js';
 import GlycemiaStatistics from '../utils/GlycemiaStatistics.js';
 
@@ -65,18 +64,10 @@ class DiaryController {
     logger.info('Executing DiaryController.getAll');
     try {
       const { start, end } = req.query;
-
-      const result = await DiaryDAO.getAll();
+      const result = await DiaryDAO.getAll({ start, end });
 
       if (result.success) {
-        let diary = result.diary;
-
-        if (start && end) {
-          diary = diary.filter((record) => {
-            return this.isDateBetween(start, end, record.dateTime);
-          });
-        }
-        return res.status(OK).json(diary);
+        return res.status(OK).json(result.diary);
       } else {
         return res.status(CLIENT_ERROR).json({ message: result.message });
       }
@@ -87,22 +78,6 @@ class DiaryController {
         .json({ message: Messages.ERROR });
     }
   };
-
-  /**
-   * Checks if a date is between two given dates, inclusive of the boundaries.
-   * @param {string} start - The start date in the format 'YYYY-MM-DD'.
-   * @param {string} end - The end date in the format 'YYYY-MM-DD'.
-   * @param {string} dateToCheck - The date to be checked in the format 'YYYY-MM-DD'.
-   * @return {boolean} True if the date is between the start and end dates, inclusive; otherwise, false.
-   */
-  static isDateBetween(start, end, dateToCheck) {
-    const dateFormat = 'YYYY-MM-DD';
-    const inclusivity = '[]';
-    const startDate = moment(start, dateFormat);
-    const endDate = moment(end, dateFormat);
-    const date = moment(dateToCheck, dateFormat);
-    return date.isBetween(startDate, endDate, null, inclusivity);
-  }
 
   static getById = async (req, res) => {
     logger.info('Executing DiaryController.getById');
@@ -232,23 +207,16 @@ class DiaryController {
     logger.info('Executing DiaryController.getByUserCode');
     try {
       const userCode = req.params.usercode;
+      let { start, end, orderBy, sort } = req.query;
       
       if (!userCode) {
         return res.status(CLIENT_ERROR).json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
       }
 
-      const result = await DiaryDAO.getByUserCode(userCode);
+      const result = await DiaryDAO.getByUserCode(userCode, { start, end, orderBy, sort });
 
       if (result.success) {
-        const { start, end } = req.query;
-        let diary = result.diary;
-
-        if (start && end) {          
-          diary = diary.filter((record) => {
-            return this.isDateBetween(start, end, record.dateTime);
-          });
-        }
-        return res.status(OK).json(diary);
+        return res.status(OK).json(result.diary);
       } else {
         return res.status(NOT_FOUND).json({ message: result.message });
       }
@@ -267,12 +235,10 @@ class DiaryController {
         return res.status(CLIENT_ERROR).json({ message: Messages.INCOMPLETE_DATA_PROVIDED });
       }
 
-      const result = await DiaryDAO.getByUserCode(userCode);
+      const result = await DiaryDAO.getByUserCode(userCode, {});
 
       if (result.success) {
-        const glucoseReadings = result.diary.map(entry => entry.glucose);
-        const statistics = this.calculateStatistics(glucoseReadings);
-        res.status(OK).json(statistics);
+        res.status(OK).json(this.calculateStatistics(result.diary));
       } else {
         res.status(NOT_FOUND).json({ message: result.message });
       }
@@ -282,10 +248,12 @@ class DiaryController {
     }
   };
 
-  static calculateStatistics(readings) {
-    const date_start = new Date().toLocaleDateString();
-    const date_end = new Date().toLocaleDateString();
-    const stats = new GlycemiaStatistics(readings).getAllStatistics();
+  static calculateStatistics(readings) {    
+    const date_start = new Date(Math.min(...readings.map(item => new Date(item.dateTime))));
+    const date_end = new Date(Math.max(...readings.map(item => new Date(item.dateTime))));
+
+    const glucoseReadings = readings.map(entry => entry.glucose);
+    const stats = new GlycemiaStatistics(glucoseReadings).getAllStatistics();
     return {
       date_start,
       date_end,

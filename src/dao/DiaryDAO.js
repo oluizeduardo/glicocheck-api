@@ -1,6 +1,9 @@
+/* eslint-disable no-undef */
 import database from '../db/dbconfig.js';
 import logger from '../loggerUtil/logger.js';
 import Messages from '../utils/messages.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const TABLE_NAME = 'blood_sugar_diary';
 
@@ -15,16 +18,30 @@ export default class DiaryDAO {
         return { success: false, message: Messages.NOTHING_FOUND };
       }
     } catch (error) {
-      logger.error('Error DiaryDAO.add', error);
+      logger.error(`Error DiaryDAO.add - Details: ${error}`);
       throw new Error(Messages.ERROR);
     }
   }
 
-  static async getAll() {
+  static async getAll({ start, end, orderBy = 'dateTime', sort = 'asc' }) {
     try {
-      const diary = await database(TABLE_NAME)
-        .select('*')
-        .orderBy('datetime', 'asc');
+      let query = database(TABLE_NAME).select('*');
+
+      if (start && end) {
+        const environment = process.env.ENVIRONMENT || 'dev';
+
+        if(environment === 'prod') {
+          // PostgreSQL
+          query = query.whereBetween(database.raw('to_timestamp(bsd.dateTime, \'YYYY-MM-DD\')'), [start, end]);
+        } else {
+          // SQLite          
+          query = query.whereBetween(database.raw('strftime(\'%Y-%m-%d\', bsd.dateTime)'), [start, end]);
+        }
+      }
+
+      query = query.orderBy(orderBy, (sort.toLowerCase() === 'asc' ? 'asc' : 'desc'));
+
+      const diary = await query;
 
       if (diary.length > 0) {
         return { success: true, diary };
@@ -32,7 +49,7 @@ export default class DiaryDAO {
         return { success: false, message: Messages.NOTHING_FOUND };
       }
     } catch (error) {
-      logger.error('Error DiaryDAO.getAll', error);
+      logger.error(`Error DiaryDAO.getAll - Details: ${error}`);
       throw new Error(Messages.ERROR);
     }
   }
@@ -47,16 +64,16 @@ export default class DiaryDAO {
         return { success: false, message: Messages.NOTHING_FOUND };
       }
     } catch (error) {
-      logger.error('Error DiaryDAO.getById', error);
+      logger.error(`Error DiaryDAO.getById - Details: ${error}`);
       throw new Error(Messages.ERROR);
     }
   }
 
-  static async getByUserCode(userCode) {
+  static async getByUserCode(userCode, { start, end, orderBy = 'dateTime', sort = 'desc' }) {
     try {
-      const result = await database(TABLE_NAME + ' as bsd')
-        .join('users', 'users.id', 'bsd.id_user')  
-        .where('users.cod_user', userCode)        
+      let query = database(TABLE_NAME + ' as bsd')
+        .join('users', 'users.id', 'bsd.id_user')
+        .where('users.cod_user', userCode)
         .select(
           'bsd.id',
           'users.cod_user',
@@ -66,7 +83,23 @@ export default class DiaryDAO {
           'bsd.id_markermeal',
           'bsd.created_at',
           'bsd.updated_at'
-        ).orderBy('dateTime', 'asc');
+        );
+
+      if (start && end) {
+        const environment = process.env.ENVIRONMENT || 'dev';
+
+        if(environment === 'prod') {
+          // PostgreSQL
+          query = query.whereBetween(database.raw('to_timestamp(bsd.dateTime, \'YYYY-MM-DD\')'), [start, end]);
+        } else {
+          // SQLite          
+          query = query.whereBetween(database.raw('strftime(\'%Y-%m-%d\', bsd.dateTime)'), [start, end]);
+        }
+      }
+
+      query = query.orderBy(orderBy, (sort.toLowerCase() === 'desc' ? 'desc' : 'asc'));
+
+      const result = await query;
 
       if (result.length > 0) {
         return { success: true, diary: result };
@@ -74,8 +107,8 @@ export default class DiaryDAO {
         return { success: false, message: Messages.NOTHING_FOUND };
       }
     } catch (error) {
-      logger.error('Error DiaryDAO.getByUserCode', error);
-      throw new Error(Messages.ERROR);
+      logger.error(`Error DiaryDAO.getByUserCode - Details: ${error}.`);
+      throw new Error(Messages.ERROR_CONSULTING_DIARY);
     }
   }
 
@@ -96,14 +129,13 @@ export default class DiaryDAO {
         return { success: true, diary };
       }
     } catch (error) {
-      logger.error('Error DiaryDAO.updateById', error);
+      logger.error(`Error DiaryDAO.updateById - Details: ${error}`);
       throw new Error(Messages.ERROR);
     }
   }
 
   static async deleteById(id, userCode) {
     try {
-
       // Check the register existence.
       const result = await database(TABLE_NAME).where('id', id).select('id');
 
@@ -122,7 +154,7 @@ export default class DiaryDAO {
         return { success: false, message: Messages.NOTHING_FOUND };
       }
     } catch (error) {
-      logger.error('Error DiaryDAO.deleteById', error);
+      logger.error(`Error DiaryDAO.deleteById - Details: ${error}`);
       throw new Error(Messages.ERROR);
     }
   }
@@ -141,7 +173,7 @@ export default class DiaryDAO {
         return { success: false, message: Messages.NOTHING_FOUND };
       }
     } catch (error) {
-      logger.error('Error DiaryDAO.deleteByUserCode', error);
+      logger.error(`Error DiaryDAO.deleteByUserCode - Details: ${error}`);
       throw new Error(Messages.ERROR);
     }
   }
