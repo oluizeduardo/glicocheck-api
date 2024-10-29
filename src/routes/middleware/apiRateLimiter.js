@@ -1,13 +1,11 @@
-/* eslint-disable no-undef */
 import rateLimit from 'express-rate-limit';
-import dotenv from 'dotenv';
-dotenv.config();
+import env from '../../envSchema.js';
 
 export default class RateLimiter {
   static getLimiter() {
 
-    const rateLimitMinutes = process.env.API_REQUEST_RATE_LIMIT_MINUTES || 15;
-    const rateLimitMaxTries = process.env.API_REQUEST_RATE_LIMIT_MAX_TRIES || 100;
+    const rateLimitMinutes = env.API_REQUEST_RATE_LIMIT_MINUTES || 15;
+    const rateLimitMaxTries = env.API_REQUEST_RATE_LIMIT_MAX_TRIES || 100;
 
     return rateLimit({
       windowMs: rateLimitMinutes * 60 * 1000,

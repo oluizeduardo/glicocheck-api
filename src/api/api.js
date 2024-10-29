@@ -1,9 +1,7 @@
-/* eslint-env node*/
 import express, { json } from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
-import dotenv from 'dotenv';
-dotenv.config();
+import env from '../envSchema.js';
 
 // Custom routers
 import authenticationRouter from '../routes/authenticationRouter.js';
@@ -28,7 +26,7 @@ server.use(
   })
 );
 
-const environment = process.env.ENVIRONMENT || 'dev';
+const environment = env.ENVIRONMENT || 'dev';
 const corsOrigin =
   environment === 'dev'
     ? '*'
