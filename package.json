@@ -1,10 +1,11 @@
 {
   "name": "glicocheck-api",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "API for diabetes management.",
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "start": "node server.js",
     "dev": "nodemon --env-file .env server.js",
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "npm run lint -- --fix"
