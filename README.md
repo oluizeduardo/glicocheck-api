@@ -18,8 +18,10 @@ Check out the front-end project available in [Glicocheck](https://github.com/olu
     - [SQLite](https://www.sqlite.org/index.html) (Development)
     - [KnexJS](https://knexjs.org/)
 - Quality
-    - Static analysis
+    - Semantic code analysis
         - [ESLint](https://eslint.org/)
+        - [Zod](https://zod.dev/)
+        - [Github CodeQL](https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql)
 - CICD
     - [GitHub Actions](https://docs.github.com/en/actions)
 - Deploy
