@@ -1,14 +1,12 @@
-/* eslint-disable no-undef */
 import knex from 'knex';
 import {fileURLToPath} from 'url';
 import {dirname, join} from 'path';
-import dotenv from 'dotenv';
 import logger from '../loggerUtil/logger.js';
-dotenv.config();
+import env from '../envSchema.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const environment = process.env.ENVIRONMENT;
+const environment = env.ENVIRONMENT;
 let dbConfig;
 
 if(environment === 'dev'){  
@@ -22,7 +20,7 @@ if(environment === 'dev'){
 }
 
 if(environment === 'prod'){  
-  const connectionString = process.env.DATABASE_URL || '';
+  const connectionString = env.DATABASE_URL;
   
   if(!connectionString){
     logger.error('Could not load the database connection url.');

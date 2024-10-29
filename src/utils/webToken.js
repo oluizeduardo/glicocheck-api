@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 import jwt from 'jsonwebtoken';
+import env from '../envSchema.js';
 /**
  * WebToken.
  */
@@ -11,6 +12,6 @@ export default class WebToken {
    */
   static getUserIdFromWebToken = (token) => {
     token = token.split(' ')[1];
-    return jwt.verify(token, process.env.SECRET_KEY).id;
+    return jwt.verify(token, env.SECRET_KEY).id;
   };
 }

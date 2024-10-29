@@ -1,9 +1,7 @@
-/* eslint-disable no-undef */
 import database from '../db/dbconfig.js';
+import env from '../envSchema.js';
 import logger from '../loggerUtil/logger.js';
 import Messages from '../utils/messages.js';
-import dotenv from 'dotenv';
-dotenv.config();
 
 const TABLE_NAME = 'blood_sugar_diary';
 
@@ -28,7 +26,7 @@ export default class DiaryDAO {
       let query = database(TABLE_NAME).select('*');
 
       if (start && end) {
-        const environment = process.env.ENVIRONMENT || 'dev';
+        const environment = env.ENVIRONMENT;
 
         if(environment === 'prod') {
           // PostgreSQL
@@ -86,7 +84,7 @@ export default class DiaryDAO {
         );
 
       if (start && end) {
-        const environment = process.env.ENVIRONMENT || 'dev';
+        const environment = env.ENVIRONMENT;
 
         if(environment === 'prod') {
           // PostgreSQL

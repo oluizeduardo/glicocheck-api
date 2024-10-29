@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+import env from '../envSchema.js';
 import logger from '../loggerUtil/logger.js';
 import Messages from '../utils/messages.js';
 import axios from 'axios';
@@ -51,8 +51,8 @@ class CarbsCountingController {
    * @return {string} A new JWT token.
    */
    static loadEdamanCredentials() {
-    const appId = process.env.EDAMAM_APP_ID;
-    const appKey = process.env.EDAMAM_APP_KEY;
+    const appId = env.EDAMAM_APP_ID;
+    const appKey = env.EDAMAM_APP_KEY;
     return {appId, appKey};
   }
 }

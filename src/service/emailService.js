@@ -2,6 +2,7 @@
 import nodemailer from 'nodemailer';
 import logger from '../loggerUtil/logger.js';
 import ResetPasswordHTMLMessage from '../utils/resetPasswordHTMLMessage.js';
+import env from '../envSchema.js';
 
 /**
  * Email service.
@@ -18,10 +19,10 @@ export default class EmailService {
     const resource = 'EmailService.sendPasswordResetEmail';
     logger.info(`Executing ${resource}`);
 
-    const host = process.env.EMAIL_HOST;
-    const port = process.env.EMAIL_PORT;
-    const user = process.env.EMAIL_USER;
-    const pass = process.env.EMAIL_PASS;
+    const host = env.EMAIL_HOST;
+    const port = env.EMAIL_PORT;
+    const user = env.EMAIL_USER;
+    const pass = env.EMAIL_PASS;
 
     const transporter = nodemailer.createTransport({
       host: host,

@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import logger from '../loggerUtil/logger.js';
 import Messages from '../utils/messages.js';
 import ResetPasswordToken from '../utils/resetPasswordToken.js';
@@ -10,6 +9,7 @@ import SecurityUtils from '../utils/securityUtils.js';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
 import { join } from 'path';
+import env from '../envSchema.js';
 
 const baseFilePath = getBaseFilePath();
 const PAGE_RESET_PASSWORD = baseFilePath + 'reset-password.html';
@@ -220,7 +220,7 @@ function loadFileContent(path) {
 }
 
 function createResetPasswordPage(token) {
-  const baseURL = process.env.BASE_URL;
+  const baseURL = env.BASE_URL;
   let fileContent = updateGlicocheckHomePageUrl(PAGE_RESET_PASSWORD);
   fileContent = fileContent.replace('#{email}', token.email_owner);
   fileContent = fileContent.replace('#{token}', token.token);
@@ -244,7 +244,7 @@ function createResetCancelPage() {
 }
 
 function updateGlicocheckHomePageUrl(filePath) {
-  const urlGlicocheckHomePage = process.env.URL_GLICOCHECK_HOME_PAGE || '';
+  const urlGlicocheckHomePage = env.URL_GLICOCHECK_HOME_PAGE || '';
   let fileContent = loadFileContent(filePath);
   return fileContent.replaceAll('#{urlGlicocheckHomePage}', urlGlicocheckHomePage);
 }

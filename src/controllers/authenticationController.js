@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import logger from '../loggerUtil/logger.js';
 import Messages from '../utils/messages.js';
 import SecurityUtils from '../utils/securityUtils.js';
@@ -6,6 +5,7 @@ import UserDAO from '../dao/UserDAO.js';
 import jwt from 'jsonwebtoken';
 import CryptoUtil from '../utils/cryptoUtil.js';
 import RejectListDAO from '../dao/RejectListDAO.js';
+import env from '../envSchema.js';
 const { verify } = jwt;
 /**
  * AuthenticationController.
@@ -62,7 +62,7 @@ export default class AuthenticationController {
     }
 
     try {
-      const decodedToken = verify(access_token, process.env.SECRET_KEY);
+      const decodedToken = verify(access_token, env.SECRET_KEY);
       const token_id = decodedToken.jti;
       const result = await RejectListDAO.add(token_id);
 
@@ -128,7 +128,7 @@ export default class AuthenticationController {
       expiresIn: AuthenticationController.TOKEN_EXPIRING_TIME,
     };
     // eslint-disable-next-line no-undef
-    const secretKey = process.env.SECRET_KEY;
+    const secretKey = env.SECRET_KEY;
     const token = jwt.sign(payload, secretKey, expires);
     return token;
   }
